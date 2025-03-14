@@ -1,3 +1,3 @@
-import hellowWorld from "./utils/hello-world.js";
+import hellowWorld from "./utils/hello-world.ts";
 
 hellowWorld();
