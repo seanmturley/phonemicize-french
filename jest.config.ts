@@ -1,7 +1,23 @@
-import type { Config } from "jest";
+import { createDefaultEsmPreset, type JestConfigWithTsJest } from "ts-jest";
 
-const config: Config = {
-  preset: "ts-jest"
+const presetConfig = createDefaultEsmPreset({
+  //...options
+});
+
+const jestConfig: JestConfigWithTsJest = {
+  ...presetConfig,
+  verbose: true,
+  transform: {
+    "^.+\\.ts?$": [
+      "ts-jest",
+      {
+        useESM: true
+      }
+    ]
+  },
+  moduleNameMapper: {
+    "^(\\.{1,2}/.*)\\.js$": "$1"
+  }
 };
 
-export default config;
+export default jestConfig;

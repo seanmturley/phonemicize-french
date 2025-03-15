@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "node --watch src/main.ts",
-    "test": "jest --watchAll"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll"
   },
   "packageManager": "pnpm@10.5.2",
   "devDependencies": {

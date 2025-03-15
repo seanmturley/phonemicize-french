@@ -1,3 +1,4 @@
-import hellowWorld from "./utils/hello-world.ts";
+import isEven from "./utils/is-even.ts";
 
-hellowWorld();
+console.log(isEven(8));
+console.log(isEven(9));
