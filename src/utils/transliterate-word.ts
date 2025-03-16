@@ -1,10 +1,23 @@
 export default function transliterateWord(word: string) {
-  let original = word;
+  let latin = word;
   let transliteration = "";
 
-  while (original.length) {
-    transliteration += original.substring(0, 1);
-    original = original.substring(1);
+  while (latin.length) {
+    let newTransliteration = "";
+    const firstLetter = latin.substring(0, 1);
+
+    switch (firstLetter) {
+      case "b":
+        newTransliteration += latin.substring(0, 1);
+        latin = latin.substring(1);
+        break;
+
+      default:
+        newTransliteration += latin.substring(0, 1);
+        latin = latin.substring(1);
+    }
+
+    transliteration += newTransliteration;
   }
 
   return transliteration;
