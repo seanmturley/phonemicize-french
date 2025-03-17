@@ -1,31 +1,33 @@
 import bTransliteration from "./b-transliteration.ts";
 
 describe("bTransliteration", () => {
-  it("b initial or medial should return [b]", () => {
-    const latin = "beau";
-
-    const [newLatin, newTransliteration] = bTransliteration(latin);
-
-    expect(newLatin).toBe("eau");
-    expect(newTransliteration).toBe("b");
-  });
-
-  it("bb medial should return [b]", () => {
-    const latin = "bbesse"; // abbesse
-
-    const [newLatin, newTransliteration] = bTransliteration(latin);
-
-    expect(newLatin).toBe("esse");
-    expect(newTransliteration).toBe("b");
-  });
-
-  it("b final should be silent", () => {
+  it("final b should be silent", () => {
     const latin = "b"; // plomb
 
     const [newLatin, newTransliteration] = bTransliteration(latin);
 
     expect(newLatin).toBe("");
     expect(newTransliteration).toBe("");
+  });
+
+  describe("initial or medial", () => {
+    it("b should return [b]", () => {
+      const latin = "beau";
+
+      const [newLatin, newTransliteration] = bTransliteration(latin);
+
+      expect(newLatin).toBe("eau");
+      expect(newTransliteration).toBe("b");
+    });
+
+    it("bb should return [b]", () => {
+      const latin = "bbesse"; // abbesse
+
+      const [newLatin, newTransliteration] = bTransliteration(latin);
+
+      expect(newLatin).toBe("esse");
+      expect(newTransliteration).toBe("b");
+    });
   });
 
   describe("b followed by", () => {
