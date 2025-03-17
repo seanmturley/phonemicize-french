@@ -1,3 +1,5 @@
+import bTransliteration from "./b-transliteration.ts";
+
 export default function transliterateWord(word: string) {
   let latin = word;
   let transliteration = "";
@@ -8,8 +10,7 @@ export default function transliterateWord(word: string) {
 
     switch (firstLetter) {
       case "b":
-        newTransliteration += latin.substring(0, 1);
-        latin = latin.substring(1);
+        [latin, newTransliteration] = bTransliteration(latin);
         break;
 
       default:
