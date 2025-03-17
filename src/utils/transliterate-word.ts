@@ -1,5 +1,6 @@
 import bTransliteration from "./b-transliteration.ts";
 import dTransliteration from "./d-transliteration.ts";
+import fTransliteration from "./f-transliteration.ts";
 
 export default function transliterateWord(word: string) {
   let latin = word;
@@ -16,6 +17,10 @@ export default function transliterateWord(word: string) {
 
       case "d":
         [latin, newTransliteration] = dTransliteration(latin);
+        break;
+
+      case "f":
+        [latin, newTransliteration] = fTransliteration(latin);
         break;
 
       default:
