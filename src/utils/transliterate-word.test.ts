@@ -26,7 +26,7 @@ const phonemes: Phonemes = {
   ɡ: { ipa: "ɡu", partial: "goût", word: "goût" },
   v: { ipa: "vu", partial: "vous", word: "vous" },
   z: { ipa: "zu", partial: "zou", word: "zou" },
-  ʒ: { ipa: "ʒu", partial: "joue", word: "joue" },
+  ʒ: { ipa: "ʒu", partial: "ʒoue", word: "joue" },
   m: { ipa: "mu", partial: "mou", word: "mou" },
   n: { ipa: "nu", partial: "nous", word: "nous" },
   ɲ: { ipa: "ɲu", partial: "ɲou", word: "gnou" },
