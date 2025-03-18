@@ -11,7 +11,7 @@ describe("bTransliteration", () => {
   });
 
   describe("initial or medial", () => {
-    it("b should return [b]", () => {
+    it("b should be [b]", () => {
       const latin = "beau";
 
       const [newLatin, newTransliteration] = bTransliteration(latin);
@@ -20,7 +20,7 @@ describe("bTransliteration", () => {
       expect(newTransliteration).toBe("b");
     });
 
-    it("bb should return [b]", () => {
+    it("bb should be [b]", () => {
       const latin = "bbesse"; // abbesse
 
       const [newLatin, newTransliteration] = bTransliteration(latin);
@@ -31,7 +31,7 @@ describe("bTransliteration", () => {
   });
 
   describe("b followed by", () => {
-    it("-s should return [p]", () => {
+    it("-s should be [p]", () => {
       const latin = "bsolu"; // absolu
 
       const [newLatin, newTransliteration] = bTransliteration(latin);
@@ -40,7 +40,7 @@ describe("bTransliteration", () => {
       expect(newTransliteration).toBe("p");
     });
 
-    it("-t should return [p]", () => {
+    it("-t should be [p]", () => {
       const latin = "btus"; // obtus
 
       const [newLatin, newTransliteration] = bTransliteration(latin);

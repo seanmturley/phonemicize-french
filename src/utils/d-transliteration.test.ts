@@ -11,7 +11,7 @@ describe("dTransliteration", () => {
   });
 
   describe("initial or medial", () => {
-    it("d should return [d]", () => {
+    it("d should be [d]", () => {
       const latin = "doux";
 
       const [newLatin, newTransliteration] = dTransliteration(latin);
@@ -20,7 +20,7 @@ describe("dTransliteration", () => {
       expect(newTransliteration).toBe("d");
     });
 
-    it("dd should return [d]", () => {
+    it("dd should be [d]", () => {
       const latin = "ddition"; // addition
 
       const [newLatin, newTransliteration] = dTransliteration(latin);

@@ -3,11 +3,11 @@ export default function fTransliteration(latin: string) {
   let numTransliteratedCharacters = 1;
 
   if (/^ff/i.test(latin)) {
-    // initial or medial ff should return [f]
+    // initial or medial ff should be [f]
     newTransliteration = "f";
     numTransliteratedCharacters = 2;
   } else {
-    // initial, medial, or final f should return [f]
+    // initial, medial, or final f should be [f]
     // Note exceptions for final f - see test for details
     newTransliteration = "f";
   }

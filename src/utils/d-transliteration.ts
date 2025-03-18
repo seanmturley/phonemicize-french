@@ -6,11 +6,11 @@ export default function dTransliteration(latin: string) {
     // final d should be [t] in liaison, but otherwise silent
     newTransliteration = "(t)";
   } else if (/^dd/i.test(latin)) {
-    // initial or medial dd should return [d]
+    // initial or medial dd should be [d]
     newTransliteration = "d";
     numTransliteratedCharacters = 2;
   } else {
-    // initial or medial d should return [d]
+    // initial or medial d should be [d]
     newTransliteration = "d";
   }
 

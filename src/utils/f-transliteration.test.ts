@@ -16,7 +16,7 @@ describe("fTransliteration", () => {
   });
 
   describe("initial or medial", () => {
-    it("f should return [f]", () => {
+    it("f should be [f]", () => {
       const latin = "fant"; // enfant
 
       const [newLatin, newTransliteration] = fTransliteration(latin);
@@ -25,7 +25,7 @@ describe("fTransliteration", () => {
       expect(newTransliteration).toBe("f");
     });
 
-    it("ff should return [f]", () => {
+    it("ff should be [f]", () => {
       const latin = "ffort"; // effort
 
       const [newLatin, newTransliteration] = fTransliteration(latin);
