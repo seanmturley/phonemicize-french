@@ -29,7 +29,7 @@ const phonemes: Phonemes = {
   ʒ: { ipa: "ʒu", partial: "joue", word: "joue" },
   m: { ipa: "mu", partial: "mou", word: "mou" },
   n: { ipa: "nu", partial: "nous", word: "nous" },
-  ɲ: { ipa: "ɲu", partial: "gnou", word: "gnou" },
+  ɲ: { ipa: "ɲu", partial: "ɲou", word: "gnou" },
   ŋ: { ipa: "kuŋ.fu", partial: "kung-fu", word: "kung-fu" },
   l: { ipa: "lu", partial: "loup", word: "loup" },
   ʁ: { ipa: "ʁu", partial: "roue", word: "roue" },
