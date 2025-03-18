@@ -6,7 +6,6 @@ import transliterateWord from "./transliterate-word.ts";
 
 type Phoneme = {
   ipa: string;
-  partial: string;
   word: string;
 };
 
@@ -14,48 +13,48 @@ type Phonemes = { [key: string]: Phoneme };
 
 const phonemes: Phonemes = {
   // Unvoiced consonants
-  p: { ipa: "pu", partial: "pou", word: "pou" },
-  t: { ipa: "tu", partial: "tout", word: "tout" },
-  k: { ipa: "ku", partial: "cou", word: "cou" },
-  f: { ipa: "fu", partial: "fou", word: "fou" },
-  s: { ipa: "su", partial: "sous", word: "sous" },
-  ʃ: { ipa: "ʃu", partial: "chou", word: "chou" },
+  p: { ipa: "pu", word: "pou" },
+  t: { ipa: "tu", word: "tout" },
+  k: { ipa: "ku", word: "cou" },
+  f: { ipa: "fu", word: "fou" },
+  s: { ipa: "su", word: "sous" },
+  ʃ: { ipa: "ʃu", word: "chou" },
   // Voiced consonants
-  b: { ipa: "bu", partial: "boue", word: "boue" },
-  d: { ipa: "du", partial: "doux", word: "doux" },
-  ɡ: { ipa: "ɡu", partial: "goût", word: "goût" },
-  v: { ipa: "vu", partial: "vous", word: "vous" },
-  z: { ipa: "zu", partial: "zou", word: "zou" },
-  ʒ: { ipa: "ʒu", partial: "ʒoue", word: "joue" },
-  m: { ipa: "mu", partial: "mou", word: "mou" },
-  n: { ipa: "nu", partial: "nous", word: "nous" },
-  ɲ: { ipa: "ɲu", partial: "ɲou", word: "gnou" },
-  ŋ: { ipa: "kuŋ.fu", partial: "kung-fu", word: "kung-fu" },
-  l: { ipa: "lu", partial: "loup", word: "loup" },
-  ʁ: { ipa: "ʁu", partial: "roue", word: "roue" },
+  b: { ipa: "bu", word: "boue" },
+  d: { ipa: "du", word: "doux" },
+  ɡ: { ipa: "ɡu", word: "goût" },
+  v: { ipa: "vu", word: "vous" },
+  z: { ipa: "zu", word: "zou" },
+  ʒ: { ipa: "ʒu", word: "joue" },
+  m: { ipa: "mu", word: "mou" },
+  n: { ipa: "nu", word: "nous" },
+  ɲ: { ipa: "ɲu", word: "gnou" },
+  ŋ: { ipa: "kuŋ.fu", word: "kung-fu" },
+  l: { ipa: "lu", word: "loup" },
+  ʁ: { ipa: "ʁu", word: "roue" },
   // Oral vowels
-  i: { ipa: "si", partial: "si", word: "si" },
-  e: { ipa: "fe", partial: "fée", word: "fée" },
-  ɛ: { ipa: "fɛ", partial: "fait", word: "fait" },
-  ɛː: { ipa: "fɛːt", partial: "fête", word: "fête" },
-  y: { ipa: "sy", partial: "su", word: "su" },
-  ø: { ipa: "sø", partial: "ceux", word: "ceux" },
-  œ: { ipa: "sœʁ", partial: "sœur", word: "sœur" },
-  ə: { ipa: "sə", partial: "ce", word: "ce" },
-  u: { ipa: "su", partial: "sous", word: "sous" },
-  o: { ipa: "so", partial: "sot", word: "sot" },
-  ɔ: { ipa: "sɔʁ", partial: "sort", word: "sort" },
-  a: { ipa: "sa", partial: "sa", word: "sa" },
-  ɑ: { ipa: "pɑt", partial: "pâte", word: "pâte" },
+  i: { ipa: "si", word: "si" },
+  e: { ipa: "fe", word: "fée" },
+  ɛ: { ipa: "fɛ", word: "fait" },
+  ɛː: { ipa: "fɛːt", word: "fête" },
+  y: { ipa: "sy", word: "su" },
+  ø: { ipa: "sø", word: "ceux" },
+  œ: { ipa: "sœʁ", word: "sœur" },
+  ə: { ipa: "sə", word: "ce" },
+  u: { ipa: "su", word: "sous" },
+  o: { ipa: "so", word: "sot" },
+  ɔ: { ipa: "sɔʁ", word: "sort" },
+  a: { ipa: "sa", word: "sa" },
+  ɑ: { ipa: "pɑt", word: "pâte" },
   // Nasal vowels
-  ɑ̃: { ipa: "sɑ̃", partial: "sans", word: "sans" },
-  ɔ̃: { ipa: "sɔ̃", partial: "son", word: "son" },
-  ɛ̃: { ipa: "bʁɛ̃", partial: "brin", word: "brin" },
-  œ̃: { ipa: "bʁœ̃", partial: "brun", word: "brun" },
+  ɑ̃: { ipa: "sɑ̃", word: "sans" },
+  ɔ̃: { ipa: "sɔ̃", word: "son" },
+  ɛ̃: { ipa: "bʁɛ̃", word: "brin" },
+  œ̃: { ipa: "bʁœ̃", word: "brun" },
   // Semi-vowels
-  j: { ipa: "jɛʁ", partial: "hier", word: "hier" },
-  ɥ: { ipa: "ɥit", partial: "huit", word: "huit" },
-  w: { ipa: "wi", partial: "oui", word: "oui" }
+  j: { ipa: "jɛʁ", word: "hier" },
+  ɥ: { ipa: "ɥit", word: "huit" },
+  w: { ipa: "wi", word: "oui" }
 };
 
 describe("transliterateWord should transliterate", () => {
@@ -64,7 +63,7 @@ describe("transliterateWord should transliterate", () => {
     it(`${currentPhoneme.word}`, () => {
       const result = transliterateWord(currentPhoneme.word);
 
-      expect(result).toBe(currentPhoneme.partial);
+      expect(result).toBe(currentPhoneme.ipa);
     });
   }
 });
