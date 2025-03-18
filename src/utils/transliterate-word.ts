@@ -7,6 +7,7 @@ import kTransliteration from "./k-transliteration.ts";
 import lTransliteration from "./l-transliteration.ts";
 import mTransliteration from "./m-transliteration.ts";
 import nTransliteration from "./n-transliteration.ts";
+import pTransliteration from "./p-transliteration.ts";
 
 export default function transliterateWord(word: string) {
   let latin = word;
@@ -51,6 +52,10 @@ export default function transliterateWord(word: string) {
 
       case "n":
         [latin, newTransliteration] = nTransliteration(latin);
+        break;
+
+      case "p":
+        [latin, newTransliteration] = pTransliteration(latin);
         break;
 
       default:
