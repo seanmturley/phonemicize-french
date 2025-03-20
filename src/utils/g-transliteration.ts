@@ -1,4 +1,8 @@
-import frontVowel from "./definitions/front-vowel.ts";
+import {
+  backVowel,
+  consonant,
+  frontVowel
+} from "./letter-group-definitions.ts";
 
 export default function gTransliteration(latin: string) {
   let newTransliteration = "";
@@ -23,11 +27,15 @@ export default function gTransliteration(latin: string) {
     // before a front vowel gu should be [g]
     newTransliteration = "g";
     numTransliteratedCharacters = 2;
-  } else if (new RegExp(String.raw`^gg[^${frontVowel}]`, "i").test(latin)) {
+  } else if (
+    new RegExp(String.raw`^gg[${backVowel}|${consonant}]`, "i").test(latin)
+  ) {
     // NOT before a front vowel gg should be [g]
     newTransliteration = "g";
     numTransliteratedCharacters = 2;
-  } else if (new RegExp(String.raw`^ge[^${frontVowel}]`, "i").test(latin)) {
+  } else if (
+    new RegExp(String.raw`^ge[${backVowel}|${consonant}]`, "i").test(latin)
+  ) {
     // NOT before a front vowel ge should be [ʒ]
     newTransliteration = "ʒ";
     numTransliteratedCharacters = 2;
