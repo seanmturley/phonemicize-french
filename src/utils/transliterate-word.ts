@@ -9,6 +9,7 @@ import mTransliteration from "./m-transliteration.ts";
 import nTransliteration from "./n-transliteration.ts";
 import pTransliteration from "./p-transliteration.ts";
 import qTransliteration from "./q-transliteration.ts";
+import sTransliteration from "./s-transliteration.ts";
 import tTransliteration from "./t-transliteration.ts";
 import vTransliteration from "./v-transliteration.ts";
 import wTransliteration from "./w-transliteration.ts";
@@ -65,6 +66,10 @@ export default function transliterateWord(word: string) {
 
       case "q":
         [latin, newTransliteration] = qTransliteration(latin);
+        break;
+
+      case "s":
+        [latin, newTransliteration] = sTransliteration(latin);
         break;
 
       case "t":
