@@ -7,31 +7,34 @@ describe("fTransliteration", () => {
     // - cerf or cerfs (silent)
     // - œufs & bœufs (-fs is silent)
 
-    const latin = "f"; // veuf
+    const word = "veuf";
+    const index = 3;
 
-    const [newLatin, newTransliteration] = fTransliteration(latin);
+    const [newTransliteration, newIndex] = fTransliteration(word, index);
 
-    expect(newLatin).toBe("");
     expect(newTransliteration).toBe("f");
+    expect(newIndex).toBe(4);
   });
 
   describe("initial or medial", () => {
     it("f should be [f]", () => {
-      const latin = "fant"; // enfant
+      const word = "enfant";
+      const index = 2;
 
-      const [newLatin, newTransliteration] = fTransliteration(latin);
+      const [newTransliteration, newIndex] = fTransliteration(word, index);
 
-      expect(newLatin).toBe("ant");
       expect(newTransliteration).toBe("f");
+      expect(newIndex).toBe(3);
     });
 
     it("ff should be [f]", () => {
-      const latin = "ffort"; // effort
+      const word = "effort";
+      const index = 1;
 
-      const [newLatin, newTransliteration] = fTransliteration(latin);
+      const [newTransliteration, newIndex] = fTransliteration(word, index);
 
-      expect(newLatin).toBe("ort");
       expect(newTransliteration).toBe("f");
+      expect(newIndex).toBe(3);
     });
   });
 });
