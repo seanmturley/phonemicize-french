@@ -4,11 +4,17 @@ import {
   frontVowel
 } from "./letter-group-definitions.ts";
 
-export default function cTransliteration(latin: string) {
+export default function cTransliteration(
+  latin: string,
+  precedingLatin: string
+) {
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/c$/i.test(latin)) {
+  if (precedingLatin.slice(-1) === "n" && /c$/i.test(latin)) {
+    // final c after n should silent
+    newTransliteration = "";
+  } else if (/c$/i.test(latin)) {
     // final c should be [k]
     newTransliteration = "k";
   } else if (/ct$/i.test(latin)) {
@@ -49,6 +55,7 @@ export default function cTransliteration(latin: string) {
   }
 
   const newLatin = latin.substring(numTransliteratedCharacters);
+  const newPrecedingLatin = latin.substring(0, numTransliteratedCharacters);
 
-  return [newLatin, newTransliteration];
+  return [newLatin, newPrecedingLatin, newTransliteration];
 }
