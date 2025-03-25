@@ -19,102 +19,98 @@ import wTransliteration from "./w-transliteration.ts";
 import xTransliteration from "./x-transliteration.ts";
 
 export default function transliterateWord(word: string) {
-  let latin = word;
-  let precedingLatin = "";
   let transliteration = "";
+  let index = 0;
 
-  while (latin.length) {
-    let newPrecedingLatin = "";
+  while (index < word.length) {
     let newTransliteration = "";
-    const firstLetter = latin.substring(0, 1);
+    const firstLetter = word.substring(index, index + 1);
 
     switch (firstLetter) {
       case "b":
-        [latin, newPrecedingLatin, newTransliteration] =
-          bTransliteration(latin);
+        [newTransliteration, index] = bTransliteration(word, index);
         break;
 
-      case "c":
-        [latin, precedingLatin, newTransliteration] = cTransliteration(
-          latin,
-          precedingLatin
-        );
-        break;
+      // case "c":
+      //   [word, precedingLatin, newTransliteration] = cTransliteration(
+      //     word,
+      //     precedingLatin
+      //   );
+      //   break;
 
-      case "d":
-        [latin, newTransliteration] = dTransliteration(latin);
-        break;
+      // case "d":
+      //   [word, newTransliteration] = dTransliteration(word);
+      //   break;
 
-      case "f":
-        [latin, newTransliteration] = fTransliteration(latin);
-        break;
+      // case "f":
+      //   [word, newTransliteration] = fTransliteration(word);
+      //   break;
 
-      case "g":
-        [latin, newTransliteration] = gTransliteration(latin);
-        break;
+      // case "g":
+      //   [word, newTransliteration] = gTransliteration(word);
+      //   break;
 
-      case "h":
-        [latin, newTransliteration] = hTransliteration(latin);
-        break;
+      // case "h":
+      //   [word, newTransliteration] = hTransliteration(word);
+      //   break;
 
-      case "j":
-        [latin, newTransliteration] = jTransliteration(latin);
-        break;
+      // case "j":
+      //   [word, newTransliteration] = jTransliteration(word);
+      //   break;
 
-      case "k":
-        [latin, newTransliteration] = kTransliteration(latin);
-        break;
+      // case "k":
+      //   [word, newTransliteration] = kTransliteration(word);
+      //   break;
 
-      case "l":
-        [latin, newTransliteration] = lTransliteration(latin);
-        break;
+      // case "l":
+      //   [word, newTransliteration] = lTransliteration(word);
+      //   break;
 
-      case "m":
-        [latin, newTransliteration] = mTransliteration(latin);
-        break;
+      // case "m":
+      //   [word, newTransliteration] = mTransliteration(word);
+      //   break;
 
-      case "n":
-        [latin, newTransliteration] = nTransliteration(latin);
-        break;
+      // case "n":
+      //   [word, newTransliteration] = nTransliteration(word);
+      //   break;
 
-      case "p":
-        [latin, newTransliteration] = pTransliteration(latin);
-        break;
+      // case "p":
+      //   [word, newTransliteration] = pTransliteration(word);
+      //   break;
 
-      case "q":
-        [latin, newTransliteration] = qTransliteration(latin);
-        break;
+      // case "q":
+      //   [word, newTransliteration] = qTransliteration(word);
+      //   break;
 
-      case "r":
-        [latin, newTransliteration] = rTransliteration(latin);
-        break;
+      // case "r":
+      //   [word, newTransliteration] = rTransliteration(word);
+      //   break;
 
-      case "s":
-        [latin, newTransliteration] = sTransliteration(latin);
-        break;
+      // case "s":
+      //   [word, newTransliteration] = sTransliteration(word);
+      //   break;
 
-      case "t":
-        [latin, newTransliteration] = tTransliteration(latin);
-        break;
+      // case "t":
+      //   [word, newTransliteration] = tTransliteration(word);
+      //   break;
 
-      case "v":
-        [latin, newTransliteration] = vTransliteration(latin);
-        break;
+      // case "v":
+      //   [word, newTransliteration] = vTransliteration(word);
+      //   break;
 
-      case "w":
-        [latin, newTransliteration] = wTransliteration(latin);
-        break;
+      // case "w":
+      //   [word, newTransliteration] = wTransliteration(word);
+      //   break;
 
-      case "x":
-        [latin, newTransliteration] = xTransliteration(latin);
-        break;
+      // case "x":
+      //   [word, newTransliteration] = xTransliteration(word);
+      //   break;
 
       default:
-        newTransliteration += latin.substring(0, 1);
-        latin = latin.substring(1);
+        newTransliteration += word.substring(0, 1);
+        index += 1;
     }
 
-    precedingLatin += newPrecedingLatin;
     transliteration += newTransliteration;
   }
 
