@@ -2,61 +2,56 @@ import bTransliteration from "./b-transliteration.ts";
 
 describe("bTransliteration", () => {
   it("final b should be silent", () => {
-    const latin = "b"; // plomb
+    const word = "plomb";
+    const index = 4;
 
-    const [newLatin, newPrecedingLatin, newTransliteration] =
-      bTransliteration(latin);
+    const [newTransliteration, newIndex] = bTransliteration(word, index);
 
-    expect(newLatin).toBe("");
-    expect(newPrecedingLatin).toBe("b");
     expect(newTransliteration).toBe("");
+    expect(newIndex).toBe(5);
   });
 
   describe("initial or medial", () => {
     it("b should be [b]", () => {
-      const latin = "beau";
+      const word = "beau";
+      const index = 0;
 
-      const [newLatin, newPrecedingLatin, newTransliteration] =
-        bTransliteration(latin);
+      const [newTransliteration, newIndex] = bTransliteration(word, index);
 
-      expect(newLatin).toBe("eau");
-      expect(newPrecedingLatin).toBe("b");
       expect(newTransliteration).toBe("b");
+      expect(newIndex).toBe(1);
     });
 
     it("bb should be [b]", () => {
-      const latin = "bbesse"; // abbesse
+      const word = "abbesse";
+      const index = 1;
 
-      const [newLatin, newPrecedingLatin, newTransliteration] =
-        bTransliteration(latin);
+      const [newTransliteration, newIndex] = bTransliteration(word, index);
 
-      expect(newLatin).toBe("esse");
-      expect(newPrecedingLatin).toBe("bb");
       expect(newTransliteration).toBe("b");
+      expect(newIndex).toBe(3);
     });
   });
 
   describe("b followed by", () => {
     it("-s should be [p]", () => {
-      const latin = "bsolu"; // absolu
+      const word = "absolu";
+      const index = 1;
 
-      const [newLatin, newPrecedingLatin, newTransliteration] =
-        bTransliteration(latin);
+      const [newTransliteration, newIndex] = bTransliteration(word, index);
 
-      expect(newLatin).toBe("solu");
-      expect(newPrecedingLatin).toBe("b");
       expect(newTransliteration).toBe("p");
+      expect(newIndex).toBe(2);
     });
 
     it("-t should be [p]", () => {
-      const latin = "btus"; // obtus
+      const word = "obtus";
+      const index = 1;
 
-      const [newLatin, newPrecedingLatin, newTransliteration] =
-        bTransliteration(latin);
+      const [newTransliteration, newIndex] = bTransliteration(word, index);
 
-      expect(newLatin).toBe("tus");
-      expect(newPrecedingLatin).toBe("b");
       expect(newTransliteration).toBe("p");
+      expect(newIndex).toBe(2);
     });
   });
 });
