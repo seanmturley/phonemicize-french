@@ -2,31 +2,34 @@ import dTransliteration from "./d-transliteration.ts";
 
 describe("dTransliteration", () => {
   it("final d should be [t] in liaison, but otherwise silent", () => {
-    const latin = "d"; // grand
+    const word = "grand";
+    const index = 4;
 
-    const [newLatin, newTransliteration] = dTransliteration(latin);
+    const [newTransliteration, newIndex] = dTransliteration(word, index);
 
-    expect(newLatin).toBe("");
     expect(newTransliteration).toBe("(t)");
+    expect(newIndex).toBe(5);
   });
 
   describe("initial or medial", () => {
     it("d should be [d]", () => {
-      const latin = "doux";
+      const word = "doux";
+      const index = 0;
 
-      const [newLatin, newTransliteration] = dTransliteration(latin);
+      const [newTransliteration, newIndex] = dTransliteration(word, index);
 
-      expect(newLatin).toBe("oux");
       expect(newTransliteration).toBe("d");
+      expect(newIndex).toBe(1);
     });
 
     it("dd should be [d]", () => {
-      const latin = "ddition"; // addition
+      const word = "addition";
+      const index = 1;
 
-      const [newLatin, newTransliteration] = dTransliteration(latin);
+      const [newTransliteration, newIndex] = dTransliteration(word, index);
 
-      expect(newLatin).toBe("ition");
       expect(newTransliteration).toBe("d");
+      expect(newIndex).toBe(3);
     });
   });
 });
