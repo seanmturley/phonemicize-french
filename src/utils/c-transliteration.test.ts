@@ -3,94 +3,79 @@ import cTransliteration from "./c-transliteration.ts";
 describe("cTransliteration", () => {
   describe("final", () => {
     it("c should be [k]", () => {
-      const latin = "c"; // parc
-      const precedingLatin = "par";
+      const word = "parc";
+      const index = 3;
 
-      const [newLatin, newPrecedingLatin, newTransliteration] =
-        cTransliteration(latin, precedingLatin);
+      const [newTransliteration, newIndex] = cTransliteration(word, index);
 
-      expect(newLatin).toBe("");
-      expect(newPrecedingLatin).toBe("c");
       expect(newTransliteration).toBe("k");
+      expect(newIndex).toBe(4);
     });
 
     it("c after n should silent", () => {
-      const latin = "c"; // blanc
-      const precedingLatin = "blan";
+      const word = "blanc";
+      const index = 4;
 
-      const [newLatin, newPrecedingLatin, newTransliteration] =
-        cTransliteration(latin, precedingLatin);
+      const [newTransliteration, newIndex] = cTransliteration(word, index);
 
-      expect(newLatin).toBe("");
-      expect(newPrecedingLatin).toBe("c");
       expect(newTransliteration).toBe("");
+      expect(newIndex).toBe(5);
     });
 
     it("ct should be [kt]", () => {
       // Note exceptions where final 'ct' is silent e.g. respect
 
-      const latin = "ct"; // direct
-      const precedingLatin = "dire";
+      const word = "direct";
+      const index = 4;
 
-      const [newLatin, newPrecedingLatin, newTransliteration] =
-        cTransliteration(latin, precedingLatin);
+      const [newTransliteration, newIndex] = cTransliteration(word, index);
 
-      expect(newLatin).toBe("");
-      expect(newPrecedingLatin).toBe("ct");
       expect(newTransliteration).toBe("kt");
+      expect(newIndex).toBe(6);
     });
   });
 
   describe("before a front vowel", () => {
     it("c should should be [s]", () => {
-      const latin = "ciel"; // ciel
-      const precedingLatin = "";
+      const word = "ciel";
+      const index = 0;
 
-      const [newLatin, newPrecedingLatin, newTransliteration] =
-        cTransliteration(latin, precedingLatin);
+      const [newTransliteration, newIndex] = cTransliteration(word, index);
 
-      expect(newLatin).toBe("iel");
-      expect(newPrecedingLatin).toBe("c");
       expect(newTransliteration).toBe("s");
+      expect(newIndex).toBe(1);
     });
 
     it("cc should should be [ks]", () => {
-      const latin = "ccent"; // accent
-      const precedingLatin = "a";
+      const word = "accent";
+      const index = 1;
 
-      const [newLatin, newPrecedingLatin, newTransliteration] =
-        cTransliteration(latin, precedingLatin);
+      const [newTransliteration, newIndex] = cTransliteration(word, index);
 
-      expect(newLatin).toBe("ent");
-      expect(newPrecedingLatin).toBe("cc");
       expect(newTransliteration).toBe("ks");
+      expect(newIndex).toBe(3);
     });
   });
 
   describe("before a back vowel or consonant", () => {
     it("c should should be [k]", () => {
-      const latin = "core"; // encore
-      const precedingLatin = "en";
+      const word = "encore";
+      const index = 2;
 
-      const [newLatin, newPrecedingLatin, newTransliteration] =
-        cTransliteration(latin, precedingLatin);
+      const [newTransliteration, newIndex] = cTransliteration(word, index);
 
-      expect(newLatin).toBe("ore");
-      expect(newPrecedingLatin).toBe("c");
       expect(newTransliteration).toBe("k");
+      expect(newIndex).toBe(3);
     });
 
     it("cc should should be [k]", () => {
-      const latin = "ccru"; // accru
-      const precedingLatin = "a";
+      const word = "accru";
+      const index = 1;
 
-      const [newLatin, newPrecedingLatin, newTransliteration] =
-        cTransliteration(latin, precedingLatin);
+      const [newTransliteration, newIndex] = cTransliteration(word, index);
 
-      expect(newLatin).toBe("ru");
-
-      expect(newPrecedingLatin).toBe("cc");
       expect(newTransliteration).toBe("k");
+      expect(newIndex).toBe(3);
     });
   });
 
@@ -98,46 +83,32 @@ describe("cTransliteration", () => {
     // Note exception for words of Greek origin pronounced [k]
     // e.g. Christ
 
-    const latin = "che"; // blanche
-    const precedingLatin = "blan";
+    const word = "blanche";
+    const index = 4;
 
-    const [newLatin, newPrecedingLatin, newTransliteration] = cTransliteration(
-      latin,
-      precedingLatin
-    );
+    const [newTransliteration, newIndex] = cTransliteration(word, index);
 
-    expect(newLatin).toBe("e");
-
-    expect(newPrecedingLatin).toBe("ch");
     expect(newTransliteration).toBe("ʃ");
+    expect(newIndex).toBe(6);
   });
 
   it("cqu should be [k]", () => {
-    const latin = "cquisition"; // acquisition
-    const precedingLatin = "a";
+    const word = "acquisition";
+    const index = 1;
 
-    const [newLatin, newPrecedingLatin, newTransliteration] = cTransliteration(
-      latin,
-      precedingLatin
-    );
+    const [newTransliteration, newIndex] = cTransliteration(word, index);
 
-    expect(newLatin).toBe("isition");
-
-    expect(newPrecedingLatin).toBe("cqu");
     expect(newTransliteration).toBe("k");
+    expect(newIndex).toBe(4);
   });
 
   it("ç should be [s]", () => {
-    const latin = "çon"; // garçon
-    const precedingLatin = "gar";
+    const word = "garçon";
+    const index = 3;
 
-    const [newLatin, newPrecedingLatin, newTransliteration] = cTransliteration(
-      latin,
-      precedingLatin
-    );
+    const [newTransliteration, newIndex] = cTransliteration(word, index);
 
-    expect(newLatin).toBe("on");
-    expect(newPrecedingLatin).toBe("ç");
     expect(newTransliteration).toBe("s");
+    expect(newIndex).toBe(4);
   });
 });

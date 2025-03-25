@@ -31,12 +31,9 @@ export default function transliterateWord(word: string) {
         [newTransliteration, index] = bTransliteration(word, index);
         break;
 
-      // case "c":
-      //   [word, precedingLatin, newTransliteration] = cTransliteration(
-      //     word,
-      //     precedingLatin
-      //   );
-      //   break;
+      case "c":
+        [newTransliteration, index] = cTransliteration(word, index);
+        break;
 
       // case "d":
       //   [word, newTransliteration] = dTransliteration(word);
@@ -107,7 +104,7 @@ export default function transliterateWord(word: string) {
       //   break;
 
       default:
-        newTransliteration += word.substring(0, 1);
+        newTransliteration += word.substring(index, index + 1);
         index += 1;
     }
 
