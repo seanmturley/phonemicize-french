@@ -18,6 +18,7 @@ export default function bTransliteration(latin: string) {
   }
 
   const newLatin = latin.substring(numTransliteratedCharacters);
+  const newPrecedingLatin = latin.substring(0, numTransliteratedCharacters);
 
-  return [newLatin, newTransliteration];
+  return [newLatin, newPrecedingLatin, newTransliteration];
 }
