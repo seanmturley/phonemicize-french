@@ -20,19 +20,25 @@ import xTransliteration from "./x-transliteration.ts";
 
 export default function transliterateWord(word: string) {
   let latin = word;
+  let precedingLatin = "";
   let transliteration = "";
 
   while (latin.length) {
+    let newPrecedingLatin = "";
     let newTransliteration = "";
     const firstLetter = latin.substring(0, 1);
 
     switch (firstLetter) {
       case "b":
-        [latin, newTransliteration] = bTransliteration(latin);
+        [latin, newPrecedingLatin, newTransliteration] =
+          bTransliteration(latin);
         break;
 
       case "c":
-        [latin, newTransliteration] = cTransliteration(latin);
+        [latin, precedingLatin, newTransliteration] = cTransliteration(
+          latin,
+          precedingLatin
+        );
         break;
 
       case "d":
@@ -108,6 +114,7 @@ export default function transliterateWord(word: string) {
         latin = latin.substring(1);
     }
 
+    precedingLatin += newPrecedingLatin;
     transliteration += newTransliteration;
   }
 
