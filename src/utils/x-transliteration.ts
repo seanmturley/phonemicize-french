@@ -1,29 +1,35 @@
 import { consonantExcludingH, vowel } from "./letter-group-definitions.ts";
+import type { LetterTransliteration } from "./transliteration-types.ts";
 
-export default function xTransliteration(latin: string) {
+export default function xTransliteration(
+  word: string,
+  index: number
+): LetterTransliteration {
+  const remainingWord = word.substring(index);
+
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/x$/i.test(latin)) {
+  if (/x$/i.test(remainingWord)) {
     // final x should be [z] in liaison, but otherwise silent
     // Note exceptions for final x - see test for details
     newTransliteration = "(z)";
-  } else if (/^xh/i.test(latin)) {
+  } else if (/^xh/i.test(remainingWord)) {
     // xh should be [gz]
     newTransliteration = "gz";
     numTransliteratedCharacters = 2;
   } else if (
-    new RegExp(String.raw`^x[${consonantExcludingH}]`, "i").test(latin)
+    new RegExp(String.raw`^x[${consonantExcludingH}]`, "i").test(remainingWord)
   ) {
     // x before a consonant (excluding h) should be [ks]
     newTransliteration = "ks";
-  } else if (new RegExp(String.raw`^x[${vowel}]`, "i").test(latin)) {
+  } else if (new RegExp(String.raw`^x[${vowel}]`, "i").test(remainingWord)) {
     // x before a vowel should be [gz]
     // Note exceptions for ordinal numbers - see test for details
     newTransliteration = "gz";
   }
 
-  const newLatin = latin.substring(numTransliteratedCharacters);
+  const newIndex = index + numTransliteratedCharacters;
 
-  return [newLatin, newTransliteration];
+  return [newTransliteration, newIndex];
 }

@@ -99,9 +99,9 @@ export default function transliterateWord(word: string) {
         [newTransliteration, index] = wTransliteration(word, index);
         break;
 
-      // case "x":
-      //   [newTransliteration, index] = xTransliteration(word, index);
-      //   break;
+      case "x":
+        [newTransliteration, index] = xTransliteration(word, index);
+        break;
 
       default:
         newTransliteration += word.substring(index, index + 1);

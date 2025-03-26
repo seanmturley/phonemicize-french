@@ -8,43 +8,47 @@ describe("xTransliteration", () => {
     // - silent before a modified word starting with a consonant
     //   (including h-aspiré)
 
-    const latin = "x"; // faux
+    const word = "faux";
+    const index = 3;
 
-    const [newLatin, newTransliteration] = xTransliteration(latin);
+    const [newTransliteration, newIndex] = xTransliteration(word, index);
 
-    expect(newLatin).toBe("");
     expect(newTransliteration).toBe("(z)");
+    expect(newIndex).toBe(4);
   });
 
   it("xh should be [gz]", () => {
-    const latin = "xhume"; // exhume
+    const word = "exhume";
+    const index = 1;
 
-    const [newLatin, newTransliteration] = xTransliteration(latin);
+    const [newTransliteration, newIndex] = xTransliteration(word, index);
 
-    expect(newLatin).toBe("ume");
     expect(newTransliteration).toBe("gz");
+    expect(newIndex).toBe(3);
   });
 
   describe("x before", () => {
     it("a consonant (excluding h) should be [ks]", () => {
-      const latin = "xte"; // texte
+      const word = "texte";
+      const index = 2;
 
-      const [newLatin, newTransliteration] = xTransliteration(latin);
+      const [newTransliteration, newIndex] = xTransliteration(word, index);
 
-      expect(newLatin).toBe("te");
       expect(newTransliteration).toBe("ks");
+      expect(newIndex).toBe(3);
     });
 
     it("a vowel should be [gz]", () => {
       // Note exceptions for:
       // - (*-)deuxième*, (*-)sixième*, (*-)dixième* (becomes [z])
 
-      const latin = "xemple"; // exemple
+      const word = "exemple";
+      const index = 1;
 
-      const [newLatin, newTransliteration] = xTransliteration(latin);
+      const [newTransliteration, newIndex] = xTransliteration(word, index);
 
-      expect(newLatin).toBe("emple");
       expect(newTransliteration).toBe("gz");
+      expect(newIndex).toBe(2);
     });
   });
 });
