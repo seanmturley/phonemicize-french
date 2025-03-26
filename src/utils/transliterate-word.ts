@@ -43,9 +43,9 @@ export default function transliterateWord(word: string) {
         [newTransliteration, index] = fTransliteration(word, index);
         break;
 
-      // case "g":
-      //   [word, newTransliteration] = gTransliteration(word);
-      //   break;
+      case "g":
+        [newTransliteration, index] = gTransliteration(word, index);
+        break;
 
       // case "h":
       //   [word, newTransliteration] = hTransliteration(word);

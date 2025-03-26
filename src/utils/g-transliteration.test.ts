@@ -3,78 +3,86 @@ import gTransliteration from "./g-transliteration.ts";
 describe("gTransliteration", () => {
   describe("before a front vowel", () => {
     it("g should be [ʒ]", () => {
-      const latin = "ge"; // sabotage
+      const word = "sabotage";
+      const index = 6;
 
-      const [newLatin, newTransliteration] = gTransliteration(latin);
+      const [newTransliteration, newIndex] = gTransliteration(word, index);
 
-      expect(newLatin).toBe("e");
       expect(newTransliteration).toBe("ʒ");
+      expect(newIndex).toBe(7);
     });
 
     it("gg should be [gʒ]", () => {
-      const latin = "ggestion"; // suggestion
+      const word = "suggestion";
+      const index = 2;
 
-      const [newLatin, newTransliteration] = gTransliteration(latin);
+      const [newTransliteration, newIndex] = gTransliteration(word, index);
 
-      expect(newLatin).toBe("estion");
       expect(newTransliteration).toBe("gʒ");
+      expect(newIndex).toBe(4);
     });
 
     it("gu should be [g]", () => {
-      const latin = "gue"; // gigue
+      const word = "gigue";
+      const index = 2;
 
-      const [newLatin, newTransliteration] = gTransliteration(latin);
+      const [newTransliteration, newIndex] = gTransliteration(word, index);
 
-      expect(newLatin).toBe("e");
       expect(newTransliteration).toBe("g");
+      expect(newIndex).toBe(4);
     });
   });
 
   describe("NOT before a front vowel", () => {
     it("g should be [g]", () => {
-      const latin = "grave";
+      const word = "grave";
+      const index = 0;
 
-      const [newLatin, newTransliteration] = gTransliteration(latin);
+      const [newTransliteration, newIndex] = gTransliteration(word, index);
 
-      expect(newLatin).toBe("rave");
       expect(newTransliteration).toBe("g");
+      expect(newIndex).toBe(1);
     });
 
     it("gg should be [g]", () => {
-      const latin = "ggraver"; // aggraver
+      const word = "aggraver";
+      const index = 1;
 
-      const [newLatin, newTransliteration] = gTransliteration(latin);
+      const [newTransliteration, newIndex] = gTransliteration(word, index);
 
-      expect(newLatin).toBe("raver");
       expect(newTransliteration).toBe("g");
+      expect(newIndex).toBe(3);
     });
 
     it("ge should be [ʒ]", () => {
-      const latin = "geon"; // pigeon
+      const word = "pigeon";
+      const index = 2;
 
-      const [newLatin, newTransliteration] = gTransliteration(latin);
+      const [newTransliteration, newIndex] = gTransliteration(word, index);
 
-      expect(newLatin).toBe("on");
       expect(newTransliteration).toBe("ʒ");
+      expect(newIndex).toBe(4);
     });
   });
 
   it("gn should be [ɲ]", () => {
-    const latin = "gnon"; // compagnon
+    const word = "compagnon";
+    const index = 5;
 
-    const [newLatin, newTransliteration] = gTransliteration(latin);
+    const [newTransliteration, newIndex] = gTransliteration(word, index);
 
-    expect(newLatin).toBe("on");
     expect(newTransliteration).toBe("ɲ");
+    expect(newIndex).toBe(7);
   });
 
   it("gt should be silent", () => {
-    const latin = "gt"; // doigt
+    const word = "doigt";
+    const index = 3;
 
-    const [newLatin, newTransliteration] = gTransliteration(latin);
+    const [newTransliteration, newIndex] = gTransliteration(word, index);
 
-    expect(newLatin).toBe("");
     expect(newTransliteration).toBe("");
+    expect(newIndex).toBe(5);
   });
 
   it("final g should be [g] in liaison, but otherwise silent", () => {
@@ -84,11 +92,12 @@ describe("gTransliteration", () => {
     // /.ɡ‿/ (long article /lɔ̃.ɡ‿aʁ.tikl/), or simply omit the liaison
     // (long article /lɔ̃. aʁ.tikl/).
 
-    const latin = "g"; // long
+    const word = "long";
+    const index = 3;
 
-    const [newLatin, newTransliteration] = gTransliteration(latin);
+    const [newTransliteration, newIndex] = gTransliteration(word, index);
 
-    expect(newLatin).toBe("");
     expect(newTransliteration).toBe("(g)");
+    expect(newIndex).toBe(4);
   });
 });
