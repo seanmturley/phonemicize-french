@@ -1,5 +1,10 @@
-export default function vTransliteration(latin: string) {
-  const newLatin = latin.substring(1);
+import type { LetterTransliteration } from "./transliteration-types.ts";
 
-  return [newLatin, "v"];
+export default function vTransliteration(
+  word: string,
+  index: number
+): LetterTransliteration {
+  const newIndex = index + 1;
+
+  return ["v", newIndex];
 }

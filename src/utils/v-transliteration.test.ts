@@ -2,11 +2,12 @@ import vTransliteration from "./v-transliteration.ts";
 
 describe("vTransliteration", () => {
   it("v should be [v]", () => {
-    const latin = "venir"; //souvenir
+    const word = "souvenir";
+    const index = 3;
 
-    const [newLatin, newTransliteration] = vTransliteration(latin);
+    const [newTransliteration, newIndex] = vTransliteration(word, index);
 
-    expect(newLatin).toBe("enir");
     expect(newTransliteration).toBe("v");
+    expect(newIndex).toBe(4);
   });
 });
