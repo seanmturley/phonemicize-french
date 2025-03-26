@@ -4,20 +4,22 @@ describe("lTransliteration", () => {
   // NOTE: There are several graphemes with il* that are handled by
   // the iTransliteration function.
   it("ll should be [l]", () => {
-    const latin = "llet"; // ballet
+    const word = "ballet";
+    const index = 2;
 
-    const [newLatin, newTransliteration] = lTransliteration(latin);
+    const [newTransliteration, newIndex] = lTransliteration(word, index);
 
-    expect(newLatin).toBe("et");
     expect(newTransliteration).toBe("l");
+    expect(newIndex).toBe(4);
   });
 
   it("l should be [l]", () => {
-    const latin = "large"; // large
+    const word = "large";
+    const index = 0;
 
-    const [newLatin, newTransliteration] = lTransliteration(latin);
+    const [newTransliteration, newIndex] = lTransliteration(word, index);
 
-    expect(newLatin).toBe("arge");
     expect(newTransliteration).toBe("l");
+    expect(newIndex).toBe(1);
   });
 });

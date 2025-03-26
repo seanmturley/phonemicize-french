@@ -1,8 +1,15 @@
-export default function lTransliteration(latin: string) {
+import type { LetterTransliteration } from "./transliteration-types.ts";
+
+export default function lTransliteration(
+  word: string,
+  index: number
+): LetterTransliteration {
+  const remainingWord = word.substring(index);
+
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/^ll/i.test(latin)) {
+  if (/^ll/i.test(remainingWord)) {
     // ll should be [l]
     newTransliteration = "l";
     numTransliteratedCharacters = 2;
@@ -11,7 +18,7 @@ export default function lTransliteration(latin: string) {
     newTransliteration = "l";
   }
 
-  const newLatin = latin.substring(numTransliteratedCharacters);
+  const newIndex = index + numTransliteratedCharacters;
 
-  return [newLatin, newTransliteration];
+  return [newTransliteration, newIndex];
 }
