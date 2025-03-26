@@ -4,70 +4,78 @@ describe("sTransliteration", () => {
   it("final s should be [z] in liaison, but otherwise silent", () => {
     // Note exceptions e.g. hélas, lis, fils
 
-    const latin = "s"; // mes
+    const word = "mes";
+    const index = 2;
 
-    const [newLatin, newTransliteration] = sTransliteration(latin);
+    const [newTransliteration, newIndex] = sTransliteration(word, index);
 
-    expect(newLatin).toBe("");
     expect(newTransliteration).toBe("(z)");
+    expect(newIndex).toBe(3);
   });
 
   describe("single s", () => {
     // transliterateWord needs reworking to check preceeding letters
     // it("between vowels should be [z]", () => {
-    //   const latin = ""; // maison
+    //   const word = ""; // maison
+    // const index = 4;
 
-    //   const [newLatin, newTransliteration] = sTransliteration(latin);
+    // const [newTransliteration, newIndex] = sTransliteration(word, index);
 
-    //   expect(newLatin).toBe("on");
     //   expect(newTransliteration).toBe("z");
+    // expect(newIndex).toBe(5);
+
     // });
 
     it("not between vowels should be [s]", () => {
-      const latin = "scandale"; // scandale
+      const word = "astre";
+      const index = 1;
 
-      const [newLatin, newTransliteration] = sTransliteration(latin);
+      const [newTransliteration, newIndex] = sTransliteration(word, index);
 
-      expect(newLatin).toBe("andale");
-      expect(newTransliteration).toBe("sk");
+      expect(newTransliteration).toBe("s");
+      expect(newIndex).toBe(2);
     });
   });
 
   it("ss should be [s]", () => {
-    const latin = "sse"; // agasse
+    const word = "agasse";
+    const index = 3;
 
-    const [newLatin, newTransliteration] = sTransliteration(latin);
+    const [newTransliteration, newIndex] = sTransliteration(word, index);
 
-    expect(newLatin).toBe("e");
     expect(newTransliteration).toBe("s");
+    expect(newIndex).toBe(5);
   });
 
   describe("sc before", () => {
     it("a front vowel should be [s]", () => {
-      const latin = "scendre"; // descendre
+      const word = "descendre";
+      const index = 2;
 
-      const [newLatin, newTransliteration] = sTransliteration(latin);
+      const [newTransliteration, newIndex] = sTransliteration(word, index);
 
-      expect(newLatin).toBe("endre");
       expect(newTransliteration).toBe("s");
+      expect(newIndex).toBe(4);
     });
 
     it("a back vowel or consonant should be [sk]", () => {
-      const latin = "scandale"; // scandale
+      const word = "scandale";
+      const index = 0;
 
-      const [newLatin, newTransliteration] = sTransliteration(latin);
+      const [newTransliteration, newIndex] = sTransliteration(word, index);
 
-      expect(newLatin).toBe("andale");
       expect(newTransliteration).toBe("sk");
+      expect(newIndex).toBe(2);
     });
   });
 
   it("sch should be [ʃ]", () => {
-    const latin = "schéma"; // schéma
+    const word = "schéma";
+    const index = 0;
 
-    const [newLatin, newTransliteration] = sTransliteration(latin);
+    const [newTransliteration, newIndex] = sTransliteration(word, index);
 
-    expect(newLatin).toBe("éma");
     expect(newTransliteration).toBe("ʃ");
+    expect(newIndex).toBe(3);
   });
 });
