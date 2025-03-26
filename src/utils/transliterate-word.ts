@@ -51,9 +51,9 @@ export default function transliterateWord(word: string) {
         [newTransliteration, index] = hTransliteration(word, index);
         break;
 
-      // case "j":
-      //   [newTransliteration, index] = jTransliteration(word, index);
-      //   break;
+      case "j":
+        [newTransliteration, index] = jTransliteration(word, index);
+        break;
 
       // case "k":
       //   [newTransliteration, index] = kTransliteration(word, index);

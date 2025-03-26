@@ -2,11 +2,12 @@ import jTransliteration from "./j-transliteration.ts";
 
 describe("jTransliteration", () => {
   it("j should be [ʒ]", () => {
-    const latin = "jardin"; // jardin
+    const word = "jardin";
+    const index = 0;
 
-    const [newLatin, newTransliteration] = jTransliteration(latin);
+    const [newTransliteration, newIndex] = jTransliteration(word, index);
 
-    expect(newLatin).toBe("ardin");
     expect(newTransliteration).toBe("ʒ");
+    expect(newIndex).toBe(1);
   });
 });
