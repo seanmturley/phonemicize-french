@@ -2,11 +2,12 @@ import kTransliteration from "./k-transliteration.ts";
 
 describe("kTransliteration", () => {
   it("k should be [k]", () => {
-    const latin = "kilo"; // kilo
+    const word = "kilo";
+    const index = 0;
 
-    const [newLatin, newTransliteration] = kTransliteration(latin);
+    const [newTransliteration, newIndex] = kTransliteration(word, index);
 
-    expect(newLatin).toBe("ilo");
     expect(newTransliteration).toBe("k");
+    expect(newIndex).toBe(1);
   });
 });
