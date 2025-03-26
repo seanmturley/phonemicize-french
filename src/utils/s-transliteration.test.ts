@@ -14,17 +14,15 @@ describe("sTransliteration", () => {
   });
 
   describe("single s", () => {
-    // transliterateWord needs reworking to check preceeding letters
-    // it("between vowels should be [z]", () => {
-    //   const word = ""; // maison
-    // const index = 4;
+    it("between vowels should be [z]", () => {
+      const word = "maison";
+      const index = 3;
 
-    // const [newTransliteration, newIndex] = sTransliteration(word, index);
+      const [newTransliteration, newIndex] = sTransliteration(word, index);
 
-    //   expect(newTransliteration).toBe("z");
-    // expect(newIndex).toBe(5);
-
-    // });
+      expect(newTransliteration).toBe("z");
+      expect(newIndex).toBe(4);
+    });
 
     it("not between vowels should be [s]", () => {
       const word = "astre";
