@@ -4,11 +4,12 @@ describe("wTransliteration", () => {
   it("w should be [w]", () => {
     // Note "clown" as an exception, rendered as [klun]
 
-    const latin = "wi"; // kiwi
+    const word = "kiwi";
+    const index = 2;
 
-    const [newLatin, newTransliteration] = wTransliteration(latin);
+    const [newTransliteration, newIndex] = wTransliteration(word, index);
 
-    expect(newLatin).toBe("i");
     expect(newTransliteration).toBe("w");
+    expect(newIndex).toBe(3);
   });
 });

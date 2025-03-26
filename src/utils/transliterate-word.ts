@@ -95,9 +95,9 @@ export default function transliterateWord(word: string) {
         [newTransliteration, index] = vTransliteration(word, index);
         break;
 
-      // case "w":
-      //   [newTransliteration, index] = wTransliteration(word, index);
-      //   break;
+      case "w":
+        [newTransliteration, index] = wTransliteration(word, index);
+        break;
 
       // case "x":
       //   [newTransliteration, index] = xTransliteration(word, index);
