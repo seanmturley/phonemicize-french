@@ -6,40 +6,45 @@ describe("pTransliteration", () => {
     // beaucoup, which can produce a liaison with /p/.
     // There are few native words that end in p - it's possible
     // that foreign loan-word exceptions are the majority.
-    const latin = "p"; // coup
 
-    const [newLatin, newTransliteration] = pTransliteration(latin);
+    const word = "coup";
+    const index = 3;
 
-    expect(newLatin).toBe("");
+    const [newTransliteration, newIndex] = pTransliteration(word, index);
+
     expect(newTransliteration).toBe("");
+    expect(newIndex).toBe(4);
   });
 
   it("ph should be [f]", () => {
-    const latin = "philosophe"; // philosophe
+    const word = "philosophe";
+    const index = 0;
 
-    const [newLatin, newTransliteration] = pTransliteration(latin);
+    const [newTransliteration, newIndex] = pTransliteration(word, index);
 
-    expect(newLatin).toBe("ilosophe");
     expect(newTransliteration).toBe("f");
+    expect(newIndex).toBe(2);
   });
 
   describe("initial or medial", () => {
     it("pp should be [p]", () => {
-      const latin = "pport"; // support
+      const word = "support";
+      const index = 2;
 
-      const [newLatin, newTransliteration] = pTransliteration(latin);
+      const [newTransliteration, newIndex] = pTransliteration(word, index);
 
-      expect(newLatin).toBe("ort");
       expect(newTransliteration).toBe("p");
+      expect(newIndex).toBe(4);
     });
 
     it("p phould de [p]", () => {
-      const latin = "ptive"; // captive
+      const word = "captive";
+      const index = 2;
 
-      const [newLatin, newTransliteration] = pTransliteration(latin);
+      const [newTransliteration, newIndex] = pTransliteration(word, index);
 
-      expect(newLatin).toBe("tive");
       expect(newTransliteration).toBe("p");
+      expect(newIndex).toBe(3);
     });
   });
 });

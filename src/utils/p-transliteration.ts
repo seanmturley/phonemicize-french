@@ -1,15 +1,22 @@
-export default function pTransliteration(latin: string) {
+import type { LetterTransliteration } from "./transliteration-types.ts";
+
+export default function pTransliteration(
+  word: string,
+  index: number
+): LetterTransliteration {
+  const remainingWord = word.substring(index);
+
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/p$/i.test(latin)) {
+  if (/p$/i.test(remainingWord)) {
     // final p should be silent
     newTransliteration = "";
-  } else if (/^ph/i.test(latin)) {
+  } else if (/^ph/i.test(remainingWord)) {
     // ph should be [f]
     newTransliteration = "f";
     numTransliteratedCharacters = 2;
-  } else if (/^pp/i.test(latin)) {
+  } else if (/^pp/i.test(remainingWord)) {
     // pp should be [p]
     newTransliteration = "p";
     numTransliteratedCharacters = 2;
@@ -18,7 +25,7 @@ export default function pTransliteration(latin: string) {
     newTransliteration = "p";
   }
 
-  const newLatin = latin.substring(numTransliteratedCharacters);
+  const newIndex = index + numTransliteratedCharacters;
 
-  return [newLatin, newTransliteration];
+  return [newTransliteration, newIndex];
 }
