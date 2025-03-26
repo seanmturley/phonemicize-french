@@ -2,20 +2,22 @@ import hTransliteration from "./h-transliteration.ts";
 
 describe("hTransliteration", () => {
   it("h 'aspiré', should be silent and not allow liaison or elision", () => {
-    const latin = "hideuse"; // hideuse
+    const word = "hideuse";
+    const index = 0;
 
-    const [newLatin, newTransliteration] = hTransliteration(latin);
+    const [newTransliteration, newIndex] = hTransliteration(word, index);
 
-    expect(newLatin).toBe("ideuse");
     expect(newTransliteration).toBe("h");
+    expect(newIndex).toBe(1);
   });
 
   it("h 'muet' or medial should be silent", () => {
-    const latin = "heure"; // heure
+    const word = "heure";
+    const index = 0;
 
-    const [newLatin, newTransliteration] = hTransliteration(latin);
+    const [newTransliteration, newIndex] = hTransliteration(word, index);
 
-    expect(newLatin).toBe("eure");
     expect(newTransliteration).toBe("");
+    expect(newIndex).toBe(1);
   });
 });

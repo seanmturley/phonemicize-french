@@ -47,60 +47,60 @@ export default function transliterateWord(word: string) {
         [newTransliteration, index] = gTransliteration(word, index);
         break;
 
-      // case "h":
-      //   [word, newTransliteration] = hTransliteration(word);
-      //   break;
+      case "h":
+        [newTransliteration, index] = hTransliteration(word, index);
+        break;
 
       // case "j":
-      //   [word, newTransliteration] = jTransliteration(word);
+      //   [newTransliteration, index] = jTransliteration(word, index);
       //   break;
 
       // case "k":
-      //   [word, newTransliteration] = kTransliteration(word);
+      //   [newTransliteration, index] = kTransliteration(word, index);
       //   break;
 
       // case "l":
-      //   [word, newTransliteration] = lTransliteration(word);
+      //   [newTransliteration, index] = lTransliteration(word, index);
       //   break;
 
       // case "m":
-      //   [word, newTransliteration] = mTransliteration(word);
+      //   [newTransliteration, index] = mTransliteration(word, index);
       //   break;
 
       // case "n":
-      //   [word, newTransliteration] = nTransliteration(word);
+      //   [newTransliteration, index] = nTransliteration(word, index);
       //   break;
 
       // case "p":
-      //   [word, newTransliteration] = pTransliteration(word);
+      //   [newTransliteration, index] = pTransliteration(word, index);
       //   break;
 
       // case "q":
-      //   [word, newTransliteration] = qTransliteration(word);
+      //   [newTransliteration, index] = qTransliteration(word, index);
       //   break;
 
       // case "r":
-      //   [word, newTransliteration] = rTransliteration(word);
+      //   [newTransliteration, index] = rTransliteration(word, index);
       //   break;
 
       // case "s":
-      //   [word, newTransliteration] = sTransliteration(word);
+      //   [newTransliteration, index] = sTransliteration(word, index);
       //   break;
 
       // case "t":
-      //   [word, newTransliteration] = tTransliteration(word);
+      //   [newTransliteration, index] = tTransliteration(word, index);
       //   break;
 
       // case "v":
-      //   [word, newTransliteration] = vTransliteration(word);
+      //   [newTransliteration, index] = vTransliteration(word, index);
       //   break;
 
       // case "w":
-      //   [word, newTransliteration] = wTransliteration(word);
+      //   [newTransliteration, index] = wTransliteration(word, index);
       //   break;
 
       // case "x":
-      //   [word, newTransliteration] = xTransliteration(word);
+      //   [newTransliteration, index] = xTransliteration(word, index);
       //   break;
 
       default:
