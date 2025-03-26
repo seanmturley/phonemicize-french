@@ -2,60 +2,66 @@ import tTransliteration from "./t-transliteration.ts";
 
 describe("tTransliteration", () => {
   it("final t should be [t] in liaison, but otherwise silent", () => {
-    const latin = "t"; // tout
+    const word = "tout";
+    const index = 3;
 
-    const [newLatin, newTransliteration] = tTransliteration(latin);
+    const [newTransliteration, newIndex] = tTransliteration(word, index);
 
-    expect(newLatin).toBe("");
     expect(newTransliteration).toBe("(t)");
+    expect(newIndex).toBe(4);
   });
 
   describe("initial or medial", () => {
     it("t should be [t]", () => {
-      const latin = "total";
+      const word = "total";
+      const index = 0;
 
-      const [newLatin, newTransliteration] = tTransliteration(latin);
+      const [newTransliteration, newIndex] = tTransliteration(word, index);
 
-      expect(newLatin).toBe("otal");
       expect(newTransliteration).toBe("t");
+      expect(newIndex).toBe(1);
     });
 
     it("tt should be [t]", () => {
-      const latin = "tte"; // glotte
+      const word = "glotte";
+      const index = 3;
 
-      const [newLatin, newTransliteration] = tTransliteration(latin);
+      const [newTransliteration, newIndex] = tTransliteration(word, index);
 
-      expect(newLatin).toBe("e");
       expect(newTransliteration).toBe("t");
+      expect(newIndex).toBe(5);
     });
   });
 
   it("th should be [t]", () => {
-    const latin = "Thomas";
+    const word = "Thomas";
+    const index = 0;
 
-    const [newLatin, newTransliteration] = tTransliteration(latin);
+    const [newTransliteration, newIndex] = tTransliteration(word, index);
 
-    expect(newLatin).toBe("omas");
     expect(newTransliteration).toBe("t");
+    expect(newIndex).toBe(2);
   });
 
   describe("the ending", () => {
     it("tion should be [sjɔ̃]", () => {
-      const latin = "tion"; //attention
+      const word = "attention";
+      const index = 5;
 
-      const [newLatin, newTransliteration] = tTransliteration(latin);
+      const [newTransliteration, newIndex] = tTransliteration(word, index);
 
-      expect(newLatin).toBe("");
       expect(newTransliteration).toBe("sjɔ̃");
+      expect(newIndex).toBe(9);
     });
 
     it("tience should be [sjɑ̃s]", () => {
-      const latin = "tience"; // patience
+      const word = "patience";
+      const index = 2;
 
-      const [newLatin, newTransliteration] = tTransliteration(latin);
+      const [newTransliteration, newIndex] = tTransliteration(word, index);
 
-      expect(newLatin).toBe("");
       expect(newTransliteration).toBe("sjɑ̃s");
+      expect(newIndex).toBe(8);
     });
   });
 });
