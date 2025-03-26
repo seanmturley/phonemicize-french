@@ -17,6 +17,7 @@ import tTransliteration from "./t-transliteration.ts";
 import vTransliteration from "./v-transliteration.ts";
 import wTransliteration from "./w-transliteration.ts";
 import xTransliteration from "./x-transliteration.ts";
+import zTransliteration from "./z-transliteration.ts";
 
 export default function transliterateWord(word: string) {
   let transliteration = "";
@@ -101,6 +102,10 @@ export default function transliterateWord(word: string) {
 
       case "x":
         [newTransliteration, index] = xTransliteration(word, index);
+        break;
+
+      case "z":
+        [newTransliteration, index] = zTransliteration(word, index);
         break;
 
       default:
