@@ -2,20 +2,22 @@ import rTransliteration from "./r-transliteration.ts";
 
 describe("rTransliteration", () => {
   it("medial rr should should be [ʁ]", () => {
-    const latin = "rrible"; // terrible
+    const word = "terrible";
+    const index = 2;
 
-    const [newLatin, newTransliteration] = rTransliteration(latin);
+    const [newTransliteration, newIndex] = rTransliteration(word, index);
 
-    expect(newLatin).toBe("ible");
     expect(newTransliteration).toBe("ʁ");
+    expect(newIndex).toBe(4);
   });
 
   it("initial or medial r should be [ʁ]", () => {
-    const latin = "rapide"; // rapide
+    const word = "rapide";
+    const index = 0;
 
-    const [newLatin, newTransliteration] = rTransliteration(latin);
+    const [newTransliteration, newIndex] = rTransliteration(word, index);
 
-    expect(newLatin).toBe("apide");
     expect(newTransliteration).toBe("ʁ");
+    expect(newIndex).toBe(1);
   });
 });
