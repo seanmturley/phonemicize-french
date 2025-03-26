@@ -3,21 +3,24 @@ import mTransliteration from "./m-transliteration.ts";
 describe("mTransliteration", () => {
   // NOTE: m as a marker of a nasal vowel is handled by vowel
   // transliteration functions.
+
   it("mm should be [m]", () => {
-    const latin = "mme"; // flamme
+    const word = "flamme";
+    const index = 3;
 
-    const [newLatin, newTransliteration] = mTransliteration(latin);
+    const [newTransliteration, newIndex] = mTransliteration(word, index);
 
-    expect(newLatin).toBe("e");
     expect(newTransliteration).toBe("m");
+    expect(newIndex).toBe(5);
   });
 
   it("m should be [m]", () => {
-    const latin = "mardi"; // mardi
+    const word = "mardi";
+    const index = 0;
 
-    const [newLatin, newTransliteration] = mTransliteration(latin);
+    const [newTransliteration, newIndex] = mTransliteration(word, index);
 
-    expect(newLatin).toBe("ardi");
     expect(newTransliteration).toBe("m");
+    expect(newIndex).toBe(1);
   });
 });
