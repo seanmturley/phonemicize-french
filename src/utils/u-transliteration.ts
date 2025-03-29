@@ -18,18 +18,6 @@ export default function uTransliteration(
     // un should be [œ̃] (a final [n] is implied in liaison)
     newTransliteration = "œ̃";
     numTransliteratedCharacters = 2;
-  } else if (/^ueille/i.test(remainingWord)) {
-    // ue followed by ille should be [œ]
-    newTransliteration = "œ";
-    numTransliteratedCharacters = 6;
-  } else if (/^ueill/i.test(remainingWord)) {
-    // ue followed by ill should be [œ]
-    newTransliteration = "œ";
-    numTransliteratedCharacters = 5;
-  } else if (/^ueil/i.test(remainingWord)) {
-    // ue followed by il should be [œ]
-    newTransliteration = "œ";
-    numTransliteratedCharacters = 4;
   } else if (new RegExp(String.raw`^um[${vowel}]`, "i").test(remainingWord)) {
     // before a vowel um should be [ym]
     newTransliteration = "ym";
