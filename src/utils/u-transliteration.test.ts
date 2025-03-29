@@ -77,13 +77,13 @@ describe("uTransliteration", () => {
       expect(newIndex).toBe(6);
     });
 
-    it("un should be [œ̃n] in liaison, but otherwise [œ̃]", () => {
+    it("un should be [œ̃] (a final [n] is implied in liaison)", () => {
       const word = "aucun";
       const index = 3;
 
       const [newTransliteration, newIndex] = uTransliteration(word, index);
 
-      expect(newTransliteration).toBe("œ̃(n)");
+      expect(newTransliteration).toBe("œ̃");
       expect(newIndex).toBe(5);
     });
   });

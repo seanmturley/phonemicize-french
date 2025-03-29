@@ -15,8 +15,8 @@ export default function uTransliteration(
     newTransliteration = "œ̃";
     numTransliteratedCharacters = 2;
   } else if (/un$/i.test(remainingWord)) {
-    // un should be [œ̃n] in liaison, but otherwise [œ̃]
-    newTransliteration = "œ̃(n)";
+    // un should be [œ̃] (a final [n] is implied in liaison)
+    newTransliteration = "œ̃";
     numTransliteratedCharacters = 2;
   } else if (/^ueille/i.test(remainingWord)) {
     // ue followed by ille should be [œ]
