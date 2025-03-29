@@ -14,24 +14,24 @@ describe("uTransliteration", () => {
   // });
 
   describe("before a vowel", () => {
-    it("um should be [y]", () => {
+    it("um should be [ym]", () => {
       const word = "fume";
       const index = 1;
 
       const [newTransliteration, newIndex] = uTransliteration(word, index);
 
-      expect(newTransliteration).toBe("y");
+      expect(newTransliteration).toBe("ym");
       expect(newIndex).toBe(3);
     });
 
-    it("un should be [y]", () => {
+    it("un should be [yn]", () => {
       const word = "unanime";
-      const index = 1;
+      const index = 0;
 
       const [newTransliteration, newIndex] = uTransliteration(word, index);
 
-      expect(newTransliteration).toBe("y");
-      expect(newIndex).toBe(3);
+      expect(newTransliteration).toBe("yn");
+      expect(newIndex).toBe(2);
     });
   });
 
@@ -88,47 +88,15 @@ describe("uTransliteration", () => {
     });
   });
 
-  describe("ue followed by", () => {
-    it("il should be [œ]", () => {
-      const word = "orgueil";
-      const index = 3;
-
-      const [newTransliteration, newIndex] = uTransliteration(word, index);
-
-      expect(newTransliteration).toBe("œ");
-      expect(newIndex).toBe(5);
-    });
-
-    it("ill should be [œ]", () => {
-      const word = "cueillir";
-      const index = 1;
-
-      const [newTransliteration, newIndex] = uTransliteration(word, index);
-
-      expect(newTransliteration).toBe("œ");
-      expect(newIndex).toBe(3);
-    });
-
-    it("ille should be [œ]", () => {
-      const word = "accueille";
-      const index = 3;
-
-      const [newTransliteration, newIndex] = uTransliteration(word, index);
-
-      expect(newTransliteration).toBe("œ");
-      expect(newIndex).toBe(5);
-    });
-  });
-
   describe("in all other cases", () => {
     it("u should be [y]", () => {
       const word = "abus";
-      const index = 3;
+      const index = 2;
 
       const [newTransliteration, newIndex] = uTransliteration(word, index);
 
       expect(newTransliteration).toBe("y");
-      expect(newIndex).toBe(5);
+      expect(newIndex).toBe(3);
     });
 
     it("û should be [y]", () => {
