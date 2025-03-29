@@ -1,6 +1,50 @@
 import cTransliteration from "./c-transliteration.ts";
 
 describe("cTransliteration", () => {
+  describe("cc followed by", () => {
+    it("ueill should be [kœj]", () => {
+      const word = "accueillir";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = cTransliteration(word, index);
+
+      expect(newTransliteration).toBe("kœj");
+      expect(newIndex).toBe(8);
+    });
+
+    it("ueil should be [kœj]", () => {
+      const word = "accueil";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = cTransliteration(word, index);
+
+      expect(newTransliteration).toBe("kœj");
+      expect(newIndex).toBe(7);
+    });
+  });
+
+  describe("c followed by", () => {
+    it("ueill should be [kœj]", () => {
+      const word = "cueillir";
+      const index = 0;
+
+      const [newTransliteration, newIndex] = cTransliteration(word, index);
+
+      expect(newTransliteration).toBe("kœj");
+      expect(newIndex).toBe(6);
+    });
+
+    it("ueil should be [kœj]", () => {
+      const word = "écueil";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = cTransliteration(word, index);
+
+      expect(newTransliteration).toBe("kœj");
+      expect(newIndex).toBe(6);
+    });
+  });
+
   describe("final", () => {
     it("c should be [k]", () => {
       const word = "parc";
@@ -36,7 +80,7 @@ describe("cTransliteration", () => {
   });
 
   describe("before a front vowel", () => {
-    it("c should should be [s]", () => {
+    it("c should be [s]", () => {
       const word = "ciel";
       const index = 0;
 
@@ -46,7 +90,7 @@ describe("cTransliteration", () => {
       expect(newIndex).toBe(1);
     });
 
-    it("cc should should be [ks]", () => {
+    it("cc should be [ks]", () => {
       const word = "accent";
       const index = 1;
 
@@ -58,7 +102,7 @@ describe("cTransliteration", () => {
   });
 
   describe("before a back vowel or consonant", () => {
-    it("c should should be [k]", () => {
+    it("c should be [k]", () => {
       const word = "encore";
       const index = 2;
 
@@ -68,7 +112,7 @@ describe("cTransliteration", () => {
       expect(newIndex).toBe(3);
     });
 
-    it("cc should should be [k]", () => {
+    it("cc should be [k]", () => {
       const word = "accru";
       const index = 1;
 

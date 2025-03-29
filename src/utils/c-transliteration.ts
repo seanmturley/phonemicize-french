@@ -24,6 +24,22 @@ export default function cTransliteration(
     // final ct should be [kt]
     newTransliteration = "kt";
     numTransliteratedCharacters = 2;
+  } else if (/^ccueill/i.test(remainingWord)) {
+    // cc followed by ueil should be [kœj]
+    newTransliteration = "kœj";
+    numTransliteratedCharacters = 7;
+  } else if (/^ccueil/i.test(remainingWord)) {
+    // cc followed by ueil should be [kœj]
+    newTransliteration = "kœj";
+    numTransliteratedCharacters = 6;
+  } else if (/^cueill/i.test(remainingWord)) {
+    // c followed by ueil should be [kœj]
+    newTransliteration = "kœj";
+    numTransliteratedCharacters = 6;
+  } else if (/^cueil/i.test(remainingWord)) {
+    // c followed by ueil should be [kœj]
+    newTransliteration = "kœj";
+    numTransliteratedCharacters = 5;
   } else if (
     new RegExp(String.raw`^c[${frontVowel}]`, "i").test(remainingWord)
   ) {
