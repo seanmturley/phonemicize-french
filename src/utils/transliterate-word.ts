@@ -14,6 +14,7 @@ import qTransliteration from "./q-transliteration.ts";
 import rTransliteration from "./r-transliteration.ts";
 import sTransliteration from "./s-transliteration.ts";
 import tTransliteration from "./t-transliteration.ts";
+import uTransliteration from "./u-transliteration.ts";
 import vTransliteration from "./v-transliteration.ts";
 import wTransliteration from "./w-transliteration.ts";
 import xTransliteration from "./x-transliteration.ts";
@@ -91,6 +92,10 @@ export default function transliterateWord(word: string) {
 
       case "t":
         [newTransliteration, index] = tTransliteration(word, index);
+        break;
+
+      case "u":
+        [newTransliteration, index] = uTransliteration(word, index);
         break;
 
       case "v":
