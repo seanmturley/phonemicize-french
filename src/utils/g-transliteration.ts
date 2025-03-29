@@ -17,6 +17,14 @@ export default function gTransliteration(
   if (/g$/i.test(remainingWord)) {
     // final g should be [g] in liaison, but otherwise silent
     newTransliteration = "(g)";
+  } else if (/^gueill/i.test(remainingWord)) {
+    // g followed by ueil should be [gœj]
+    newTransliteration = "gœj";
+    numTransliteratedCharacters = 6;
+  } else if (/^gueil/i.test(remainingWord)) {
+    // g followed by ueil should be [gœj]
+    newTransliteration = "gœj";
+    numTransliteratedCharacters = 5;
   } else if (/^gt/i.test(remainingWord)) {
     // gt should be silent
     newTransliteration = "";

@@ -1,6 +1,28 @@
 import gTransliteration from "./g-transliteration.ts";
 
 describe("gTransliteration", () => {
+  describe("g followed by", () => {
+    it("ueill should be [gœj]", () => {
+      const word = "enorgueillir";
+      const index = 4;
+
+      const [newTransliteration, newIndex] = gTransliteration(word, index);
+
+      expect(newTransliteration).toBe("gœj");
+      expect(newIndex).toBe(10);
+    });
+
+    it("ueil should be [gœj]", () => {
+      const word = "orgueil";
+      const index = 2;
+
+      const [newTransliteration, newIndex] = gTransliteration(word, index);
+
+      expect(newTransliteration).toBe("gœj");
+      expect(newIndex).toBe(7);
+    });
+  });
+
   describe("before a front vowel", () => {
     it("g should be [ʒ]", () => {
       const word = "sabotage";
