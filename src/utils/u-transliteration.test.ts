@@ -119,4 +119,46 @@ describe("uTransliteration", () => {
       expect(newIndex).toBe(5);
     });
   });
+
+  describe("in all other cases", () => {
+    it("u should be [y]", () => {
+      const word = "abus";
+      const index = 3;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("y");
+      expect(newIndex).toBe(5);
+    });
+
+    it("û should be [y]", () => {
+      const word = "dû";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("y");
+      expect(newIndex).toBe(2);
+    });
+
+    it("ü should be [y]", () => {
+      const word = "führer";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("y");
+      expect(newIndex).toBe(2);
+    });
+
+    it("ue should be [y]", () => {
+      const word = "due";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("y");
+      expect(newIndex).toBe(3);
+    });
+  });
 });
