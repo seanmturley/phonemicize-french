@@ -21,6 +21,16 @@ describe("gTransliteration", () => {
       expect(newTransliteration).toBe("gœj");
       expect(newIndex).toBe(7);
     });
+
+    it("ueu should be [gœ]", () => {
+      const word = "gueule";
+      const index = 0;
+
+      const [newTransliteration, newIndex] = gTransliteration(word, index);
+
+      expect(newTransliteration).toBe("gœ");
+      expect(newIndex).toBe(4);
+    });
   });
 
   describe("before a front vowel", () => {

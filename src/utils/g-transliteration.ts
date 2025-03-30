@@ -29,6 +29,10 @@ export default function gTransliteration(
     // g followed by ueil should be [gœj]
     newTransliteration = "gœj";
     numTransliteratedCharacters = 5;
+  } else if (/^gueu/i.test(remainingWord)) {
+    // g followed by ueu should be [gœ]
+    newTransliteration = "gœ";
+    numTransliteratedCharacters = 4;
   } else if (/^gt/i.test(remainingWord)) {
     // gt should be silent
     newTransliteration = "";
