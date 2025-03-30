@@ -4,7 +4,7 @@ describe("mTransliteration", () => {
   // NOTE: m as a marker of a nasal vowel is handled by vowel
   // transliteration functions.
 
-  it("mm should be [m]", () => {
+  it("mm should be /m/", () => {
     const word = "flamme";
     const index = 3;
 
@@ -14,7 +14,7 @@ describe("mTransliteration", () => {
     expect(newIndex).toBe(5);
   });
 
-  it("m should be [m]", () => {
+  it("m should be /m/", () => {
     const word = "mardi";
     const index = 0;
 

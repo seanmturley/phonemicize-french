@@ -15,18 +15,18 @@ export default function gTransliteration(
   let numTransliteratedCharacters = 1;
 
   if (/g$/i.test(remainingWord)) {
-    // final g should be [g] in liaison, but otherwise silent
+    // final g should be /g/ in liaison, but otherwise silent
     newTransliteration = "(g)";
   } else if (/gu$/i.test(remainingWord)) {
-    // final gu should be [gy]
+    // final gu should be /gy/
     newTransliteration = "gy";
     numTransliteratedCharacters = 2;
   } else if (/^gueill/i.test(remainingWord)) {
-    // g followed by ueil should be [gœj]
+    // g followed by ueil should be /gœj/
     newTransliteration = "gœj";
     numTransliteratedCharacters = 6;
   } else if (/^gueil/i.test(remainingWord)) {
-    // g followed by ueil should be [gœj]
+    // g followed by ueil should be /gœj/
     newTransliteration = "gœj";
     numTransliteratedCharacters = 5;
   } else if (/^gt/i.test(remainingWord)) {
@@ -34,19 +34,19 @@ export default function gTransliteration(
     newTransliteration = "";
     numTransliteratedCharacters = 2;
   } else if (/^gn/i.test(remainingWord)) {
-    // gn should be [ɲ]
+    // gn should be /ɲ/
     newTransliteration = "ɲ";
     numTransliteratedCharacters = 2;
   } else if (
     new RegExp(String.raw`^gg[${frontVowel}]`, "i").test(remainingWord)
   ) {
-    // before a front vowel gg should be [gʒ]
+    // before a front vowel gg should be /gʒ/
     newTransliteration = "gʒ";
     numTransliteratedCharacters = 2;
   } else if (
     new RegExp(String.raw`^gu[${frontVowel}]`, "i").test(remainingWord)
   ) {
-    // before a front vowel gu should be [g]
+    // before a front vowel gu should be /g/
     newTransliteration = "g";
     numTransliteratedCharacters = 2;
   } else if (
@@ -54,7 +54,7 @@ export default function gTransliteration(
       remainingWord
     )
   ) {
-    // NOT before a front vowel gg should be [g]
+    // NOT before a front vowel gg should be /g/
     newTransliteration = "g";
     numTransliteratedCharacters = 2;
   } else if (
@@ -62,17 +62,17 @@ export default function gTransliteration(
       remainingWord
     )
   ) {
-    // NOT before a front vowel ge should be [ʒ]
+    // NOT before a front vowel ge should be /ʒ/
     newTransliteration = "ʒ";
     numTransliteratedCharacters = 2;
   } else if (
     new RegExp(String.raw`^g[${frontVowel}]`, "i").test(remainingWord)
   ) {
-    // before a front vowel g should be [ʒ]
+    // before a front vowel g should be /ʒ/
     newTransliteration = "ʒ";
     numTransliteratedCharacters = 1;
   } else {
-    // NOT before a front vowel g should be [g]
+    // NOT before a front vowel g should be /g/
     newTransliteration = "g";
   }
 

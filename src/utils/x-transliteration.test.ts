@@ -1,10 +1,10 @@
 import xTransliteration from "./x-transliteration.ts";
 
 describe("xTransliteration", () => {
-  it("final x should be [z] in liaison, but otherwise silent", () => {
+  it("final x should be /z/ in liaison, but otherwise silent", () => {
     // Note exceptions for six and dix:
-    // - [s] independently
-    // - [z] before a modified word starting with a vowel or h-muet
+    // - /s/ independently
+    // - /z/ before a modified word starting with a vowel or h-muet
     // - silent before a modified word starting with a consonant
     //   (including h-aspiré)
 
@@ -17,7 +17,7 @@ describe("xTransliteration", () => {
     expect(newIndex).toBe(4);
   });
 
-  it("xh should be [gz]", () => {
+  it("xh should be /gz/", () => {
     const word = "exhume";
     const index = 1;
 
@@ -28,7 +28,7 @@ describe("xTransliteration", () => {
   });
 
   describe("x before", () => {
-    it("a consonant (excluding h) should be [ks]", () => {
+    it("a consonant (excluding h) should be /ks/", () => {
       const word = "texte";
       const index = 2;
 
@@ -38,9 +38,9 @@ describe("xTransliteration", () => {
       expect(newIndex).toBe(3);
     });
 
-    it("a vowel should be [gz]", () => {
+    it("a vowel should be /gz/", () => {
       // Note exceptions for:
-      // - (*-)deuxième*, (*-)sixième*, (*-)dixième* (becomes [z])
+      // - (*-)deuxième*, (*-)sixième*, (*-)dixième* (becomes /z/)
 
       const word = "exemple";
       const index = 1;

@@ -1,7 +1,7 @@
 import tTransliteration from "./t-transliteration.ts";
 
 describe("tTransliteration", () => {
-  it("final t should be [t] in liaison, but otherwise silent", () => {
+  it("final t should be /t/ in liaison, but otherwise silent", () => {
     const word = "tout";
     const index = 3;
 
@@ -12,7 +12,7 @@ describe("tTransliteration", () => {
   });
 
   describe("initial or medial", () => {
-    it("t should be [t]", () => {
+    it("t should be /t/", () => {
       const word = "total";
       const index = 0;
 
@@ -22,7 +22,7 @@ describe("tTransliteration", () => {
       expect(newIndex).toBe(1);
     });
 
-    it("tt should be [t]", () => {
+    it("tt should be /t/", () => {
       const word = "glotte";
       const index = 3;
 
@@ -33,7 +33,7 @@ describe("tTransliteration", () => {
     });
   });
 
-  it("th should be [t]", () => {
+  it("th should be /t/", () => {
     const word = "Thomas";
     const index = 0;
 

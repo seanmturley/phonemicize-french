@@ -1,7 +1,7 @@
 import rTransliteration from "./r-transliteration.ts";
 
 describe("rTransliteration", () => {
-  it("medial rr should should be [ʁ]", () => {
+  it("medial rr should should be /ʁ/", () => {
     const word = "terrible";
     const index = 2;
 
@@ -11,7 +11,7 @@ describe("rTransliteration", () => {
     expect(newIndex).toBe(4);
   });
 
-  it("initial or medial r should be [ʁ]", () => {
+  it("initial or medial r should be /ʁ/", () => {
     const word = "rapide";
     const index = 0;
 

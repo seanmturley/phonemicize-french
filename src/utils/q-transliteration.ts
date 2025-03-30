@@ -10,10 +10,10 @@ export default function qTransliteration(
   let numTransliteratedCharacters = 1;
 
   if (/q$/i.test(remainingWord)) {
-    // final q should be [k]
+    // final q should be /k/
     newTransliteration = "k";
   } else if (/^qu/i.test(remainingWord)) {
-    // qu should be [k]
+    // qu should be /k/
     newTransliteration = "k";
     numTransliteratedCharacters = 2;
   }

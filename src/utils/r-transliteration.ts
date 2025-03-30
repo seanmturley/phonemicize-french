@@ -10,11 +10,11 @@ export default function rTransliteration(
   let numTransliteratedCharacters = 1;
 
   if (/^rr/i.test(remainingWord)) {
-    // medial rr should should be [ʁ]
+    // medial rr should should be /ʁ/
     newTransliteration = "ʁ";
     numTransliteratedCharacters = 2;
   } else if (/^r/i.test(remainingWord)) {
-    // initial or medial r should be [ʁ]
+    // initial or medial r should be /ʁ/
     newTransliteration = "ʁ";
   }
 

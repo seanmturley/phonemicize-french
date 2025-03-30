@@ -1,8 +1,8 @@
 import wTransliteration from "./w-transliteration.ts";
 
 describe("wTransliteration", () => {
-  it("w should be [w]", () => {
-    // Note "clown" as an exception, rendered as [klun]
+  it("w should be /w/", () => {
+    // Note "clown" as an exception, rendered as /klun/
 
     const word = "kiwi";
     const index = 2;

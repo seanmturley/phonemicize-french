@@ -1,7 +1,7 @@
 import qTransliteration from "./q-transliteration.ts";
 
 describe("qTransliteration", () => {
-  it("final q should be [k]", () => {
+  it("final q should be /k/", () => {
     const word = "cinq";
     const index = 3;
 
@@ -11,7 +11,7 @@ describe("qTransliteration", () => {
     expect(newIndex).toBe(4);
   });
 
-  it("qu should be [k]", () => {
+  it("qu should be /k/", () => {
     const word = "quel";
     const index = 0;
 

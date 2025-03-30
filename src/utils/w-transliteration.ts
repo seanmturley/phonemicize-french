@@ -6,6 +6,6 @@ export default function wTransliteration(
 ): LetterTransliteration {
   const newIndex = index + 1;
 
-  // Note "clown" as an exception, rendered as [klun]
+  // Note "clown" as an exception, rendered as /klun/
   return ["w", newIndex];
 }

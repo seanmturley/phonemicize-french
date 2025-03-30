@@ -1,7 +1,7 @@
 import jTransliteration from "./j-transliteration.ts";
 
 describe("jTransliteration", () => {
-  it("j should be [ʒ]", () => {
+  it("j should be /ʒ/", () => {
     const word = "jardin";
     const index = 0;
 

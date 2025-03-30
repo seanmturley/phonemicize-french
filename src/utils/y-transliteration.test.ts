@@ -1,7 +1,7 @@
 import yTransliteration from "./y-transliteration.ts";
 
 describe("yTransliteration", () => {
-  it("initial y should be [j]", () => {
+  it("initial y should be /j/", () => {
     const word = "yeux";
     const index = 0;
 
@@ -11,7 +11,7 @@ describe("yTransliteration", () => {
     expect(newIndex).toBe(1);
   });
 
-  it("y between two vowels should be [j]", () => {
+  it("y between two vowels should be /j/", () => {
     const word = "royal";
     const index = 2;
 
@@ -22,7 +22,7 @@ describe("yTransliteration", () => {
   });
 
   describe("before a consonant excluding m, n, or h", () => {
-    it("yn should be [ɛ̃]", () => {
+    it("yn should be /ɛ̃/", () => {
       const word = "lynx";
       const index = 1;
 
@@ -32,7 +32,7 @@ describe("yTransliteration", () => {
       expect(newIndex).toBe(3);
     });
 
-    it("ym should be [ɛ̃]", () => {
+    it("ym should be /ɛ̃/", () => {
       const word = "sympa";
       const index = 1;
 
@@ -43,7 +43,7 @@ describe("yTransliteration", () => {
     });
   });
 
-  it("final ym should be [ɛ̃]", () => {
+  it("final ym should be /ɛ̃/", () => {
     const word = "thym";
     const index = 2;
 
@@ -54,7 +54,7 @@ describe("yTransliteration", () => {
   });
 
   describe("before a vowel, m, n, or h", () => {
-    it("yn should be [in]", () => {
+    it("yn should be /in/", () => {
       const word = "cynique";
       const index = 1;
 
@@ -64,7 +64,7 @@ describe("yTransliteration", () => {
       expect(newIndex).toBe(3);
     });
 
-    it("ym should be [im]", () => {
+    it("ym should be /im/", () => {
       const word = "hymne";
       const index = 1;
 
@@ -75,7 +75,7 @@ describe("yTransliteration", () => {
     });
   });
 
-  it("y before a consonant excluding m and n should be [i]", () => {
+  it("y before a consonant excluding m and n should be /i/", () => {
     const word = "martyr";
     const index = 4;
 

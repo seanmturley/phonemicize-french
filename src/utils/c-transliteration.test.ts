@@ -2,7 +2,7 @@ import cTransliteration from "./c-transliteration.ts";
 
 describe("cTransliteration", () => {
   describe("cc followed by", () => {
-    it("ueill should be [kœj]", () => {
+    it("ueill should be /kœj/", () => {
       const word = "accueillir";
       const index = 1;
 
@@ -12,7 +12,7 @@ describe("cTransliteration", () => {
       expect(newIndex).toBe(8);
     });
 
-    it("ueil should be [kœj]", () => {
+    it("ueil should be /kœj/", () => {
       const word = "accueil";
       const index = 1;
 
@@ -24,7 +24,7 @@ describe("cTransliteration", () => {
   });
 
   describe("c followed by", () => {
-    it("ueill should be [kœj]", () => {
+    it("ueill should be /kœj/", () => {
       const word = "cueillir";
       const index = 0;
 
@@ -34,7 +34,7 @@ describe("cTransliteration", () => {
       expect(newIndex).toBe(6);
     });
 
-    it("ueil should be [kœj]", () => {
+    it("ueil should be /kœj/", () => {
       const word = "écueil";
       const index = 1;
 
@@ -46,7 +46,7 @@ describe("cTransliteration", () => {
   });
 
   describe("final", () => {
-    it("c should be [k]", () => {
+    it("c should be /k/", () => {
       const word = "parc";
       const index = 3;
 
@@ -66,7 +66,7 @@ describe("cTransliteration", () => {
       expect(newIndex).toBe(5);
     });
 
-    it("ct should be [kt]", () => {
+    it("ct should be /kt/", () => {
       // Note exceptions where final 'ct' is silent e.g. respect
 
       const word = "direct";
@@ -80,7 +80,7 @@ describe("cTransliteration", () => {
   });
 
   describe("before a front vowel", () => {
-    it("c should be [s]", () => {
+    it("c should be /s/", () => {
       const word = "ciel";
       const index = 0;
 
@@ -90,7 +90,7 @@ describe("cTransliteration", () => {
       expect(newIndex).toBe(1);
     });
 
-    it("cc should be [ks]", () => {
+    it("cc should be /ks/", () => {
       const word = "accent";
       const index = 1;
 
@@ -102,7 +102,7 @@ describe("cTransliteration", () => {
   });
 
   describe("before a back vowel or consonant", () => {
-    it("c should be [k]", () => {
+    it("c should be /k/", () => {
       const word = "encore";
       const index = 2;
 
@@ -112,7 +112,7 @@ describe("cTransliteration", () => {
       expect(newIndex).toBe(3);
     });
 
-    it("cc should be [k]", () => {
+    it("cc should be /k/", () => {
       const word = "accru";
       const index = 1;
 
@@ -123,8 +123,8 @@ describe("cTransliteration", () => {
     });
   });
 
-  it("ch should be [ʃ]", () => {
-    // Note exception for words of Greek origin pronounced [k]
+  it("ch should be /ʃ/", () => {
+    // Note exception for words of Greek origin pronounced /k/
     // e.g. Christ
 
     const word = "blanche";
@@ -136,7 +136,7 @@ describe("cTransliteration", () => {
     expect(newIndex).toBe(6);
   });
 
-  it("cqu should be [k]", () => {
+  it("cqu should be /k/", () => {
     const word = "acquisition";
     const index = 1;
 
@@ -146,7 +146,7 @@ describe("cTransliteration", () => {
     expect(newIndex).toBe(4);
   });
 
-  it("ç should be [s]", () => {
+  it("ç should be /s/", () => {
     const word = "garçon";
     const index = 3;
 

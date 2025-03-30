@@ -1,7 +1,7 @@
 import sTransliteration from "./s-transliteration.ts";
 
 describe("sTransliteration", () => {
-  it("final s should be [z] in liaison, but otherwise silent", () => {
+  it("final s should be /z/ in liaison, but otherwise silent", () => {
     // Note exceptions e.g. hélas, lis, fils
 
     const word = "mes";
@@ -14,7 +14,7 @@ describe("sTransliteration", () => {
   });
 
   describe("single s", () => {
-    it("between vowels should be [z]", () => {
+    it("between vowels should be /z/", () => {
       const word = "maison";
       const index = 3;
 
@@ -24,7 +24,7 @@ describe("sTransliteration", () => {
       expect(newIndex).toBe(4);
     });
 
-    it("not between vowels should be [s]", () => {
+    it("not between vowels should be /s/", () => {
       const word = "astre";
       const index = 1;
 
@@ -35,7 +35,7 @@ describe("sTransliteration", () => {
     });
   });
 
-  it("ss should be [s]", () => {
+  it("ss should be /s/", () => {
     const word = "agasse";
     const index = 3;
 
@@ -46,7 +46,7 @@ describe("sTransliteration", () => {
   });
 
   describe("sc before", () => {
-    it("a front vowel should be [s]", () => {
+    it("a front vowel should be /s/", () => {
       const word = "descendre";
       const index = 2;
 
@@ -56,7 +56,7 @@ describe("sTransliteration", () => {
       expect(newIndex).toBe(4);
     });
 
-    it("a back vowel or consonant should be [sk]", () => {
+    it("a back vowel or consonant should be /sk/", () => {
       const word = "scandale";
       const index = 0;
 
@@ -67,7 +67,7 @@ describe("sTransliteration", () => {
     });
   });
 
-  it("sch should be [ʃ]", () => {
+  it("sch should be /ʃ/", () => {
     const word = "schéma";
     const index = 0;
 

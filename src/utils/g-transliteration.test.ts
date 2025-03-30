@@ -2,7 +2,7 @@ import gTransliteration from "./g-transliteration.ts";
 
 describe("gTransliteration", () => {
   describe("g followed by", () => {
-    it("ueill should be [gœj]", () => {
+    it("ueill should be /gœj/", () => {
       const word = "enorgueillir";
       const index = 4;
 
@@ -12,7 +12,7 @@ describe("gTransliteration", () => {
       expect(newIndex).toBe(10);
     });
 
-    it("ueil should be [gœj]", () => {
+    it("ueil should be /gœj/", () => {
       const word = "orgueil";
       const index = 2;
 
@@ -24,7 +24,7 @@ describe("gTransliteration", () => {
   });
 
   describe("before a front vowel", () => {
-    it("g should be [ʒ]", () => {
+    it("g should be /ʒ/", () => {
       const word = "sabotage";
       const index = 6;
 
@@ -34,7 +34,7 @@ describe("gTransliteration", () => {
       expect(newIndex).toBe(7);
     });
 
-    it("gg should be [gʒ]", () => {
+    it("gg should be /gʒ/", () => {
       const word = "suggestion";
       const index = 2;
 
@@ -44,7 +44,7 @@ describe("gTransliteration", () => {
       expect(newIndex).toBe(4);
     });
 
-    it("gu should be [g]", () => {
+    it("gu should be /g/", () => {
       const word = "gigue";
       const index = 2;
 
@@ -56,7 +56,7 @@ describe("gTransliteration", () => {
   });
 
   describe("NOT before a front vowel", () => {
-    it("g should be [g]", () => {
+    it("g should be /g/", () => {
       const word = "grave";
       const index = 0;
 
@@ -66,7 +66,7 @@ describe("gTransliteration", () => {
       expect(newIndex).toBe(1);
     });
 
-    it("gg should be [g]", () => {
+    it("gg should be /g/", () => {
       const word = "aggraver";
       const index = 1;
 
@@ -76,7 +76,7 @@ describe("gTransliteration", () => {
       expect(newIndex).toBe(3);
     });
 
-    it("ge should be [ʒ]", () => {
+    it("ge should be /ʒ/", () => {
       const word = "pigeon";
       const index = 2;
 
@@ -87,7 +87,7 @@ describe("gTransliteration", () => {
     });
   });
 
-  it("gn should be [ɲ]", () => {
+  it("gn should be /ɲ/", () => {
     const word = "compagnon";
     const index = 5;
 
@@ -107,7 +107,7 @@ describe("gTransliteration", () => {
     expect(newIndex).toBe(5);
   });
 
-  it("final gu should be [gy]", () => {
+  it("final gu should be /gy/", () => {
     const word = "aigu";
     const index = 2;
 
@@ -117,7 +117,7 @@ describe("gTransliteration", () => {
     expect(newIndex).toBe(4);
   });
 
-  it("final g should be [g] in liaison, but otherwise silent", () => {
+  it("final g should be /g/ in liaison, but otherwise silent", () => {
     // https://en.wikipedia.org/wiki/Liaison_(French)#Realization_of_liaison
     // Traditionally, a liaison with a word ending in -g was realized as /k/,
     // but this sounds dated in modern French. It is mostly popular to use

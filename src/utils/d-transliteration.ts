@@ -10,14 +10,14 @@ export default function dTransliteration(
   let numTransliteratedCharacters = 1;
 
   if (/d$/i.test(remainingWord)) {
-    // final d should be [t] in liaison, but otherwise silent
+    // final d should be /t/ in liaison, but otherwise silent
     newTransliteration = "(t)";
   } else if (/^dd/i.test(remainingWord)) {
-    // initial or medial dd should be [d]
+    // initial or medial dd should be /d/
     newTransliteration = "d";
     numTransliteratedCharacters = 2;
   } else {
-    // initial or medial d should be [d]
+    // initial or medial d should be /d/
     newTransliteration = "d";
   }
 

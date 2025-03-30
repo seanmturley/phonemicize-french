@@ -1,7 +1,7 @@
 import dTransliteration from "./d-transliteration.ts";
 
 describe("dTransliteration", () => {
-  it("final d should be [t] in liaison, but otherwise silent", () => {
+  it("final d should be /t/ in liaison, but otherwise silent", () => {
     const word = "grand";
     const index = 4;
 
@@ -12,7 +12,7 @@ describe("dTransliteration", () => {
   });
 
   describe("initial or medial", () => {
-    it("d should be [d]", () => {
+    it("d should be /d/", () => {
       const word = "doux";
       const index = 0;
 
@@ -22,7 +22,7 @@ describe("dTransliteration", () => {
       expect(newIndex).toBe(1);
     });
 
-    it("dd should be [d]", () => {
+    it("dd should be /d/", () => {
       const word = "addition";
       const index = 1;
 

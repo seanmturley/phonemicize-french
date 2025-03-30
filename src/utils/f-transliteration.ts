@@ -10,11 +10,11 @@ export default function fTransliteration(
   let numTransliteratedCharacters = 1;
 
   if (/^ff/i.test(remainingWord)) {
-    // initial or medial ff should be [f]
+    // initial or medial ff should be /f/
     newTransliteration = "f";
     numTransliteratedCharacters = 2;
   } else {
-    // initial, medial, or final f should be [f]
+    // initial, medial, or final f should be /f/
     // Note exceptions for final f - see test for details
     newTransliteration = "f";
   }

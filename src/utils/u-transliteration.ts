@@ -11,19 +11,19 @@ export default function uTransliteration(
   let numTransliteratedCharacters = 1;
 
   if (/um$/i.test(remainingWord)) {
-    // final um should be [œ̃]
+    // final um should be /œ̃/
     newTransliteration = "œ̃";
     numTransliteratedCharacters = 2;
   } else if (/un$/i.test(remainingWord)) {
-    // un should be [œ̃] (a final [n] is implied in liaison)
+    // un should be /œ̃/ (a final /n/ is implied in liaison)
     newTransliteration = "œ̃";
     numTransliteratedCharacters = 2;
   } else if (new RegExp(String.raw`^um[${vowel}]`, "i").test(remainingWord)) {
-    // before a vowel um should be [ym]
+    // before a vowel um should be /ym/
     newTransliteration = "ym";
     numTransliteratedCharacters = 2;
   } else if (new RegExp(String.raw`^un[${vowel}]`, "i").test(remainingWord)) {
-    // before a vowel un should be [yn]
+    // before a vowel un should be /yn/
     newTransliteration = "yn";
     numTransliteratedCharacters = 2;
   } else if (
@@ -31,7 +31,7 @@ export default function uTransliteration(
       remainingWord
     )
   ) {
-    // before a consonant excluding m, n, or h, um should be [œ̃]
+    // before a consonant excluding m, n, or h, um should be /œ̃/
     newTransliteration = "œ̃";
     numTransliteratedCharacters = 2;
   } else if (
@@ -39,21 +39,21 @@ export default function uTransliteration(
       remainingWord
     )
   ) {
-    // before a consonant excluding m, n, or h, un should be [œ̃]
+    // before a consonant excluding m, n, or h, un should be /œ̃/
     newTransliteration = "œ̃";
     numTransliteratedCharacters = 2;
   } else if (/^ue/i.test(remainingWord)) {
-    // in all other cases ue should be [y]
+    // in all other cases ue should be /y/
     newTransliteration = "y";
     numTransliteratedCharacters = 2;
   } else if (/^ü/i.test(remainingWord)) {
-    // in all other cases ü should be [y]
+    // in all other cases ü should be /y/
     newTransliteration = "y";
   } else if (/^û/i.test(remainingWord)) {
-    // in all other cases û should be [y]
+    // in all other cases û should be /y/
     newTransliteration = "y";
   } else if (/^u/i.test(remainingWord)) {
-    // in all other cases u should be [y]
+    // in all other cases u should be /y/
     newTransliteration = "y";
   }
 

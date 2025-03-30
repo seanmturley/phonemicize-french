@@ -10,11 +10,11 @@ export default function mTransliteration(
   let numTransliteratedCharacters = 1;
 
   if (/^mm/i.test(remainingWord)) {
-    // mm should be [m]
+    // mm should be /m/
     newTransliteration = "m";
     numTransliteratedCharacters = 2;
   } else {
-    // m should be [m]
+    // m should be /m/
     newTransliteration = "m";
   }
 

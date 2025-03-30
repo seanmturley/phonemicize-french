@@ -1,7 +1,7 @@
 import kTransliteration from "./k-transliteration.ts";
 
 describe("kTransliteration", () => {
-  it("k should be [k]", () => {
+  it("k should be /k/", () => {
     const word = "kilo";
     const index = 0;
 

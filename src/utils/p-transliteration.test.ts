@@ -16,7 +16,7 @@ describe("pTransliteration", () => {
     expect(newIndex).toBe(4);
   });
 
-  it("ph should be [f]", () => {
+  it("ph should be /f/", () => {
     const word = "philosophe";
     const index = 0;
 
@@ -27,7 +27,7 @@ describe("pTransliteration", () => {
   });
 
   describe("initial or medial", () => {
-    it("pp should be [p]", () => {
+    it("pp should be /p/", () => {
       const word = "support";
       const index = 2;
 
@@ -37,7 +37,7 @@ describe("pTransliteration", () => {
       expect(newIndex).toBe(4);
     });
 
-    it("p phould de [p]", () => {
+    it("p phould de /p/", () => {
       const word = "captive";
       const index = 2;
 

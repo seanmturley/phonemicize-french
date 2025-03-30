@@ -1,9 +1,9 @@
 import fTransliteration from "./f-transliteration.ts";
 
 describe("fTransliteration", () => {
-  it("final f should be [f]", () => {
+  it("final f should be /f/", () => {
     // Note exceptions for:
-    // - neuf (becomes [v] in liaison with "heures" or "ans")
+    // - neuf (becomes /v/ in liaison with "heures" or "ans")
     // - cerf or cerfs (silent)
     // - œufs & bœufs (-fs is silent)
 
@@ -17,7 +17,7 @@ describe("fTransliteration", () => {
   });
 
   describe("initial or medial", () => {
-    it("f should be [f]", () => {
+    it("f should be /f/", () => {
       const word = "enfant";
       const index = 2;
 
@@ -27,7 +27,7 @@ describe("fTransliteration", () => {
       expect(newIndex).toBe(3);
     });
 
-    it("ff should be [f]", () => {
+    it("ff should be /f/", () => {
       const word = "effort";
       const index = 1;
 

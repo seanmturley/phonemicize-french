@@ -15,35 +15,35 @@ export default function yTransliteration(
   let numTransliteratedCharacters = 1;
 
   if (index === 0 && /^y/i.test(remainingWord)) {
-    // initial y should be [j]
+    // initial y should be /j/
     newTransliteration = "j";
   } else if (/ym$/i.test(remainingWord)) {
-    // final ym should be [ɛ̃]
+    // final ym should be /ɛ̃/
     newTransliteration = "ɛ̃";
     numTransliteratedCharacters = 2;
   } else if (
     new RegExp(String.raw`^y[${consonantExcludingMN}]`, "i").test(remainingWord)
   ) {
-    // y before a consonant excluding m and n should be [i]
+    // y before a consonant excluding m and n should be /i/
     newTransliteration = "i";
   } else if (
     new RegExp(String.raw`^y[nm][${consonantExcludingMNH}]`, "i").test(
       remainingWord
     )
   ) {
-    // before a consonant excluding m, n, or h yn/ym should be [ɛ̃]
+    // before a consonant excluding m, n, or h yn/ym should be /ɛ̃/
     newTransliteration = "ɛ̃";
     numTransliteratedCharacters = 2;
   } else if (
     new RegExp(String.raw`^yn[${vowel}mnh]`, "i").test(remainingWord)
   ) {
-    // before a vowel, m, n, or h yn should be [in]
+    // before a vowel, m, n, or h yn should be /in/
     newTransliteration = "in";
     numTransliteratedCharacters = 2;
   } else if (
     new RegExp(String.raw`^ym[${vowel}mnh]`, "i").test(remainingWord)
   ) {
-    // before a vowel, m, n, or h ym should be [im]
+    // before a vowel, m, n, or h ym should be /im/
     newTransliteration = "im";
     numTransliteratedCharacters = 2;
   } else if (
@@ -51,7 +51,7 @@ export default function yTransliteration(
       word.substring(index - 1)
     )
   ) {
-    // y between two vowels should be [j]
+    // y between two vowels should be /j/
     newTransliteration = "j";
   }
 

@@ -11,20 +11,20 @@ export default function xTransliteration(
   let numTransliteratedCharacters = 1;
 
   if (/x$/i.test(remainingWord)) {
-    // final x should be [z] in liaison, but otherwise silent
+    // final x should be /z/ in liaison, but otherwise silent
     // Note exceptions for final x - see test for details
     newTransliteration = "(z)";
   } else if (/^xh/i.test(remainingWord)) {
-    // xh should be [gz]
+    // xh should be /gz/
     newTransliteration = "gz";
     numTransliteratedCharacters = 2;
   } else if (
     new RegExp(String.raw`^x[${consonantExcludingH}]`, "i").test(remainingWord)
   ) {
-    // x before a consonant (excluding h) should be [ks]
+    // x before a consonant (excluding h) should be /ks/
     newTransliteration = "ks";
   } else if (new RegExp(String.raw`^x[${vowel}]`, "i").test(remainingWord)) {
-    // x before a vowel should be [gz]
+    // x before a vowel should be /gz/
     // Note exceptions for ordinal numbers - see test for details
     newTransliteration = "gz";
   }

@@ -10,10 +10,10 @@ export default function tTransliteration(
   let numTransliteratedCharacters = 1;
 
   if (/t$/i.test(remainingWord)) {
-    // final t should be [t] in liaison, but otherwise silent
+    // final t should be /t/ in liaison, but otherwise silent
     newTransliteration = "(t)";
   } else if (/^th/i.test(remainingWord)) {
-    // initial or medial tt should be [t]
+    // initial or medial tt should be /t/
     newTransliteration = "t";
     numTransliteratedCharacters = 2;
   } else if (/tion$/i.test(remainingWord)) {
@@ -25,11 +25,11 @@ export default function tTransliteration(
     newTransliteration = "sjɑ̃s";
     numTransliteratedCharacters = 6;
   } else if (/^tt/i.test(remainingWord)) {
-    // initial or medial tt should be [t]
+    // initial or medial tt should be /t/
     newTransliteration = "t";
     numTransliteratedCharacters = 2;
   } else {
-    // initial or medial t should be [t]
+    // initial or medial t should be /t/
     newTransliteration = "t";
   }
 

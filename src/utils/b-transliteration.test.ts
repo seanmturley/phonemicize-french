@@ -12,7 +12,7 @@ describe("bTransliteration", () => {
   });
 
   describe("initial or medial", () => {
-    it("b should be [b]", () => {
+    it("b should be /b/", () => {
       const word = "beau";
       const index = 0;
 
@@ -22,7 +22,7 @@ describe("bTransliteration", () => {
       expect(newIndex).toBe(1);
     });
 
-    it("bb should be [b]", () => {
+    it("bb should be /b/", () => {
       const word = "abbesse";
       const index = 1;
 
@@ -34,7 +34,7 @@ describe("bTransliteration", () => {
   });
 
   describe("b followed by", () => {
-    it("-s should be [p]", () => {
+    it("-s should be /p/", () => {
       const word = "absolu";
       const index = 1;
 
@@ -44,7 +44,7 @@ describe("bTransliteration", () => {
       expect(newIndex).toBe(2);
     });
 
-    it("-t should be [p]", () => {
+    it("-t should be /p/", () => {
       const word = "obtus";
       const index = 1;
 

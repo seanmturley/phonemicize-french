@@ -13,15 +13,15 @@ export default function pTransliteration(
     // final p should be silent
     newTransliteration = "";
   } else if (/^ph/i.test(remainingWord)) {
-    // ph should be [f]
+    // ph should be /f/
     newTransliteration = "f";
     numTransliteratedCharacters = 2;
   } else if (/^pp/i.test(remainingWord)) {
-    // pp should be [p]
+    // pp should be /p/
     newTransliteration = "p";
     numTransliteratedCharacters = 2;
   } else {
-    // p should be [p]
+    // p should be /p/
     newTransliteration = "p";
   }
 

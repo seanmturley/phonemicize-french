@@ -10,11 +10,11 @@ export default function lTransliteration(
   let numTransliteratedCharacters = 1;
 
   if (/^ll/i.test(remainingWord)) {
-    // ll should be [l]
+    // ll should be /l/
     newTransliteration = "l";
     numTransliteratedCharacters = 2;
   } else {
-    // l should be [l]
+    // l should be /l/
     newTransliteration = "l";
   }
 

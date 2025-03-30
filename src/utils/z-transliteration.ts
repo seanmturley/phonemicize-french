@@ -9,12 +9,12 @@ export default function zTransliteration(
   let newTransliteration = "";
 
   if (/z$/i.test(remainingWord)) {
-    // final z should be [z] in liaison, but otherwise silent
+    // final z should be /z/ in liaison, but otherwise silent
     // Note exceptions, generally loan words or proper nouns
     // - see test for details
     newTransliteration = "(z)";
   } else {
-    // initial or medial z should be [z]
+    // initial or medial z should be /z/
     newTransliteration = "z";
   }
 

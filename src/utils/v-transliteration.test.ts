@@ -1,7 +1,7 @@
 import vTransliteration from "./v-transliteration.ts";
 
 describe("vTransliteration", () => {
-  it("v should be [v]", () => {
+  it("v should be /v/", () => {
     const word = "souvenir";
     const index = 3;
 

@@ -4,7 +4,7 @@ describe("nTransliteration", () => {
   // NOTE: n as a marker of a nasal vowel is handled by vowel
   // transliteration functions.
 
-  it("nn should be [n]", () => {
+  it("nn should be /n/", () => {
     const word = "année";
     const index = 1;
 
@@ -14,7 +14,7 @@ describe("nTransliteration", () => {
     expect(newIndex).toBe(3);
   });
 
-  it("n should be [n]", () => {
+  it("n should be /n/", () => {
     const word = "neige";
     const index = 0;
 
