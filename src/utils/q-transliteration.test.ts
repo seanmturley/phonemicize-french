@@ -12,12 +12,12 @@ describe("qTransliteration", () => {
   });
 
   it("qu should be [k]", () => {
-    const word = "liqueur";
-    const index = 2;
+    const word = "quel";
+    const index = 0;
 
     const [newTransliteration, newIndex] = qTransliteration(word, index);
 
     expect(newTransliteration).toBe("k");
-    expect(newIndex).toBe(4);
+    expect(newIndex).toBe(2);
   });
 });
