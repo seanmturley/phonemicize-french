@@ -107,6 +107,16 @@ describe("gTransliteration", () => {
     expect(newIndex).toBe(5);
   });
 
+  it("final gu should be [gy]", () => {
+    const word = "aigu";
+    const index = 2;
+
+    const [newTransliteration, newIndex] = gTransliteration(word, index);
+
+    expect(newTransliteration).toBe("gy");
+    expect(newIndex).toBe(4);
+  });
+
   it("final g should be [g] in liaison, but otherwise silent", () => {
     // https://en.wikipedia.org/wiki/Liaison_(French)#Realization_of_liaison
     // Traditionally, a liaison with a word ending in -g was realized as /k/,
