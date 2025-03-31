@@ -9,7 +9,7 @@ export default function dTransliteration(
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/d$/i.test(remainingWord)) {
+  if (/^d$/i.test(remainingWord)) {
     // final d should be /t/ in liaison, but otherwise silent
     newTransliteration = "(t)";
   } else if (/^dd/i.test(remainingWord)) {

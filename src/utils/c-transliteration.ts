@@ -14,13 +14,13 @@ export default function cTransliteration(
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (word.charAt(index - 1) === "n" && /c$/i.test(remainingWord)) {
+  if (word.charAt(index - 1) === "n" && /^c$/i.test(remainingWord)) {
     // final c after n should silent
     newTransliteration = "";
-  } else if (/c$/i.test(remainingWord)) {
+  } else if (/^c$/i.test(remainingWord)) {
     // final c should be /k/
     newTransliteration = "k";
-  } else if (/ct$/i.test(remainingWord)) {
+  } else if (/^ct$/i.test(remainingWord)) {
     // final ct should be /kt/
     newTransliteration = "kt";
     numTransliteratedCharacters = 2;

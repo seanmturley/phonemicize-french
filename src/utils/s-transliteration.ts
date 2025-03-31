@@ -16,7 +16,7 @@ export default function sTransliteration(
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/s$/i.test(remainingWord)) {
+  if (/^s$/i.test(remainingWord)) {
     // final s should be /z/ in liaison, but otherwise silent
     // Note exceptions e.g. hélas, lis, fils
     newTransliteration = "(z)";

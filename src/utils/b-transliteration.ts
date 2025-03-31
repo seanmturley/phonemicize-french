@@ -9,7 +9,7 @@ export default function bTransliteration(
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/b$/i.test(remainingWord)) {
+  if (/^b$/i.test(remainingWord)) {
     // final b should be silent
     newTransliteration = "";
   } else if (/^bb/i.test(remainingWord)) {

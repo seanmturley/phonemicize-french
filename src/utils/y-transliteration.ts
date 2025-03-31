@@ -17,7 +17,7 @@ export default function yTransliteration(
   if (index === 0 && /^y/i.test(remainingWord)) {
     // initial y should be /j/
     newTransliteration = "j";
-  } else if (/ym$/i.test(remainingWord)) {
+  } else if (/^ym$/i.test(remainingWord)) {
     // final ym should be /ɛ̃/
     newTransliteration = "ɛ̃";
     numTransliteratedCharacters = 2;

@@ -14,10 +14,10 @@ export default function gTransliteration(
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/g$/i.test(remainingWord)) {
+  if (/^g$/i.test(remainingWord)) {
     // final g should be /g/ in liaison, but otherwise silent
     newTransliteration = "(g)";
-  } else if (/gu$/i.test(remainingWord)) {
+  } else if (/^gu$/i.test(remainingWord)) {
     // final gu should be /gy/
     newTransliteration = "gy";
     numTransliteratedCharacters = 2;

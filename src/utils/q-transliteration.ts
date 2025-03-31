@@ -9,7 +9,7 @@ export default function qTransliteration(
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/q$/i.test(remainingWord)) {
+  if (/^q$/i.test(remainingWord)) {
     // final q should be /k/
     newTransliteration = "k";
   } else if (/^qu/i.test(remainingWord)) {

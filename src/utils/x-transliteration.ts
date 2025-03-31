@@ -10,7 +10,7 @@ export default function xTransliteration(
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/x$/i.test(remainingWord)) {
+  if (/^x$/i.test(remainingWord)) {
     // final x should be /z/ in liaison, but otherwise silent
     // Note exceptions for final x - see test for details
     newTransliteration = "(z)";
