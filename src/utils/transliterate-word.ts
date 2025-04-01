@@ -4,6 +4,7 @@ import dTransliteration from "./d-transliteration.ts";
 import fTransliteration from "./f-transliteration.ts";
 import gTransliteration from "./g-transliteration.ts";
 import hTransliteration from "./h-transliteration.ts";
+import iTransliteration from "./i-transliteration.ts";
 import jTransliteration from "./j-transliteration.ts";
 import kTransliteration from "./k-transliteration.ts";
 import lTransliteration from "./l-transliteration.ts";
@@ -52,6 +53,10 @@ export default function transliterateWord(word: string) {
 
       case "h":
         [newTransliteration, index] = hTransliteration(word, index);
+        break;
+
+      case "i":
+        [newTransliteration, index] = iTransliteration(word, index);
         break;
 
       case "j":
