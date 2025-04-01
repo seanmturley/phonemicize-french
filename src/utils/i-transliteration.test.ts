@@ -65,16 +65,29 @@ describe("iTransliteration", () => {
     expect(newIndex).toBe(4);
   });
 
-  it("ill should be /ij/", () => {
-    // This is essentially a fallback - there are specific rules for other
-    // vowels followed by "ill", which results in a different vowel sound
-    const word = "fille";
-    const index = 1;
+  describe("ill", () => {
+    it("in a short list of exceptions should be /il/", () => {
+      // See list of exception in ill-exceptions.ts
+      const word = "ville";
+      const index = 1;
 
-    const [newTransliteration, newIndex] = iTransliteration(word, index);
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
 
-    expect(newTransliteration).toBe("ij");
-    expect(newIndex).toBe(4);
+      expect(newTransliteration).toBe("il");
+      expect(newIndex).toBe(4);
+    });
+
+    it("but otherwise should be /ij/", () => {
+      // This is essentially a fallback - there are specific rules for other
+      // vowels followed by "ill", which results in a different vowel sound
+      const word = "fille";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ij");
+      expect(newIndex).toBe(4);
+    });
   });
 
   it("otherwise i should be /i/", () => {
