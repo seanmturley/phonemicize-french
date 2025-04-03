@@ -10,6 +10,7 @@ import kTransliteration from "./k-transliteration.ts";
 import lTransliteration from "./l-transliteration.ts";
 import mTransliteration from "./m-transliteration.ts";
 import nTransliteration from "./n-transliteration.ts";
+import oTransliteration from "./o-transliteration.ts";
 import pTransliteration from "./p-transliteration.ts";
 import qTransliteration from "./q-transliteration.ts";
 import rTransliteration from "./r-transliteration.ts";
@@ -77,6 +78,11 @@ export default function transliterateWord(word: string) {
 
       case "n":
         [newTransliteration, index] = nTransliteration(word, index);
+        break;
+        break;
+
+      case "o":
+        [newTransliteration, index] = oTransliteration(word, index);
         break;
 
       case "p":
