@@ -11,3 +11,6 @@ export const consonantExcludingMN = "bdfgjklpqrstvwxz" + "h";
 export const consonantExcludingH = consonantExcludingMNH + "mn";
 
 export const consonant = consonantExcludingH + "h";
+
+// Single consonants that are silent in final position
+export const silentFinalConsonant = "bdgpstz";

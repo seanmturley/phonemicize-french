@@ -220,12 +220,12 @@ describe("oTransliteration", () => {
 
     it("oû should be /u/", () => {
       const word = "goût";
-      const index = 2;
+      const index = 1;
 
       const [newTransliteration, newIndex] = oTransliteration(word, index);
 
       expect(newTransliteration).toBe("u");
-      expect(newIndex).toBe(4);
+      expect(newIndex).toBe(3);
     });
   });
 
@@ -246,13 +246,13 @@ describe("oTransliteration", () => {
 
       const [newTransliteration, newIndex] = oTransliteration(word, index);
 
-      expect(newTransliteration).toBe("ɔ");
+      expect(newTransliteration).toBe("o");
       expect(newIndex).toBe(2);
     });
   });
 
   it("o before s pronounced as /z/ should be /o/", () => {
-    // There seem to be some exceptions to this, but the're rare words
+    // There seem to be some exceptions to this, but they're rare words
     // e.g. mosette
     // s is realised as /z/ between vowels
     const word = "rose";
