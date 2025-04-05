@@ -75,6 +75,14 @@ export default function oTransliteration(
     // before a consonant excluding m, n, or h om and on should be /ɔ̃/
     newTransliteration = "ɔ̃";
     numTransliteratedCharacters = 2;
+  } else if (/^ouill/i.test(remainingWord)) {
+    // ouill should be /uj/
+    newTransliteration = "uj";
+    numTransliteratedCharacters = 5;
+  } else if (/^ouil$/i.test(remainingWord)) {
+    // ouill should be /uj/
+    newTransliteration = "uj";
+    numTransliteratedCharacters = 4;
   } else if (/^o[uùû]/i.test(remainingWord)) {
     // ou, où, or oû should be /u/
     newTransliteration = "u";

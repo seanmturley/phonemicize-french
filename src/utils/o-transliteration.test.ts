@@ -227,6 +227,26 @@ describe("oTransliteration", () => {
       expect(newTransliteration).toBe("u");
       expect(newIndex).toBe(3);
     });
+
+    it("ouill should be /uj/", () => {
+      const word = "bouillir";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = oTransliteration(word, index);
+
+      expect(newTransliteration).toBe("uj");
+      expect(newIndex).toBe(6);
+    });
+
+    it("final ouil should be /uj/", () => {
+      const word = "fenouil";
+      const index = 3;
+
+      const [newTransliteration, newIndex] = oTransliteration(word, index);
+
+      expect(newTransliteration).toBe("uj");
+      expect(newIndex).toBe(7);
+    });
   });
 
   describe("o when the final phoneme should be /o/", () => {
