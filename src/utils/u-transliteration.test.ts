@@ -88,6 +88,16 @@ describe("uTransliteration", () => {
     });
   });
 
+  it("uill should be /ɥij/", () => {
+    const word = "juillet";
+    const index = 1;
+
+    const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+    expect(newTransliteration).toBe("ɥij");
+    expect(newIndex).toBe(5);
+  });
+
   describe("in all other cases", () => {
     it("u should be /y/", () => {
       const word = "abus";
