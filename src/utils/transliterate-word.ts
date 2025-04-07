@@ -29,9 +29,15 @@ export default function transliterateWord(word: string) {
 
   while (index < word.length) {
     let newTransliteration = "";
-    const firstLetter = word.substring(index, index + 1);
+    const currentLetter = word.substring(index, index + 1);
 
-    switch (firstLetter) {
+    switch (currentLetter) {
+      case "a":
+        // Placeholder until aTransliteration is added
+        newTransliteration += word.substring(index, index + 1);
+        index += 1;
+        break;
+
       case "b":
         [newTransliteration, index] = bTransliteration(word, index);
         break;
@@ -42,6 +48,12 @@ export default function transliterateWord(word: string) {
 
       case "d":
         [newTransliteration, index] = dTransliteration(word, index);
+        break;
+
+      case "e":
+        // Placeholder until eTransliteration is added
+        newTransliteration += word.substring(index, index + 1);
+        index += 1;
         break;
 
       case "f":
@@ -78,7 +90,6 @@ export default function transliterateWord(word: string) {
 
       case "n":
         [newTransliteration, index] = nTransliteration(word, index);
-        break;
         break;
 
       case "o":
@@ -130,8 +141,7 @@ export default function transliterateWord(word: string) {
         break;
 
       default:
-        newTransliteration += word.substring(index, index + 1);
-        index += 1;
+        throw new Error(`Character "${currentLetter}" is not handled.`);
     }
 
     transliteration += newTransliteration;

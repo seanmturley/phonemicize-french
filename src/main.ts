@@ -1,4 +1,5 @@
-import isEven from "./utils/is-even.ts";
+import transliterateWord from "./utils/transliterate-word.ts";
 
-console.log(isEven(8));
-console.log(isEven(9));
+console.log(transliterateWord("oeillade"));
+console.log(transliterateWord("dû"));
+console.log(transliterateWord("hôte"));
