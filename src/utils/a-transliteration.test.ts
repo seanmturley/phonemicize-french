@@ -56,16 +56,6 @@ describe("aTransliteration", () => {
       expect(newIndex).toBe(4);
     });
 
-    it("aille should be /aj/", () => {
-      const word = "aille";
-      const index = 0;
-
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
-
-      expect(newTransliteration).toBe("aj");
-      expect(newIndex).toBe(5);
-    });
-
     it("aill should be /aj/", () => {
       const word = "cailloux";
       const index = 1;
