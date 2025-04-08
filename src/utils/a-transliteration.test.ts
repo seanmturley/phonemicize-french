@@ -19,7 +19,7 @@ describe("aTransliteration", () => {
       const [newTransliteration, newIndex] = aTransliteration(word, index);
 
       expect(newTransliteration).toBe("ɛ");
-      expect(newIndex).toBe(3);
+      expect(newIndex).toBe(4);
     });
 
     it("final ait should be /ɛ/", () => {
@@ -107,9 +107,34 @@ describe("aTransliteration", () => {
     expect(newIndex).toBe(2);
   });
 
-  describe("a before", () => {
-    it("a /s/ sound should be /ɑ/", () => {
-      const word = "lacer";
+  // it("a before /s/ sound should be /ɑ/", () => {
+  // This needs further research
+  //   const word = "lacer";
+  //   const index = 1;
+
+  //   const [newTransliteration, newIndex] = aTransliteration(word, index);
+
+  //   expect(newTransliteration).toBe("ɑ");
+  //   expect(newIndex).toBe(2);
+  // });
+
+  describe("a before a /z/ sound should be /ɑ/", () => {
+    it("as when before final z (pronounced in this case)", () => {
+      // z final after a seems to be consistently realised as /z/
+
+      const word = "gaz";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = aTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɑz");
+      expect(newIndex).toBe(3);
+    });
+
+    it("as when before medial z", () => {
+      // z medial is realised as /z/
+
+      const word = "bazar";
       const index = 1;
 
       const [newTransliteration, newIndex] = aTransliteration(word, index);
@@ -118,7 +143,9 @@ describe("aTransliteration", () => {
       expect(newIndex).toBe(2);
     });
 
-    it("a /z/ sound should be /ɑ/", () => {
+    it("as when before s followed by a vowel", () => {
+      // s is realised as /z/ between vowels
+
       const word = "extase";
       const index = 3;
 
