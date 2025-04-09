@@ -1,3 +1,4 @@
+import aTransliteration from "./a-transliteration.ts";
 import bTransliteration from "./b-transliteration.ts";
 import cTransliteration from "./c-transliteration.ts";
 import dTransliteration from "./d-transliteration.ts";
@@ -33,9 +34,7 @@ export default function transliterateWord(word: string) {
 
     switch (currentLetter) {
       case "a":
-        // Placeholder until aTransliteration is added
-        newTransliteration += word.substring(index, index + 1);
-        index += 1;
+        [newTransliteration, index] = aTransliteration(word, index);
         break;
 
       case "b":
