@@ -34,6 +34,9 @@ export default function transliterateWord(word: string) {
 
     switch (currentLetter) {
       case "a":
+      case "à":
+      case "â":
+      case "æ":
         [newTransliteration, index] = aTransliteration(word, index);
         break;
 
@@ -42,6 +45,7 @@ export default function transliterateWord(word: string) {
         break;
 
       case "c":
+      case "ç":
         [newTransliteration, index] = cTransliteration(word, index);
         break;
 
@@ -50,6 +54,10 @@ export default function transliterateWord(word: string) {
         break;
 
       case "e":
+      case "é":
+      case "è":
+      case "ê":
+      case "ë":
         // Placeholder until eTransliteration is added
         newTransliteration += word.substring(index, index + 1);
         index += 1;
@@ -68,6 +76,8 @@ export default function transliterateWord(word: string) {
         break;
 
       case "i":
+      case "î":
+      case "ï":
         [newTransliteration, index] = iTransliteration(word, index);
         break;
 
@@ -92,6 +102,8 @@ export default function transliterateWord(word: string) {
         break;
 
       case "o":
+      case "ô":
+      case "œ":
         [newTransliteration, index] = oTransliteration(word, index);
         break;
 
@@ -116,6 +128,9 @@ export default function transliterateWord(word: string) {
         break;
 
       case "u":
+      case "ù":
+      case "û":
+      case "ü":
         [newTransliteration, index] = uTransliteration(word, index);
         break;
 
@@ -132,6 +147,7 @@ export default function transliterateWord(word: string) {
         break;
 
       case "y":
+      case "ÿ":
         [newTransliteration, index] = yTransliteration(word, index);
         break;
 
