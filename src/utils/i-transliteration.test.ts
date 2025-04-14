@@ -13,6 +13,48 @@ describe("iTransliteration", () => {
   //   expect(newIndex).toBe(2);
   // });
 
+  describe("ie variations", () => {
+    it("ie final should be /i/", () => {
+      const word = "amie";
+      const index = 2;
+
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
+
+      expect(newTransliteration).toBe("i");
+      expect(newIndex).toBe(4);
+    });
+
+    it("ien final should be /jɛ̃/", () => {
+      const word = "bien";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
+
+      expect(newTransliteration).toBe("jɛ̃");
+      expect(newIndex).toBe(4);
+    });
+
+    it("ien before a silent final consonant should be /jɛ̃/", () => {
+      const word = "chiens";
+      const index = 2;
+
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
+
+      expect(newTransliteration).toBe("jɛ̃");
+      expect(newIndex).toBe(5);
+    });
+
+    it("ienn should be /jɛn/", () => {
+      const word = "mienne";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
+
+      expect(newTransliteration).toBe("jɛn");
+      expect(newIndex).toBe(5);
+    });
+  });
+
   it("î should be /i/", () => {
     const word = "île";
     const index = 0;
