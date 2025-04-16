@@ -241,6 +241,48 @@ describe("eTransliteration", () => {
     });
   });
 
+  describe("il graphemes", () => {
+    it("final eil should be /ɛj/", () => {
+      const word = "soleil";
+      const index = 3;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɛj");
+      expect(newIndex).toBe(6);
+    });
+
+    it("final euil should be /œj/", () => {
+      const word = "deuil";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("œj");
+      expect(newIndex).toBe(5);
+    });
+
+    it("eill should be /ɛj/", () => {
+      const word = "veille";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɛj");
+      expect(newIndex).toBe(5);
+    });
+
+    it("euill should be /œj/", () => {
+      const word = "feuille";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("œj");
+      expect(newIndex).toBe(6);
+    });
+  });
+
   describe("eu before a /z/ sound should be /ø/", () => {
     it("as when before medial z", () => {
       // z medial is realised as /z/
