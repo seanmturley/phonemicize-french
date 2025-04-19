@@ -152,16 +152,6 @@ describe("eTransliteration", () => {
     expect(newIndex).toBe(5);
   });
 
-  it("final eon should be /ɔ̃/", () => {
-    const word = "pigeon";
-    const index = 3;
-
-    const [newTransliteration, newIndex] = eTransliteration(word, index);
-
-    expect(newTransliteration).toBe("ɔ̃");
-    expect(newIndex).toBe(6);
-  });
-
   describe("et final", () => {
     it("in the word 'et' should be /e/", () => {
       const word = "et";

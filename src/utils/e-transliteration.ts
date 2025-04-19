@@ -25,10 +25,6 @@ export default function eTransliteration(
     // euill should be /œj/
     newTransliteration = "œj";
     numTransliteratedCharacters = 5;
-  } else if (/^eon$/i.test(remainingWord)) {
-    // final eon should be /ɔ̃/
-    newTransliteration = "ɔ̃";
-    numTransliteratedCharacters = 3;
   }
 
   const newIndex = index + numTransliteratedCharacters;
