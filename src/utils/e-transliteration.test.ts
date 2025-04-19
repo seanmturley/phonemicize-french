@@ -152,6 +152,30 @@ describe("eTransliteration", () => {
     expect(newIndex).toBe(5);
   });
 
+  describe("ent final", () => {
+    it("in third person plural verbs should be /ə/", () => {
+      // This requires checking the lexicon metadata to identify third
+      // person plural verbs
+      const word = "parlent";
+      const index = 4;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ə");
+      expect(newIndex).toBe(7);
+    });
+
+    it("otherwise should be /ɑ̃/", () => {
+      const word = "cent";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɑ̃");
+      expect(newIndex).toBe(4);
+    });
+  });
+
   describe("et final", () => {
     it("in the word 'et' should be /e/", () => {
       const word = "et";

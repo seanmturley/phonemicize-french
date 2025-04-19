@@ -25,6 +25,10 @@ export default function eTransliteration(
     // euill should be /œj/
     newTransliteration = "œj";
     numTransliteratedCharacters = 5;
+  } else if (/^ent$/i.test(remainingWord)) {
+    // ent final otherwise should be /ɑ̃/
+    newTransliteration = "ɑ̃";
+    numTransliteratedCharacters = 3;
   }
 
   const newIndex = index + numTransliteratedCharacters;
