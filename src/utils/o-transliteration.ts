@@ -18,12 +18,28 @@ export default function oTransliteration(
   if (/^ô/i.test(remainingWord)) {
     // ô should be /o/
     newTransliteration = "o";
+  } else if (
+    new RegExp(String.raw`^œu[${silentFinalConsonant}]?$`, "i").test(
+      remainingWord
+    )
+  ) {
+    // œ followed by u as a final sound should be /ø/
+    newTransliteration = "ø";
+    numTransliteratedCharacters = 2;
   } else if (/^œu/i.test(remainingWord)) {
-    // œ followed by u should be /œ/
+    // œ followed by u in the interior of a word should be /œ/
     newTransliteration = "œ";
     numTransliteratedCharacters = 2;
+  } else if (
+    new RegExp(String.raw`^oeu[${silentFinalConsonant}]?$`, "i").test(
+      remainingWord
+    )
+  ) {
+    // oe followed by u as a final sound should be /ø/
+    newTransliteration = "ø";
+    numTransliteratedCharacters = 3;
   } else if (/^oeu/i.test(remainingWord)) {
-    // oe followed by u should be /œ/
+    // oe followed by u in the interior of a word should be /œ/
     newTransliteration = "œ";
     numTransliteratedCharacters = 3;
   } else if (/^œil$/i.test(remainingWord)) {

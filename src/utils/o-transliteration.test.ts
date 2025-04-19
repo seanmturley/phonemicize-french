@@ -25,7 +25,17 @@ describe("oTransliteration", () => {
 
   // oe and oeu different to œ?
   describe("œ", () => {
-    it("followed by u should be /œ/", () => {
+    it("followed by u as a final sound should be /ø/", () => {
+      const word = "nœud";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = oTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ø");
+      expect(newIndex).toBe(3);
+    });
+
+    it("followed by u in the interior of a word should be /œ/", () => {
       const word = "sœur";
       const index = 1;
 
@@ -68,6 +78,16 @@ describe("oTransliteration", () => {
 
   describe("oe", () => {
     // Supporting non-standard variation of œ
+    it("followed by u as a final sound should be /ø/", () => {
+      const word = "noeud";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = oTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ø");
+      expect(newIndex).toBe(4);
+    });
+
     it("followed by u should be /œ/", () => {
       const word = "soeur";
       const index = 1;
