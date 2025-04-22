@@ -1,9 +1,5 @@
 import { illExceptions } from "./ill-exceptions.ts";
-import {
-  consonantExcludingMNH,
-  silentFinalConsonant,
-  vowel
-} from "./letter-group-definitions.ts";
+import { consonantExcludingMNH, vowel } from "./letter-group-definitions.ts";
 import type { LetterTransliteration } from "./transliteration-types.ts";
 
 export default function iTransliteration(
@@ -59,6 +55,10 @@ export default function iTransliteration(
     // ie with final s should be /i/
     newTransliteration = "i";
     numTransliteratedCharacters = 3;
+  } else if (new RegExp(String.raw`^ier[${vowel}]`, "i").test(remainingWord)) {
+    // ie before r[vowel] should be /i/
+    newTransliteration = "i";
+    numTransliteratedCharacters = 2;
     // } else if (/^ient$/i.test(remainingWord)) {
     //   // ie as part of final ient in 3rd person present indicative
     //   // should be /i/
@@ -66,26 +66,6 @@ export default function iTransliteration(
 
     //   newTransliteration = "i";
     //   numTransliteratedCharacters = 4;
-  } else if (/^ien$/i.test(remainingWord)) {
-    // ien final should be /jɛ̃/
-    newTransliteration = "jɛ̃";
-    numTransliteratedCharacters = 3;
-  } else if (new RegExp(String.raw`^ier[${vowel}]`, "i").test(remainingWord)) {
-    // ie before r[vowel] should be /i/
-    newTransliteration = "i";
-    numTransliteratedCharacters = 2;
-  } else if (
-    new RegExp(String.raw`^ien[${silentFinalConsonant}$]`, "i").test(
-      remainingWord
-    )
-  ) {
-    // ien before a silent final consonant should be /jɛ̃/
-    newTransliteration = "jɛ̃";
-    numTransliteratedCharacters = 3;
-  } else if (/^ienn/i.test(remainingWord)) {
-    // ienn should be /jɛn/
-    newTransliteration = "jɛn";
-    numTransliteratedCharacters = 4;
   } else {
     // otherwise i should be /i/
     newTransliteration = "i";
