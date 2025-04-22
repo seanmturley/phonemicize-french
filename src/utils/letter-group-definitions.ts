@@ -4,9 +4,9 @@ export const backVowel = "aàâoôu";
 
 export const vowel = frontVowel + backVowel;
 
-export const consonantExcludingMNH = "bdfgjklpqrstvwxz";
+export const consonantExcludingMNH = "bcçdfgjklpqrstvwxz";
 
-export const consonantExcludingMN = "bdfgjklpqrstvwxz" + "h";
+export const consonantExcludingMN = "bcçdfgjklpqrstvwxz" + "h";
 
 export const consonantExcludingH = consonantExcludingMNH + "mn";
 
