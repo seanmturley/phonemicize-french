@@ -1,7 +1,8 @@
 import { illExceptions } from "./ill-exceptions.ts";
 import {
   consonantExcludingMNH,
-  silentFinalConsonant
+  silentFinalConsonant,
+  vowel
 } from "./letter-group-definitions.ts";
 import type { LetterTransliteration } from "./transliteration-types.ts";
 
@@ -54,10 +55,22 @@ export default function iTransliteration(
     // ie final should be /i/
     newTransliteration = "i";
     numTransliteratedCharacters = 2;
+  } else if (/^ies$/i.test(remainingWord)) {
+    // ie with final s should be /i/
+    newTransliteration = "i";
+    numTransliteratedCharacters = 3;
+  } else if (/^ient$/i.test(remainingWord)) {
+    // ie as part of final ient should be /i/
+    newTransliteration = "i";
+    numTransliteratedCharacters = 4;
   } else if (/^ien$/i.test(remainingWord)) {
     // ien final should be /jɛ̃/
     newTransliteration = "jɛ̃";
     numTransliteratedCharacters = 3;
+  } else if (new RegExp(String.raw`^ier[${vowel}]`, "i").test(remainingWord)) {
+    // ie before r[vowel] should be /i/
+    newTransliteration = "i";
+    numTransliteratedCharacters = 2;
   } else if (
     new RegExp(String.raw`^ien[${silentFinalConsonant}$]`, "i").test(
       remainingWord

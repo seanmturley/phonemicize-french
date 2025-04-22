@@ -13,8 +13,8 @@ describe("iTransliteration", () => {
   //   expect(newIndex).toBe(2);
   // });
 
-  describe("ie variations", () => {
-    it("ie final should be /i/", () => {
+  describe("ie", () => {
+    it("final should be /i/", () => {
       const word = "amie";
       const index = 2;
 
@@ -24,6 +24,38 @@ describe("iTransliteration", () => {
       expect(newIndex).toBe(4);
     });
 
+    it("with final s should be /i/", () => {
+      const word = "amies";
+      const index = 2;
+
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
+
+      expect(newTransliteration).toBe("i");
+      expect(newIndex).toBe(5);
+    });
+
+    it("as part of final ient should be /i/", () => {
+      const word = "crient";
+      const index = 2;
+
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
+
+      expect(newTransliteration).toBe("i");
+      expect(newIndex).toBe(6);
+    });
+
+    it("before r[vowel] should be /i/", () => {
+      const word = "crierai";
+      const index = 2;
+
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
+
+      expect(newTransliteration).toBe("i");
+      expect(newIndex).toBe(4);
+    });
+  });
+
+  describe("ien variations", () => {
     it("ien final should be /jɛ̃/", () => {
       const word = "bien";
       const index = 1;
