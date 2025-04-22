@@ -1,17 +1,25 @@
 import iTransliteration from "./i-transliteration.ts";
 
 describe("iTransliteration", () => {
-  // Need to think about how to check for stressed vowels - can this be
-  // done programmatically in a reliable way?
-  // it("i before a stressed vowel should be /j/", () => {
-  //   const word = "bien";
-  //   const index = 1;
+  it("î should be /i/", () => {
+    const word = "île";
+    const index = 0;
 
-  //   const [newTransliteration, newIndex] = uTransliteration(word, index);
+    const [newTransliteration, newIndex] = iTransliteration(word, index);
 
-  //   expect(newTransliteration).toBe("j");
-  //   expect(newIndex).toBe(2);
-  // });
+    expect(newTransliteration).toBe("i");
+    expect(newIndex).toBe(1);
+  });
+
+  it("ï should be /i/", () => {
+    const word = "haïr";
+    const index = 2;
+
+    const [newTransliteration, newIndex] = iTransliteration(word, index);
+
+    expect(newTransliteration).toBe("i");
+    expect(newIndex).toBe(3);
+  });
 
   describe("ie", () => {
     it("final should be /i/", () => {
@@ -56,24 +64,28 @@ describe("iTransliteration", () => {
     });
   });
 
-  it("î should be /i/", () => {
-    const word = "île";
-    const index = 0;
+  describe("ii", () => {
+    it("in the pattern <[consonant][rl]ii[pronounced_vowel]> should be /ij/", () => {
+      // Applies 1er group subjonctif présent conjugaison
+      const word = "criions";
+      const index = 2;
 
-    const [newTransliteration, newIndex] = iTransliteration(word, index);
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
 
-    expect(newTransliteration).toBe("i");
-    expect(newIndex).toBe(1);
-  });
+      expect(newTransliteration).toBe("ij");
+      expect(newIndex).toBe(4);
+    });
 
-  it("ï should be /i/", () => {
-    const word = "haïr";
-    const index = 2;
+    it("otherwise should be /ii/", () => {
+      // Mostly rare scientific words. "Shiitaké" is an exception.
+      const word = "chiite";
+      const index = 2;
 
-    const [newTransliteration, newIndex] = iTransliteration(word, index);
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
 
-    expect(newTransliteration).toBe("i");
-    expect(newIndex).toBe(3);
+      expect(newTransliteration).toBe("ii");
+      expect(newIndex).toBe(4);
+    });
   });
 
   describe("before a consonant excluding m, n, or h", () => {

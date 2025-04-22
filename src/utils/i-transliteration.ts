@@ -1,5 +1,9 @@
 import { illExceptions } from "./ill-exceptions.ts";
-import { consonantExcludingMNH, vowel } from "./letter-group-definitions.ts";
+import {
+  consonant,
+  consonantExcludingMNH,
+  vowel
+} from "./letter-group-definitions.ts";
 import type { LetterTransliteration } from "./transliteration-types.ts";
 
 export default function iTransliteration(
@@ -17,6 +21,18 @@ export default function iTransliteration(
   } else if (/^ï/i.test(remainingWord)) {
     // ï should be /i/
     newTransliteration = "i";
+  } else if (
+    new RegExp(String.raw`^[${consonant}][rl]ii[${vowel}]`, "i").test(
+      word.substring(index - 2)
+    )
+  ) {
+    // ii in the pattern <[consonant][rl]ii[pronounced_vowel]> should be /ij/
+    newTransliteration = "ij";
+    numTransliteratedCharacters = 2;
+  } else if (/^ii/i.test(remainingWord)) {
+    // ii otherwise should be /ii/
+    newTransliteration = "ii";
+    numTransliteratedCharacters = 2;
   } else if (/^ill/i.test(remainingWord) && illExceptions.has(word)) {
     // ill in a short list of exceptions should be /il/
     newTransliteration = "il";
