@@ -59,10 +59,13 @@ export default function iTransliteration(
     // ie with final s should be /i/
     newTransliteration = "i";
     numTransliteratedCharacters = 3;
-  } else if (/^ient$/i.test(remainingWord)) {
-    // ie as part of final ient should be /i/
-    newTransliteration = "i";
-    numTransliteratedCharacters = 4;
+    // } else if (/^ient$/i.test(remainingWord)) {
+    //   // ie as part of final ient in 3rd person present indicative
+    //   // should be /i/
+    //   // Requires checking lexicon metadata for verb/conjugation tags
+
+    //   newTransliteration = "i";
+    //   numTransliteratedCharacters = 4;
   } else if (/^ien$/i.test(remainingWord)) {
     // ien final should be /jɛ̃/
     newTransliteration = "jɛ̃";
