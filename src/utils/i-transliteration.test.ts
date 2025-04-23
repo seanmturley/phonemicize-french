@@ -66,6 +66,8 @@ describe("iTransliteration", () => {
 
   describe("ii", () => {
     it("in the pattern <[consonant][rl]ii[pronounced_vowel]> should be /ij/", () => {
+      // Note "pronounced vowel" is any vowel not part of the specific "ie"
+      // graphemes handled above
       // Applies 1er group subjonctif présent conjugaison
       const word = "criions";
       const index = 2;
@@ -86,6 +88,19 @@ describe("iTransliteration", () => {
       expect(newTransliteration).toBe("ii");
       expect(newIndex).toBe(4);
     });
+  });
+
+  it("i in the pattern <[consonant][rl]i[pronounced_vowel]> should be /ij/", () => {
+    // Note "pronounced vowel" is any vowel not part of the specific <ie> or <ii>
+    // graphemes handled above
+    // Applies 1er group subjonctif présent conjugaison
+    const word = "crier";
+    const index = 2;
+
+    const [newTransliteration, newIndex] = iTransliteration(word, index);
+
+    expect(newTransliteration).toBe("ij");
+    expect(newIndex).toBe(3);
   });
 
   describe("before a consonant excluding m, n, or h", () => {
@@ -145,13 +160,25 @@ describe("iTransliteration", () => {
     });
   });
 
-  it("otherwise i should be /i/", () => {
-    const word = "finir";
-    const index = 1;
+  describe("otherise", () => {
+    it("i before a vowel should be /j/", () => {
+      const word = "aria";
+      const index = 2;
 
-    const [newTransliteration, newIndex] = iTransliteration(word, index);
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
 
-    expect(newTransliteration).toBe("i");
-    expect(newIndex).toBe(2);
+      expect(newTransliteration).toBe("j");
+      expect(newIndex).toBe(3);
+    });
+
+    it("i in any other situation should be /i/", () => {
+      const word = "finir";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = iTransliteration(word, index);
+
+      expect(newTransliteration).toBe("i");
+      expect(newIndex).toBe(2);
+    });
   });
 });

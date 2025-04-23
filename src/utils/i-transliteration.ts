@@ -21,6 +21,25 @@ export default function iTransliteration(
   } else if (/^ï/i.test(remainingWord)) {
     // ï should be /i/
     newTransliteration = "i";
+  } else if (/^ie$/i.test(remainingWord)) {
+    // ie final should be /i/
+    newTransliteration = "i";
+    numTransliteratedCharacters = 2;
+  } else if (/^ies$/i.test(remainingWord)) {
+    // ie with final s should be /i/
+    newTransliteration = "i";
+    numTransliteratedCharacters = 3;
+  } else if (new RegExp(String.raw`^ier[${vowel}]`, "i").test(remainingWord)) {
+    // ie before r[vowel] should be /i/
+    newTransliteration = "i";
+    numTransliteratedCharacters = 2;
+    // } else if (/^ient$/i.test(remainingWord)) {
+    //   // ie as part of final ient in 3rd person present indicative
+    //   // should be /i/
+    //   // Requires checking lexicon metadata for verb/conjugation tags
+
+    //   newTransliteration = "i";
+    //   numTransliteratedCharacters = 4;
   } else if (
     new RegExp(String.raw`^[${consonant}][rl]ii[${vowel}]`, "i").test(
       word.substring(index - 2)
@@ -33,6 +52,13 @@ export default function iTransliteration(
     // ii otherwise should be /ii/
     newTransliteration = "ii";
     numTransliteratedCharacters = 2;
+  } else if (
+    new RegExp(String.raw`^[${consonant}][rl]i[${vowel}]`, "i").test(
+      word.substring(index - 2)
+    )
+  ) {
+    // i in the pattern <[consonant][rl]i[pronounced_vowel]> should be /ij/
+    newTransliteration = "ij";
   } else if (/^ill/i.test(remainingWord) && illExceptions.has(word)) {
     // ill in a short list of exceptions should be /il/
     newTransliteration = "il";
@@ -63,27 +89,11 @@ export default function iTransliteration(
     // before a consonant excluding m, n, or h in should be /ɛ̃/
     newTransliteration = "ɛ̃";
     numTransliteratedCharacters = 2;
-  } else if (/^ie$/i.test(remainingWord)) {
-    // ie final should be /i/
-    newTransliteration = "i";
-    numTransliteratedCharacters = 2;
-  } else if (/^ies$/i.test(remainingWord)) {
-    // ie with final s should be /i/
-    newTransliteration = "i";
-    numTransliteratedCharacters = 3;
-  } else if (new RegExp(String.raw`^ier[${vowel}]`, "i").test(remainingWord)) {
-    // ie before r[vowel] should be /i/
-    newTransliteration = "i";
-    numTransliteratedCharacters = 2;
-    // } else if (/^ient$/i.test(remainingWord)) {
-    //   // ie as part of final ient in 3rd person present indicative
-    //   // should be /i/
-    //   // Requires checking lexicon metadata for verb/conjugation tags
-
-    //   newTransliteration = "i";
-    //   numTransliteratedCharacters = 4;
+  } else if (new RegExp(String.raw`^i[${vowel}]`, "i").test(remainingWord)) {
+    // otherwise i before a vowel should be /j/
+    newTransliteration = "j";
   } else {
-    // otherwise i should be /i/
+    // otherwise in any other situation should be /i/
     newTransliteration = "i";
   }
 
