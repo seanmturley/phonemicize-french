@@ -2,6 +2,7 @@ import aTransliteration from "./a-transliteration.ts";
 import bTransliteration from "./b-transliteration.ts";
 import cTransliteration from "./c-transliteration.ts";
 import dTransliteration from "./d-transliteration.ts";
+import eTransliteration from "./e-transliteration.ts";
 import fTransliteration from "./f-transliteration.ts";
 import gTransliteration from "./g-transliteration.ts";
 import hTransliteration from "./h-transliteration.ts";
@@ -58,9 +59,7 @@ export default function transliterateWord(word: string) {
       case "è":
       case "ê":
       case "ë":
-        // Placeholder until eTransliteration is added
-        newTransliteration += word.substring(index, index + 1);
-        index += 1;
+        [newTransliteration, index] = eTransliteration(word, index);
         break;
 
       case "f":
