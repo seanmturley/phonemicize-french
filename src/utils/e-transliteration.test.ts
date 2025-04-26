@@ -242,16 +242,28 @@ describe("eTransliteration", () => {
     expect(newIndex).toBe(3);
   });
 
-  it("e before two consonants should be /ɛ/", () => {
-    // Note that this covers non-nasal "enn" and "emm" e.g. as in "tennis"
-    // and "gemme". "Femme" is a notable exception.
-    const word = "elle";
-    const index = 0;
+  describe("e before two consonants", () => {
+    it("in the adverb ending 'emment' should be /a/", () => {
+      const word = "récemment";
+      const index = 3;
 
-    const [newTransliteration, newIndex] = eTransliteration(word, index);
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
 
-    expect(newTransliteration).toBe("ɛ");
-    expect(newIndex).toBe(1);
+      expect(newTransliteration).toBe("a");
+      expect(newIndex).toBe(4);
+    });
+
+    it("otherwise should be /ɛ/", () => {
+      // Note that this covers non-nasal "enn" and "emm" e.g. as in "tennis"
+      // and "gemme". "Femme" is a notable exception.
+      const word = "elle";
+      const index = 0;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɛ");
+      expect(newIndex).toBe(1);
+    });
   });
 
   it("e before a silent final consonant should be /ə/", () => {
