@@ -286,7 +286,7 @@ describe("eTransliteration", () => {
     expect(newIndex).toBe(2);
   });
 
-  describe("e final", () => {
+  describe("e final after a consonant", () => {
     it("in monosyllables should be /ə/", () => {
       // These words are all 2 lettres long
       const word = "je";
@@ -298,6 +298,18 @@ describe("eTransliteration", () => {
       expect(newIndex).toBe(2);
     });
 
+    it("in monosyllables followed by s should be /e/", () => {
+      // These words are all 3 lettres long. They may also be pronounced as /ɛ/,
+      // but much less frequently.
+      const word = "les";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("e(z)");
+      expect(newIndex).toBe(3);
+    });
+
     it("otherwise should be /(ə)/", () => {
       const word = "parle";
       const index = 4;
@@ -306,6 +318,16 @@ describe("eTransliteration", () => {
 
       expect(newTransliteration).toBe("(ə)");
       expect(newIndex).toBe(5);
+    });
+
+    it("followed by s should be /(ə)/", () => {
+      const word = "hommes";
+      const index = 4;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("(ə)");
+      expect(newIndex).toBe(6);
     });
   });
 
