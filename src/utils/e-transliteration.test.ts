@@ -152,6 +152,28 @@ describe("eTransliteration", () => {
     expect(newIndex).toBe(5);
   });
 
+  describe("en final", () => {
+    it("should be /ɛ̃/", () => {
+      const word = "bien";
+      const index = 2;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɛ̃");
+      expect(newIndex).toBe(4);
+    });
+
+    it("followed by s should be /ɛ̃/", () => {
+      const word = "chiens";
+      const index = 3;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɛ̃");
+      expect(newIndex).toBe(6);
+    });
+  });
+
   describe("ent final", () => {
     it("in third person plural verbs should be /ə/", () => {
       // This requires checking the lexicon metadata to identify third
@@ -173,6 +195,16 @@ describe("eTransliteration", () => {
 
       expect(newTransliteration).toBe("ɑ̃");
       expect(newIndex).toBe(4);
+    });
+
+    it("followed by s should be /ɑ̃/", () => {
+      const word = "patients";
+      const index = 4;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɑ̃");
+      expect(newIndex).toBe(8);
     });
   });
 
