@@ -33,7 +33,7 @@ describe("eTransliteration", () => {
 
   // it("ê should be /ɛː/", () => {
   //   // Probably? Need to figure out long vowels
-  //   // Apparently doesn't apply to "pret":
+  //   // Apparently doesn't apply to "prêt":
   //   // https://fr.wiktionary.org/wiki/Annexe:Prononciation/fran%C3%A7ais#Fran%C3%A7ais_moderne_traditionnel
   //   // So perhaps vowel only lengthened before a pronounced consonant?
   //   const word = "tête";
@@ -243,7 +243,7 @@ describe("eTransliteration", () => {
   });
 
   describe("e before two consonants", () => {
-    it("in the adverb ending 'emment' should be /a/", () => {
+    it("in the adverb suffix 'emment' should be /a/", () => {
       const word = "récemment";
       const index = 3;
 
@@ -266,7 +266,7 @@ describe("eTransliteration", () => {
     });
   });
 
-  it("e before a silent final consonant should be /ə/", () => {
+  it("e before a silent final consonant should be /e/", () => {
     const word = "pied";
     const index = 2;
 
