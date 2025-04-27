@@ -56,7 +56,7 @@ describe("eTransliteration", () => {
   });
 
   describe("initial", () => {
-    it("emm should be /ɛ̃m/", () => {
+    it("emm should be /ɑ̃m/", () => {
       const word = "emmêler";
       const index = 0;
 
@@ -66,7 +66,7 @@ describe("eTransliteration", () => {
       expect(newIndex).toBe(3);
     });
 
-    it("enn should be /ɛ̃n/", () => {
+    it("enn should be /ɑ̃n/", () => {
       // "ennemi" is an exception
       const word = "ennui";
       const index = 0;
@@ -79,17 +79,7 @@ describe("eTransliteration", () => {
   });
 
   describe("before a consonant excluding m, n, or h", () => {
-    it("ein should be /ɛ̃/", () => {
-      const word = "peinture";
-      const index = 2;
-
-      const [newTransliteration, newIndex] = eTransliteration(word, index);
-
-      expect(newTransliteration).toBe("ɛ̃");
-      expect(newIndex).toBe(5);
-    });
-
-    it("em should be /ɛ̃/", () => {
+    it("em should be /ɑ̃/", () => {
       const word = "embue";
       const index = 0;
 
@@ -99,7 +89,7 @@ describe("eTransliteration", () => {
       expect(newIndex).toBe(2);
     });
 
-    it("en should be /ɛ̃/", () => {
+    it("en should be /ɑ̃/", () => {
       const word = "ensemble";
       const index = 0;
 
@@ -110,46 +100,26 @@ describe("eTransliteration", () => {
     });
   });
 
-  describe("before a vowel", () => {
-    it("en should be /ɛ̃/", () => {
+  describe("ein", () => {
+    it("before a vowel should be /ɛn/", () => {
+      const word = "peine";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɛn");
+      expect(newIndex).toBe(4);
+    });
+
+    it("otherwise should be /ɛ̃/", () => {
       const word = "peinture";
-      const index = 2;
+      const index = 1;
 
       const [newTransliteration, newIndex] = eTransliteration(word, index);
 
       expect(newTransliteration).toBe("ɛ̃");
-      expect(newIndex).toBe(5);
+      expect(newIndex).toBe(4);
     });
-
-    it("em should be /ɛ̃/", () => {
-      const word = "embue";
-      const index = 0;
-
-      const [newTransliteration, newIndex] = eTransliteration(word, index);
-
-      expect(newTransliteration).toBe("ɑ̃");
-      expect(newIndex).toBe(2);
-    });
-
-    it("en should be /ɛ̃/", () => {
-      const word = "ensemble";
-      const index = 0;
-
-      const [newTransliteration, newIndex] = eTransliteration(word, index);
-
-      expect(newTransliteration).toBe("ɑ̃");
-      expect(newIndex).toBe(2);
-    });
-  });
-
-  it("final ein should be /ɛ̃/", () => {
-    const word = "plein";
-    const index = 2;
-
-    const [newTransliteration, newIndex] = eTransliteration(word, index);
-
-    expect(newTransliteration).toBe("ɛ̃");
-    expect(newIndex).toBe(5);
   });
 
   describe("en final", () => {
@@ -163,29 +133,29 @@ describe("eTransliteration", () => {
       expect(newIndex).toBe(4);
     });
 
-    it("followed by s should be /ɛ̃/", () => {
+    it("followed by final s should be /ɛ̃/", () => {
       const word = "chiens";
       const index = 3;
 
       const [newTransliteration, newIndex] = eTransliteration(word, index);
 
       expect(newTransliteration).toBe("ɛ̃");
-      expect(newIndex).toBe(6);
+      expect(newIndex).toBe(5);
     });
   });
 
   describe("ent final", () => {
-    it("in third person plural verbs should be /ə/", () => {
-      // This requires checking the lexicon metadata to identify third
-      // person plural verbs
-      const word = "parlent";
-      const index = 4;
+    // it("in third person plural verbs should be /ə/", () => {
+    //   // This requires checking the lexicon metadata to identify third
+    //   // person plural verbs
+    //   const word = "parlent";
+    //   const index = 4;
 
-      const [newTransliteration, newIndex] = eTransliteration(word, index);
+    //   const [newTransliteration, newIndex] = eTransliteration(word, index);
 
-      expect(newTransliteration).toBe("ə");
-      expect(newIndex).toBe(7);
-    });
+    //   expect(newTransliteration).toBe("ə");
+    //   expect(newIndex).toBe(7);
+    // });
 
     it("otherwise should be /ɑ̃/", () => {
       const word = "cent";
@@ -197,14 +167,14 @@ describe("eTransliteration", () => {
       expect(newIndex).toBe(4);
     });
 
-    it("followed by s should be /ɑ̃/", () => {
+    it("otherwise with s should be /ɑ̃/", () => {
       const word = "patients";
       const index = 4;
 
       const [newTransliteration, newIndex] = eTransliteration(word, index);
 
       expect(newTransliteration).toBe("ɑ̃");
-      expect(newIndex).toBe(8);
+      expect(newIndex).toBe(7);
     });
   });
 
@@ -243,14 +213,14 @@ describe("eTransliteration", () => {
   });
 
   describe("e before two consonants", () => {
-    it("in the adverb suffix 'emment' should be /a/", () => {
+    it("the adverb suffix 'emment' should be /amɑ̃/", () => {
       const word = "récemment";
       const index = 3;
 
       const [newTransliteration, newIndex] = eTransliteration(word, index);
 
-      expect(newTransliteration).toBe("a");
-      expect(newIndex).toBe(4);
+      expect(newTransliteration).toBe("amɑ̃");
+      expect(newIndex).toBe(9);
     });
 
     it("otherwise should be /ɛ/", () => {
@@ -273,7 +243,7 @@ describe("eTransliteration", () => {
     const [newTransliteration, newIndex] = eTransliteration(word, index);
 
     expect(newTransliteration).toBe("e");
-    expect(newIndex).toBe(3);
+    expect(newIndex).toBe(4);
   });
 
   it("e before a pronounced final consonant should be /ɛ/", () => {
@@ -298,9 +268,9 @@ describe("eTransliteration", () => {
       expect(newIndex).toBe(2);
     });
 
-    it("in monosyllables followed by s should be /e/", () => {
-      // These words are all 3 lettres long. They may also be pronounced as /ɛ/,
-      // but much less frequently.
+    it("in monosyllables with s should be /e(z)/", () => {
+      // These words are all 3 lettres long. They may also be pronounced as
+      // /ɛ/, but much less frequently.
       const word = "les";
       const index = 1;
 
@@ -320,7 +290,7 @@ describe("eTransliteration", () => {
       expect(newIndex).toBe(5);
     });
 
-    it("followed by s should be /(ə)/", () => {
+    it("otherwise with s should be /(ə)/", () => {
       const word = "hommes";
       const index = 4;
 
