@@ -373,27 +373,35 @@ describe("eTransliteration", () => {
     });
   });
 
-  describe("eu before a /z/ sound should be /ø/", () => {
-    it("as when before medial z", () => {
-      // z medial is realised as /z/
-      const word = "geuze";
-      const index = 2;
+  describe("eu", () => {
+    it("final should be /ø/", () => {
+      const word = "peu";
+      const index = 1;
 
       const [newTransliteration, newIndex] = eTransliteration(word, index);
 
-      expect(newTransliteration).toBe("øz");
-      expect(newIndex).toBe(5);
+      expect(newTransliteration).toBe("ø");
+      expect(newIndex).toBe(3);
     });
 
-    it("as when before s followed by a vowel", () => {
-      // s is realised as /z/ between vowels
-      const word = "creuse";
+    it("before e, s, t, x, or z should be /ø/", () => {
+      const word = "meute";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ø");
+      expect(newIndex).toBe(3);
+    });
+
+    it("otherwise should be /œ/", () => {
+      const word = "fleur";
       const index = 2;
 
       const [newTransliteration, newIndex] = eTransliteration(word, index);
 
-      expect(newTransliteration).toBe("øz");
-      expect(newIndex).toBe(5);
+      expect(newTransliteration).toBe("œ");
+      expect(newIndex).toBe(4);
     });
   });
 });
