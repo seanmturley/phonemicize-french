@@ -157,7 +157,6 @@ export default function eTransliteration(
   ) {
     // e before a silent final consonant should be /e/
     newTransliteration = "e";
-    numTransliteratedCharacters = 2;
   } else if (
     new RegExp(String.raw`^e[${consonant}]$`, "i").test(remainingWord)
   ) {

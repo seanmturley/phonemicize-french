@@ -263,7 +263,7 @@ describe("eTransliteration", () => {
     const [newTransliteration, newIndex] = eTransliteration(word, index);
 
     expect(newTransliteration).toBe("e");
-    expect(newIndex).toBe(4);
+    expect(newIndex).toBe(3);
   });
 
   it("e before a pronounced final consonant should be /ɛ/", () => {
