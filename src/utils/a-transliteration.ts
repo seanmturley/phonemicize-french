@@ -1,4 +1,8 @@
-import { consonantExcludingMNH, vowel } from "./letter-group-definitions.ts";
+import {
+  consonantExcludingMNH,
+  silentFinalConsonant,
+  vowel
+} from "./letter-group-definitions.ts";
 import type { LetterTransliteration } from "./transliteration-types.ts";
 
 export default function aTransliteration(
@@ -126,9 +130,17 @@ export default function aTransliteration(
     // final ail should be /aj/
     newTransliteration = "aj";
     numTransliteratedCharacters = 3;
-  } else if (/^aî/i.test(remainingWord)) {
-    // aî should be /ɛ/
+  } else if (
+    new RegExp(String.raw`^aî[${silentFinalConsonant}]$`, "i").test(
+      remainingWord
+    )
+  ) {
+    // aî before a silent final consonant should be /ɛ/
     newTransliteration = "ɛ";
+    numTransliteratedCharacters = 2;
+  } else if (/^aî/i.test(remainingWord)) {
+    // aî otherwise (i.e. before a pronounced consonant) should be /ɛː/
+    newTransliteration = "ɛː";
     numTransliteratedCharacters = 2;
   } else if (/^ai/i.test(remainingWord)) {
     // ai should be /ɛ/

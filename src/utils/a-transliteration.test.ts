@@ -76,13 +76,23 @@ describe("aTransliteration", () => {
       expect(newIndex).toBe(7);
     });
 
-    it("aî should be /ɛ/", () => {
+    it("aî before a silent final consonant should be /ɛ/", () => {
       const word = "naît";
       const index = 1;
 
       const [newTransliteration, newIndex] = aTransliteration(word, index);
 
       expect(newTransliteration).toBe("ɛ");
+      expect(newIndex).toBe(3);
+    });
+
+    it("aî otherwise (i.e. before a pronounced consonant) should be /ɛː/", () => {
+      const word = "maître";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = aTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɛː");
       expect(newIndex).toBe(3);
     });
 
