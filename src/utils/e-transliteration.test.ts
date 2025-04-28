@@ -34,10 +34,10 @@ describe("eTransliteration", () => {
   describe("circumflex graphemes", () => {
     it("ê final should be /ɛ/", () => {
       const word = "épochê";
-      const index = 2;
+      const index = 5;
       const [newTransliteration, newIndex] = eTransliteration(word, index);
       expect(newTransliteration).toBe("ɛ");
-      expect(newIndex).toBe(4);
+      expect(newIndex).toBe(6);
     });
 
     it("ê followed by a silent final consonant should be /ɛ/", () => {
@@ -45,10 +45,10 @@ describe("eTransliteration", () => {
       const index = 2;
       const [newTransliteration, newIndex] = eTransliteration(word, index);
       expect(newTransliteration).toBe("ɛ");
-      expect(newIndex).toBe(4);
+      expect(newIndex).toBe(3);
     });
 
-    it("ê before a pronounced consonant should be /ɛː/", () => {
+    it("ê otherwise (i.e. before a pronounced consonant) should be /ɛː/", () => {
       const word = "tête";
       const index = 1;
       const [newTransliteration, newIndex] = eTransliteration(word, index);
@@ -61,7 +61,7 @@ describe("eTransliteration", () => {
       const index = 1;
       const [newTransliteration, newIndex] = eTransliteration(word, index);
       expect(newTransliteration).toBe("ɛː");
-      expect(newIndex).toBe(2);
+      expect(newIndex).toBe(3);
     });
   });
 

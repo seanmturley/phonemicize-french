@@ -25,6 +25,23 @@ export default function eTransliteration(
   } else if (/^ë/i.test(remainingWord)) {
     // ë should be /ɛ/
     newTransliteration = "ɛ";
+  } else if (/^ê$/i.test(remainingWord)) {
+    // ê final should be /ɛ/
+    newTransliteration = "ɛ";
+  } else if (
+    new RegExp(String.raw`^ê[${silentFinalConsonant}]$`, "i").test(
+      remainingWord
+    )
+  ) {
+    // ê followed by a silent final consonant should be /ɛ/
+    newTransliteration = "ɛ";
+  } else if (/^ê/i.test(remainingWord)) {
+    // ê otherwise (i.e. before a pronounced consonant) should be /ɛː/
+    newTransliteration = "ɛː";
+  } else if (/^eî/i.test(remainingWord)) {
+    // eî should be /ɛː/
+    newTransliteration = "ɛː";
+    numTransliteratedCharacters = 2;
   } else if (/^eau/i.test(remainingWord)) {
     // eau should be /o/
     newTransliteration = "o";
