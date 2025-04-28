@@ -31,19 +31,39 @@ describe("eTransliteration", () => {
     expect(newIndex).toBe(3);
   });
 
-  // it("ê should be /ɛː/", () => {
-  //   // Probably? Need to figure out long vowels
-  //   // Apparently doesn't apply to "prêt":
-  //   // https://fr.wiktionary.org/wiki/Annexe:Prononciation/fran%C3%A7ais#Fran%C3%A7ais_moderne_traditionnel
-  //   // So perhaps vowel only lengthened before a pronounced consonant?
-  //   const word = "tête";
-  //   const index = 1;
+  describe("circumflex graphemes", () => {
+    it("ê final should be /ɛ/", () => {
+      const word = "épochê";
+      const index = 2;
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+      expect(newTransliteration).toBe("ɛ");
+      expect(newIndex).toBe(4);
+    });
 
-  //   const [newTransliteration, newIndex] = eTransliteration(word, index);
+    it("ê followed by a silent final consonant should be /ɛ/", () => {
+      const word = "prêt";
+      const index = 2;
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+      expect(newTransliteration).toBe("ɛ");
+      expect(newIndex).toBe(4);
+    });
 
-  //   expect(newTransliteration).toBe("ɛː");
-  //   expect(newIndex).toBe(2);
-  // });
+    it("ê before a pronounced consonant should be /ɛː/", () => {
+      const word = "tête";
+      const index = 1;
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+      expect(newTransliteration).toBe("ɛː");
+      expect(newIndex).toBe(2);
+    });
+
+    it("eî should be /ɛː/", () => {
+      const word = "reître";
+      const index = 1;
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+      expect(newTransliteration).toBe("ɛː");
+      expect(newIndex).toBe(2);
+    });
+  });
 
   it("eau should be /o/", () => {
     const word = "beau";
