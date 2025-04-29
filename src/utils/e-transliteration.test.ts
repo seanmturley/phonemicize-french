@@ -139,6 +139,8 @@ describe("eTransliteration", () => {
     });
 
     it("ei otherwise should be /ɛː/", () => {
+      // Note exception that borrowings from German are typically
+      // pronounced /aj/
       const word = "seize";
       const index = 1;
       const [newTransliteration, newIndex] = eTransliteration(word, index);
