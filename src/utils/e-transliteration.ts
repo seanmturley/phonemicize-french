@@ -38,9 +38,53 @@ export default function eTransliteration(
   } else if (/^ê/i.test(remainingWord)) {
     // ê otherwise (i.e. before a pronounced consonant) should be /ɛː/
     newTransliteration = "ɛː";
+  } else if (new RegExp(String.raw`^ein[${vowel}]`, "i").test(remainingWord)) {
+    // ein before a vowel should be /ɛn/
+    newTransliteration = "ɛn";
+    numTransliteratedCharacters = 3;
+  } else if (/^ein/i.test(remainingWord)) {
+    // ein otherwise should be /ɛ̃/
+    newTransliteration = "ɛ̃";
+    numTransliteratedCharacters = 3;
+  } else if (/^eil$/i.test(remainingWord)) {
+    // final eil should be /ɛj/
+    newTransliteration = "ɛj";
+    numTransliteratedCharacters = 3;
+  } else if (/^euil$/i.test(remainingWord)) {
+    // final euil should be /œj/
+    newTransliteration = "œj";
+    numTransliteratedCharacters = 4;
+  } else if (/^eill/i.test(remainingWord)) {
+    // eill should be /ɛj/
+    newTransliteration = "ɛj";
+    numTransliteratedCharacters = 4;
+  } else if (/^euill/i.test(remainingWord)) {
+    // euill should be /œj/
+    newTransliteration = "œj";
+    numTransliteratedCharacters = 5;
   } else if (/^eî/i.test(remainingWord)) {
     // eî should be /ɛː/
     newTransliteration = "ɛː";
+    numTransliteratedCharacters = 2;
+  } else if (/^ei$/i.test(remainingWord)) {
+    // ei final should be /ɛj/
+    newTransliteration = "ɛj";
+    numTransliteratedCharacters = 2;
+  } else if (/^ei/i.test(remainingWord)) {
+    // ei otherwise should be /ɛː/
+    newTransliteration = "ɛː";
+    numTransliteratedCharacters = 2;
+  } else if (/^eu$/i.test(remainingWord)) {
+    // eu final should be /ø/
+    newTransliteration = "ø";
+    numTransliteratedCharacters = 2;
+  } else if (/^eu[estxz]/i.test(remainingWord)) {
+    // eu before e, s, t, x, or z should be /ø/
+    newTransliteration = "ø";
+    numTransliteratedCharacters = 2;
+  } else if (/^eu/i.test(remainingWord)) {
+    // eu otherwise should be /œ/
+    newTransliteration = "œ";
     numTransliteratedCharacters = 2;
   } else if (/^eau/i.test(remainingWord)) {
     // eau should be /o/
@@ -86,14 +130,6 @@ export default function eTransliteration(
     // before a consonant excluding m, n, or h en should be /ɑ̃/
     newTransliteration = "ɑ̃";
     numTransliteratedCharacters = 2;
-  } else if (new RegExp(String.raw`^ein[${vowel}]`, "i").test(remainingWord)) {
-    // ein before a vowel should be /ɛn/
-    newTransliteration = "ɛn";
-    numTransliteratedCharacters = 3;
-  } else if (/^ein/i.test(remainingWord)) {
-    // ein otherwise should be /ɛ̃/
-    newTransliteration = "ɛ̃";
-    numTransliteratedCharacters = 3;
   } else if (/^ent$/i.test(remainingWord)) {
     // ent final otherwise should be /ɑ̃/
     newTransliteration = "ɑ̃";
@@ -162,34 +198,6 @@ export default function eTransliteration(
   ) {
     // e before a pronounced final consonant should be /ɛ/
     newTransliteration = "ɛ";
-  } else if (/^eil$/i.test(remainingWord)) {
-    // final eil should be /ɛj/
-    newTransliteration = "ɛj";
-    numTransliteratedCharacters = 3;
-  } else if (/^euil$/i.test(remainingWord)) {
-    // final euil should be /œj/
-    newTransliteration = "œj";
-    numTransliteratedCharacters = 4;
-  } else if (/^eill/i.test(remainingWord)) {
-    // eill should be /ɛj/
-    newTransliteration = "ɛj";
-    numTransliteratedCharacters = 4;
-  } else if (/^euill/i.test(remainingWord)) {
-    // euill should be /œj/
-    newTransliteration = "œj";
-    numTransliteratedCharacters = 5;
-  } else if (/^eu$/i.test(remainingWord)) {
-    // eu final should be /ø/
-    newTransliteration = "ø";
-    numTransliteratedCharacters = 2;
-  } else if (/^eu[estxz]/i.test(remainingWord)) {
-    // eu before e, s, t, x, or z should be /ø/
-    newTransliteration = "ø";
-    numTransliteratedCharacters = 2;
-  } else if (/^eu/i.test(remainingWord)) {
-    // eu otherwise should be /œ/
-    newTransliteration = "œ";
-    numTransliteratedCharacters = 2;
   }
 
   const newIndex = index + numTransliteratedCharacters;
