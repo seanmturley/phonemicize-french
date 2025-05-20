@@ -1,18 +1,6 @@
 import oTransliteration from "./o-transliteration.ts";
 
 describe("oTransliteration", () => {
-  // Need to think about how to check for stressed vowels - can this be
-  // done programmatically in a reliable way?
-  // it("ou before a stressed vowel should be /w/", () => {
-  //   const word = "oui";
-  //   const index = 0;
-
-  //   const [newTransliteration, newIndex] = uTransliteration(word, index);
-
-  //   expect(newTransliteration).toBe("w");
-  //   expect(newIndex).toBe(2);
-  // });
-
   it("ô should be /o/", () => {
     const word = "hôte";
     const index = 1;
@@ -206,19 +194,21 @@ describe("oTransliteration", () => {
   });
 
   describe("ou variations", () => {
-    // Need to think about how to check for stressed vowels - can this be
-    // done programmatically in a reliable way?
-    // it("ou before a stressed vowel should be /w/", () => {
-    //   const word = "oui";
-    //   const index = 0;
+    it("ou before a pronounced vowel should be /w/", () => {
+      // Note that pronounced vowels in this case are:
+      // - a
+      // - i (not followed by "l" i.e. the ouil graphemes handled below)
+      // - e when followed by "r", "t", or "st"
+      const word = "avouer";
+      const index = 2;
 
-    //   const [newTransliteration, newIndex] = uTransliteration(word, index);
+      const [newTransliteration, newIndex] = oTransliteration(word, index);
 
-    //   expect(newTransliteration).toBe("w");
-    //   expect(newIndex).toBe(2);
-    // });
+      expect(newTransliteration).toBe("w");
+      expect(newIndex).toBe(4);
+    });
 
-    it("ou should be /u/", () => {
+    it("ou otherwise should be /u/", () => {
       const word = "vous";
       const index = 1;
 

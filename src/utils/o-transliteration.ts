@@ -99,8 +99,12 @@ export default function oTransliteration(
     // ouill should be /uj/
     newTransliteration = "uj";
     numTransliteratedCharacters = 4;
+  } else if (/^ou([ia]|e([rt]|st))/i.test(remainingWord)) {
+    // ou followed by a pronounced vowel should be /w/
+    newTransliteration = "w";
+    numTransliteratedCharacters = 2;
   } else if (/^o[uùû]/i.test(remainingWord)) {
-    // ou, où, or oû should be /u/
+    // ou otherwise, où, and oû should be /u/
     newTransliteration = "u";
     numTransliteratedCharacters = 2;
   } else if (/^o$/i.test(remainingWord)) {
