@@ -1,18 +1,6 @@
 import uTransliteration from "./u-transliteration.ts";
 
 describe("uTransliteration", () => {
-  // Need to think about how to check for stressed vowels - can this be
-  // done programmatically in a reliable way?
-  // it("u before a stressed vowel should be /ɥ/", () => {
-  //   const word = "lui";
-  //   const index = 1;
-
-  //   const [newTransliteration, newIndex] = uTransliteration(word, index);
-
-  //   expect(newTransliteration).toBe("ɥ");
-  //   expect(newIndex).toBe(2);
-  // });
-
   describe("before a vowel", () => {
     it("um should be /ym/", () => {
       const word = "fume";
@@ -88,14 +76,56 @@ describe("uTransliteration", () => {
     });
   });
 
-  it("uill should be /ɥij/", () => {
-    const word = "juillet";
-    const index = 1;
+  describe("/ɥ/ graphemes", () => {
+    it("uill should be /ɥij/", () => {
+      const word = "juillet";
+      const index = 1;
 
-    const [newTransliteration, newIndex] = uTransliteration(word, index);
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
 
-    expect(newTransliteration).toBe("ɥij");
-    expect(newIndex).toBe(5);
+      expect(newTransliteration).toBe("ɥij");
+      expect(newIndex).toBe(5);
+    });
+
+    it("ui final should be /ɥi/", () => {
+      const word = "lui";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɥi");
+      expect(newIndex).toBe(3);
+    });
+
+    it("ui not followed by a back vowel should be /ɥi/", () => {
+      const word = "pluie";
+      const index = 2;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɥi");
+      expect(newIndex).toBe(4);
+    });
+
+    it("uy not followed by a back vowel should be /ɥi/", () => {
+      const word = "ennuyer";
+      const index = 3;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɥi");
+      expect(newIndex).toBe(5);
+    });
+
+    it("üi should be /ɥi/", () => {
+      const word = "ambigüité";
+      const index = 5;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɥi");
+      expect(newIndex).toBe(7);
+    });
   });
 
   describe("in all other cases", () => {

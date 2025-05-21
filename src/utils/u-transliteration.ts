@@ -1,4 +1,8 @@
-import { consonantExcludingMNH, vowel } from "./letter-group-definitions.ts";
+import {
+  backVowel,
+  consonantExcludingMNH,
+  vowel
+} from "./letter-group-definitions.ts";
 import type { LetterTransliteration } from "./transliteration-types.ts";
 
 export default function uTransliteration(
@@ -46,6 +50,16 @@ export default function uTransliteration(
     // uill should be /ɥij/
     newTransliteration = "ɥij";
     numTransliteratedCharacters = 4;
+  } else if (/^ui$/i.test(remainingWord)) {
+    // ui final should be /ɥi/
+    newTransliteration = "ɥi";
+    numTransliteratedCharacters = 2;
+  } else if (
+    new RegExp(String.raw`^[uü][iy][^${backVowel}]`, "im").test(remainingWord)
+  ) {
+    // ui or uy not followed by a back, vowel or üi should be /ɥi/
+    newTransliteration = "ɥi";
+    numTransliteratedCharacters = 2;
   } else if (/^ue/i.test(remainingWord)) {
     // in all other cases ue should be /y/
     newTransliteration = "y";
