@@ -46,6 +46,12 @@ export default function uTransliteration(
     // before a consonant excluding m, n, or h, un should be /œ̃/
     newTransliteration = "œ̃";
     numTransliteratedCharacters = 2;
+  } else if (/^ue([rlt]|lle)$/i.test(remainingWord)) {
+    // u followed by:
+    // e with r, l, or t final, or;
+    // elle final
+    // should be /ɥ/
+    newTransliteration = "ɥ";
   } else if (/^uill/i.test(remainingWord)) {
     // uill should be /ɥij/
     newTransliteration = "ɥij";

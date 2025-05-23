@@ -77,6 +77,29 @@ describe("uTransliteration", () => {
   });
 
   describe("/ɥ/ graphemes", () => {
+    it("u followed by e with r, l, or t final should be /ɥ/", () => {
+      // There are exceptions, but this covers the vast majority of cases
+      // A notable exception is "cruel". Others are obscure words e.g.
+      // "fluer" and "bluet"
+      const word = "saluer";
+      const index = 3;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɥ");
+      expect(newIndex).toBe(4);
+    });
+
+    it("u followed by elle final should be /ɥ/", () => {
+      const word = "rituelle";
+      const index = 3;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɥ");
+      expect(newIndex).toBe(4);
+    });
+
     it("uill should be /ɥij/", () => {
       const word = "juillet";
       const index = 1;
