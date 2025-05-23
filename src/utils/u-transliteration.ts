@@ -55,9 +55,13 @@ export default function uTransliteration(
     newTransliteration = "ɥi";
     numTransliteratedCharacters = 2;
   } else if (
-    new RegExp(String.raw`^[uü][iy][^${backVowel}]`, "im").test(remainingWord)
+    new RegExp(String.raw`^u[iy][^${backVowel}]`, "i").test(remainingWord)
   ) {
-    // ui or uy not followed by a back, vowel or üi should be /ɥi/
+    // ui or uy not followed by a back vowelshould be /ɥi/
+    newTransliteration = "ɥi";
+    numTransliteratedCharacters = 2;
+  } else if (/^üi/i.test(remainingWord)) {
+    // üi should be /ɥi/
     newTransliteration = "ɥi";
     numTransliteratedCharacters = 2;
   } else if (/^ue/i.test(remainingWord)) {
