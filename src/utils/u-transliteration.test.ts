@@ -77,6 +77,18 @@ describe("uTransliteration", () => {
   });
 
   describe("/ɥ/ graphemes", () => {
+    it("u followed by a should be /ɥ/, except when preceeded by single l or r", () => {
+      // The single letter requirement here appears to account for a few
+      // additional words such as "polluant", "belluaire", "charruage"
+      const word = "polluant";
+      const index = 4;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɥ");
+      expect(newIndex).toBe(5);
+    });
+
     it("u followed by e with r, l, or t final should be /ɥ/", () => {
       // There are exceptions, but this covers the vast majority of cases
       // A notable exception is "cruel". Others are obscure words e.g.
