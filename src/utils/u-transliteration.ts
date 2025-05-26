@@ -47,7 +47,10 @@ export default function uTransliteration(
     newTransliteration = "œ̃";
     numTransliteratedCharacters = 2;
   } else if (/^(?:[^lr]{1,2}|([lr])\1)ua/i.test(word.substring(index - 2))) {
-    // u followed by a should be /ɥ/, except when preceeded by single l or r
+    // u followed by a should be /ɥ/, except when preceded by single l or r
+    newTransliteration = "ɥ";
+  } else if (/^[^lr]uo/i.test(word.substring(index - 1))) {
+    // u followed by o should be /ɥ/, except when preceded by l or r
     newTransliteration = "ɥ";
   } else if (/^ue([rlt]|lle)$/i.test(remainingWord)) {
     // u followed by:
@@ -66,7 +69,7 @@ export default function uTransliteration(
   } else if (
     new RegExp(String.raw`^u[iy][^${backVowel}]`, "i").test(remainingWord)
   ) {
-    // ui or uy not followed by a back vowelshould be /ɥi/
+    // ui or uy not followed by a back vowel should be /ɥi/
     newTransliteration = "ɥi";
     numTransliteratedCharacters = 2;
   } else if (/^üi/i.test(remainingWord)) {

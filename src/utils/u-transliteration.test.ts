@@ -77,7 +77,7 @@ describe("uTransliteration", () => {
   });
 
   describe("/ɥ/ graphemes", () => {
-    it("u followed by a should be /ɥ/, except when preceeded by single l or r", () => {
+    it("u followed by a should be /ɥ/, except when preceded by single l or r", () => {
       // The single letter requirement here appears to account for a few
       // additional words such as "polluant", "belluaire", "charruage"
       const word = "polluant";
@@ -87,6 +87,16 @@ describe("uTransliteration", () => {
 
       expect(newTransliteration).toBe("ɥ");
       expect(newIndex).toBe(5);
+    });
+
+    it("u followed by o should be /ɥ/, except when preceded by l or r", () => {
+      const word = "duo";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɥ");
+      expect(newIndex).toBe(2);
     });
 
     it("u followed by e with r, l, or t final should be /ɥ/", () => {
