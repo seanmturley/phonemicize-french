@@ -51,18 +51,19 @@ describe("uTransliteration", () => {
   });
 
   describe("final", () => {
-    it("um should be /œ̃/", () => {
-      // There are a number of exceptions to this rule, which largely seem to
-      // be borrowings directly from Latin e.g. 'album' and 'atrium', where
-      // the `um` is pronounced `/ɔm/`.
+    it("um should be /ɔm/", () => {
+      // Originally this rule was "final um should be /œ̃/", but there are
+      // few words where this holds (e.g. "parfum"). Instead, there are many
+      // direct borrowings from Latin e.g. 'album' and 'atrium', where the
+      // `um` is pronounced `/ɔm/`.
 
-      const word = "parfum";
-      const index = 4;
+      const word = "album";
+      const index = 3;
 
       const [newTransliteration, newIndex] = uTransliteration(word, index);
 
-      expect(newTransliteration).toBe("œ̃");
-      expect(newIndex).toBe(6);
+      expect(newTransliteration).toBe("ɔm");
+      expect(newIndex).toBe(5);
     });
 
     it("un should be /œ̃/ (a final /n/ is implied in liaison)", () => {

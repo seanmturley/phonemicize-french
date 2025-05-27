@@ -15,8 +15,8 @@ export default function uTransliteration(
   let numTransliteratedCharacters = 1;
 
   if (/^um$/i.test(remainingWord)) {
-    // final um should be /œ̃/
-    newTransliteration = "œ̃";
+    // final um should be /ɔm/
+    newTransliteration = "ɔm";
     numTransliteratedCharacters = 2;
   } else if (/^un$/i.test(remainingWord)) {
     // un should be /œ̃/ (a final /n/ is implied in liaison)
