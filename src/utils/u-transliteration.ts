@@ -14,37 +14,27 @@ export default function uTransliteration(
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/^um$/i.test(remainingWord)) {
-    // final um should be /ɔm/
-    newTransliteration = "ɔm";
-    numTransliteratedCharacters = 2;
+  if (new RegExp(String.raw`^um[${vowel}]`, "i").test(remainingWord)) {
+    // the u in um before a vowel should be /y/
+    newTransliteration = "y";
+  } else if (/^um(?!m)/i.test(remainingWord)) {
+    // the u in um otherwise, if not followed by a second m, should be /ɔ/
+    newTransliteration = "ɔ";
   } else if (/^un$/i.test(remainingWord)) {
-    // un should be /œ̃/ (a final /n/ is implied in liaison)
+    // un final should be /œ̃/ (a final /n/ is implied in liaison)
     newTransliteration = "œ̃";
-    numTransliteratedCharacters = 2;
-  } else if (new RegExp(String.raw`^um[${vowel}]`, "i").test(remainingWord)) {
-    // before a vowel um should be /ym/
-    newTransliteration = "ym";
-    numTransliteratedCharacters = 2;
-  } else if (new RegExp(String.raw`^un[${vowel}]`, "i").test(remainingWord)) {
-    // before a vowel un should be /yn/
-    newTransliteration = "yn";
-    numTransliteratedCharacters = 2;
-  } else if (
-    new RegExp(String.raw`^um[${consonantExcludingMNH}]`, "i").test(
-      remainingWord
-    )
-  ) {
-    // before a consonant excluding m, n, or h, um should be /ɔm/
-    newTransliteration = "ɔm";
     numTransliteratedCharacters = 2;
   } else if (
     new RegExp(String.raw`^un[${consonantExcludingMNH}]`, "i").test(
       remainingWord
     )
   ) {
-    // before a consonant excluding m, n, or h, un should be /œ̃/
+    // un before a consonant excluding m, n, or h should be /œ̃/
     newTransliteration = "œ̃";
+    numTransliteratedCharacters = 2;
+  } else if (new RegExp(String.raw`^un[${vowel}]`, "i").test(remainingWord)) {
+    // un before a vowel should be /yn/
+    newTransliteration = "yn";
     numTransliteratedCharacters = 2;
   } else if (/^(?:[^lr]{1,2}|([lr])\1)ua/i.test(word.substring(index - 2))) {
     // u followed by a should be /ɥ/, except when preceded by single l or r

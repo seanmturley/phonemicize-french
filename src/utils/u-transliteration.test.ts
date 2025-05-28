@@ -1,45 +1,42 @@
 import uTransliteration from "./u-transliteration.ts";
 
 describe("uTransliteration", () => {
-  describe("before a vowel", () => {
-    it("um should be /ym/", () => {
+  describe("the u in um", () => {
+    it("before a vowel should be /ym/", () => {
       const word = "fume";
       const index = 1;
 
       const [newTransliteration, newIndex] = uTransliteration(word, index);
 
-      expect(newTransliteration).toBe("ym");
-      expect(newIndex).toBe(3);
-    });
-
-    it("un should be /yn/", () => {
-      const word = "unanime";
-      const index = 0;
-
-      const [newTransliteration, newIndex] = uTransliteration(word, index);
-
-      expect(newTransliteration).toBe("yn");
+      expect(newTransliteration).toBe("y");
       expect(newIndex).toBe(2);
     });
-  });
 
-  describe("before a consonant excluding m, n, or h", () => {
-    it("um should be /ɔm/", () => {
-      // Originally this rule was "final um should be /œ̃/", but there are
-      // few words where this holds (e.g. "humble", "parfums"). Instead, there
-      // are many direct borrowings from Latin e.g. `circumterrestre`, `trium-
-      // virat`, `albums`, `atriums` etc, where the `um` is pronounced `/ɔm/`.
+    it("otherwise, if not followed by a second m, should be /ɔ/", () => {
+      // There are a few exceptions to this e.g. "parfums", "humble".
 
-      const word = "forums";
+      const word = "forum";
       const index = 3;
 
       const [newTransliteration, newIndex] = uTransliteration(word, index);
 
-      expect(newTransliteration).toBe("ɔm");
+      expect(newTransliteration).toBe("ɔ");
+      expect(newIndex).toBe(4);
+    });
+  });
+
+  describe("un", () => {
+    it("final should be /œ̃/ (a final /n/ is implied in liaison)", () => {
+      const word = "aucun";
+      const index = 3;
+
+      const [newTransliteration, newIndex] = uTransliteration(word, index);
+
+      expect(newTransliteration).toBe("œ̃");
       expect(newIndex).toBe(5);
     });
 
-    it("un should be /œ̃/", () => {
+    it("before a consonant excluding m, n, or h should be /œ̃/", () => {
       const word = "emprunte";
       const index = 4;
 
@@ -48,32 +45,15 @@ describe("uTransliteration", () => {
       expect(newTransliteration).toBe("œ̃");
       expect(newIndex).toBe(6);
     });
-  });
 
-  describe("final", () => {
-    it("um should be /ɔm/", () => {
-      // Originally this rule was "final um should be /œ̃/", but there are
-      // few words where this holds (e.g. "parfum"). Instead, there are many
-      // direct borrowings from Latin e.g. 'album' and 'atrium', where the
-      // `um` is pronounced `/ɔm/`.
-
-      const word = "album";
-      const index = 3;
+    it("before a vowel should be /yn/", () => {
+      const word = "unanime";
+      const index = 0;
 
       const [newTransliteration, newIndex] = uTransliteration(word, index);
 
-      expect(newTransliteration).toBe("ɔm");
-      expect(newIndex).toBe(5);
-    });
-
-    it("un should be /œ̃/ (a final /n/ is implied in liaison)", () => {
-      const word = "aucun";
-      const index = 3;
-
-      const [newTransliteration, newIndex] = uTransliteration(word, index);
-
-      expect(newTransliteration).toBe("œ̃");
-      expect(newIndex).toBe(5);
+      expect(newTransliteration).toBe("yn");
+      expect(newIndex).toBe(2);
     });
   });
 
