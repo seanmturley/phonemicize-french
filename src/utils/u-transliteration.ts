@@ -35,8 +35,8 @@ export default function uTransliteration(
       remainingWord
     )
   ) {
-    // before a consonant excluding m, n, or h, um should be /œ̃/
-    newTransliteration = "œ̃";
+    // before a consonant excluding m, n, or h, um should be /ɔm/
+    newTransliteration = "ɔm";
     numTransliteratedCharacters = 2;
   } else if (
     new RegExp(String.raw`^un[${consonantExcludingMNH}]`, "i").test(

@@ -24,19 +24,19 @@ describe("uTransliteration", () => {
   });
 
   describe("before a consonant excluding m, n, or h", () => {
-    it("um should be /œ̃/", () => {
-      // Other than plurals, the number of words with this sequence of letters
-      // is very small. They largely seem to be borrowings directly from Latin
-      // e.g. a handful of words from `circum-` e.g. `circumterrestre`, where
-      // the `um` is pronounced `/ɔm/`.
+    it("um should be /ɔm/", () => {
+      // Originally this rule was "final um should be /œ̃/", but there are
+      // few words where this holds (e.g. "humble", "parfums"). Instead, there
+      // are many direct borrowings from Latin e.g. `circumterrestre`, `trium-
+      // virat`, `albums`, `atriums` etc, where the `um` is pronounced `/ɔm/`.
 
-      const word = "parfums";
-      const index = 4;
+      const word = "forums";
+      const index = 3;
 
       const [newTransliteration, newIndex] = uTransliteration(word, index);
 
-      expect(newTransliteration).toBe("œ̃");
-      expect(newIndex).toBe(6);
+      expect(newTransliteration).toBe("ɔm");
+      expect(newIndex).toBe(5);
     });
 
     it("un should be /œ̃/", () => {
