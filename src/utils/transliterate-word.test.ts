@@ -29,7 +29,7 @@ const phonemes: Phonemes = {
   m: { ipa: "mu", word: "mou" },
   n: { ipa: "nu(z)", word: "nous" },
   ɲ: { ipa: "ɲu", word: "gnou" },
-  ŋ: { ipa: "kuŋ.fu", word: "kung-fu" },
+  ŋ: { ipa: "kuŋ-fu", word: "kung-fu" },
   l: { ipa: "lu", word: "loup" },
   ʁ: { ipa: "ʁu", word: "roue" },
   // Oral vowels
