@@ -57,13 +57,24 @@ const phonemes: Phonemes = {
   w: { ipa: "wi", word: "oui" }
 };
 
-describe("transliterateWord should transliterate", () => {
-  for (const phoneme in phonemes) {
-    const currentPhoneme = phonemes[phoneme];
-    it(`${currentPhoneme.word}`, () => {
-      const result = transliterateWord(currentPhoneme.word);
+describe("transliterateWord", () => {
+  describe("should transliterate all phonemes", () => {
+    for (const phoneme in phonemes) {
+      const currentPhoneme = phonemes[phoneme];
+      it(`${currentPhoneme.word}`, () => {
+        const result = transliterateWord(currentPhoneme.word);
 
-      expect(result).toBe(currentPhoneme.ipa);
-    });
-  }
+        expect(result).toBe(currentPhoneme.ipa);
+      });
+    }
+  });
+
+  it("should return punctuation unchanged", () => {
+    // This tests a non-exhaustive list, but covers many common
+    // symbols - in theory all punctuation is covered by the
+    // Unicode punctuation character class
+    const result = transliterateWord(`.,':;-?!«»‹›“”‘’"''()`);
+
+    expect(result).toBe(`.,':;-?!«»‹›“”‘’"''()`);
+  });
 });

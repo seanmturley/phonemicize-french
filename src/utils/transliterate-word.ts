@@ -34,6 +34,9 @@ export default function transliterateWord(word: string) {
     const currentLetter = word.substring(index, index + 1);
 
     switch (currentLetter) {
+      case currentLetter.match(/\p{P}/u)?.input:
+        [newTransliteration, index] = [currentLetter, index + 1];
+        break;
       case "a":
       case "à":
       case "â":
