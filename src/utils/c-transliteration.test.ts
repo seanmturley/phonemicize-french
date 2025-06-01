@@ -1,6 +1,16 @@
 import cTransliteration from "./c-transliteration.ts";
 
 describe("cTransliteration", () => {
+  it("c with elision should be /s/", () => {
+    const word = "c'est";
+    const index = 0;
+
+    const [newTransliteration, newIndex] = cTransliteration(word, index);
+
+    expect(newTransliteration).toBe("s");
+    expect(newIndex).toBe(1);
+  });
+
   describe("cc followed by", () => {
     it("ueill should be /kœj/", () => {
       const word = "accueillir";

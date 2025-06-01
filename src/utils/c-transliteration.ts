@@ -24,6 +24,9 @@ export default function cTransliteration(
     // final ct should be /kt/
     newTransliteration = "kt";
     numTransliteratedCharacters = 2;
+  } else if (/^c[’']/i.test(remainingWord)) {
+    // c with elision should be /s/
+    newTransliteration = "s";
   } else if (/^ccueill/i.test(remainingWord)) {
     // cc followed by ueil should be /kœj/
     newTransliteration = "kœj";
