@@ -1,6 +1,16 @@
 import sTransliteration from "./s-transliteration.ts";
 
 describe("sTransliteration", () => {
+  it("s with elision should be /s/", () => {
+    const word = "s'il";
+    const index = 0;
+
+    const [newTransliteration, newIndex] = sTransliteration(word, index);
+
+    expect(newTransliteration).toBe("s");
+    expect(newIndex).toBe(1);
+  });
+
   it("final s should be /z/ in liaison, but otherwise silent", () => {
     // Note exceptions e.g. hélas, lis, fils
 

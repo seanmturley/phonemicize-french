@@ -1,6 +1,16 @@
 import tTransliteration from "./t-transliteration.ts";
 
 describe("tTransliteration", () => {
+  it("t with elision should be /t/", () => {
+    const word = "t'as";
+    const index = 0;
+
+    const [newTransliteration, newIndex] = tTransliteration(word, index);
+
+    expect(newTransliteration).toBe("t");
+    expect(newIndex).toBe(1);
+  });
+
   it("final t should be /t/ in liaison, but otherwise silent", () => {
     const word = "tout";
     const index = 3;
