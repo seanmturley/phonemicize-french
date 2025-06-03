@@ -5,6 +5,6 @@ export default function transliterateLexicalUnit(lexicalUnit: string) {
     // if a hyphenated compound word
     // do something more complicated
   } else {
-    transliterateWord(lexicalUnit);
+    return transliterateWord(lexicalUnit);
   }
 }
