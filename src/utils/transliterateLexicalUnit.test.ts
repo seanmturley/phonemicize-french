@@ -1,7 +1,7 @@
 import transliterateLexicalUnit from "./transliterateLexicalUnit.ts";
 
 describe("transliterateLexicalUnit", () => {
-  it("should return a transliteration of capitalized words", () => {
+  it("should return a transliteration of words containing capital letters", () => {
     const result = transliterateLexicalUnit("France");
 
     expect(result).toBe("fʁɑ̃s(ə)");
