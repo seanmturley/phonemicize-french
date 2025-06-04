@@ -1,10 +1,17 @@
 import transliterateWord from "./transliterate-word.ts";
 
 export default function transliterateLexicalUnit(lexicalUnit: string) {
-  if (/.+-.+/i.test(lexicalUnit)) {
+  const lowerCaseLexicalUnit = lexicalUnit.toLowerCase();
+
+  if (/.+-.+/i.test(lowerCaseLexicalUnit)) {
     // if a hyphenated compound word
-    // do something more complicated
+    const words = lowerCaseLexicalUnit.split("-");
+
+    const transliteratedWords = words.map((word) => transliterateWord(word));
+
+    // modify as necessary for liaison pronunciation
+    // rejoin the transliterated subwords
   } else {
-    return transliterateWord(lexicalUnit);
+    return transliterateWord(lowerCaseLexicalUnit);
   }
 }
