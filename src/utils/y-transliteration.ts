@@ -14,7 +14,10 @@ export default function yTransliteration(
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (index === 0 && /^y/i.test(remainingWord)) {
+  if (/^y$/i.test(remainingWord)) {
+    // final y should be /i/
+    newTransliteration = "i";
+  } else if (index === 0 && /^y/i.test(remainingWord)) {
     // initial y should be /j/
     newTransliteration = "j";
   } else if (/^ym$/i.test(remainingWord)) {

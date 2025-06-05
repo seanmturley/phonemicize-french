@@ -1,6 +1,16 @@
 import yTransliteration from "./y-transliteration.ts";
 
 describe("yTransliteration", () => {
+  it("final y should be /i/", () => {
+    const word = "Thierry";
+    const index = 6;
+
+    const [newTransliteration, newIndex] = yTransliteration(word, index);
+
+    expect(newTransliteration).toBe("i");
+    expect(newIndex).toBe(7);
+  });
+
   it("initial y should be /j/", () => {
     const word = "yeux";
     const index = 0;
