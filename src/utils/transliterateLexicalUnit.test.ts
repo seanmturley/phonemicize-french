@@ -12,4 +12,10 @@ describe("transliterateLexicalUnit", () => {
 
     expect(result).toBe("wi");
   });
+
+  it("should return a transliteration of hyphenated words", () => {
+    const result = transliterateLexicalUnit("Château-Thierry");
+
+    expect(result).toBe("ʃɑto-tjɛʁi");
+  });
 });

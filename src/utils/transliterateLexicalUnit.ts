@@ -10,7 +10,8 @@ export default function transliterateLexicalUnit(lexicalUnit: string) {
     const transliteratedWords = words.map((word) => transliterateWord(word));
 
     // modify as necessary for liaison pronunciation
-    // rejoin the transliterated subwords
+
+    return transliteratedWords.join("-");
   } else {
     return transliterateWord(lowerCaseLexicalUnit);
   }
