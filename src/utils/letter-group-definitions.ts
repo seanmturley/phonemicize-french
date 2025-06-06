@@ -4,6 +4,10 @@ export const backVowel = "aàâoôu";
 
 export const vowel = frontVowel + backVowel;
 
+export const vowelPhoneme = "iyueøəoɛœɔaɛ̃œ̃ɔ̃ɑ̃";
+// Note the list excludes /ɛː/, which is comprised of two characters.
+// For the purposes of regex tests, this is already represented by /ɛ/
+
 export const consonantExcludingMNH = "bcçdfgjklpqrstvwxz";
 
 export const consonantExcludingMN = "bcçdfgjklpqrstvwxz" + "h";

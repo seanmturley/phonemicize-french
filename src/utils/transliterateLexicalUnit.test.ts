@@ -13,9 +13,15 @@ describe("transliterateLexicalUnit", () => {
     expect(result).toBe("wi");
   });
 
-  it("should return a transliteration of hyphenated words", () => {
+  it("should return a transliteration of hyphenated words without liaison", () => {
     const result = transliterateLexicalUnit("Château-Thierry");
 
     expect(result).toBe("ʃɑto-tjɛʁi");
+  });
+
+  it("should correctly transliterate hyphenated words with pronounced liaison", () => {
+    const result = transliterateLexicalUnit("grand-angle");
+
+    expect(result).toBe("gʁɑ̃t-ɑ̃gl(ə)");
   });
 });
