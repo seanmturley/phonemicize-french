@@ -24,4 +24,11 @@ describe("transliterateLexicalUnit", () => {
 
     expect(result).toBe("gʁɑ̃t-ɑ̃gl(ə)");
   });
+
+  it("should correctly transliterate hyphenated words with deleted liaison", () => {
+    const result = transliterateLexicalUnit("Bas-Saint-Laurent");
+
+    expect(result).toBe("ba-sɛ̃-lɔʁɑ̃");
+    // i.e. not "ba(z)-sɛ̃(t)-lɔʁɑ̃"
+  });
 });

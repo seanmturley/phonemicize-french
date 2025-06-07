@@ -10,17 +10,22 @@ export default function transliterateLexicalUnit(lexicalUnit: string) {
 
     const transliteratedWords = words.map((word) => transliterateWord(word));
 
-    const hasOptionalFinalPhoneme = /\(.\)$/i;
+    const optionalFinalPhoneme = /\(.\)$/i;
     const startsWithVowel = new RegExp(String.raw`^[${vowelPhoneme}]`, "i");
 
     for (let i = 0; i < transliteratedWords.length - 1; i++) {
       // for all but the final word in the lexical unit
 
-      if (!hasOptionalFinalPhoneme.test(transliteratedWords[i])) continue;
+      if (!optionalFinalPhoneme.test(transliteratedWords[i])) continue;
 
-      if (!startsWithVowel.test(transliteratedWords[i + 1])) continue;
-
-      transliteratedWords[i] = transliteratedWords[i].replace(/[()]/g, "");
+      if (startsWithVowel.test(transliteratedWords[i + 1])) {
+        transliteratedWords[i] = transliteratedWords[i].replace(/[()]/g, "");
+      } else {
+        transliteratedWords[i] = transliteratedWords[i].replace(
+          optionalFinalPhoneme,
+          ""
+        );
+      }
     }
 
     return transliteratedWords.join("-");
