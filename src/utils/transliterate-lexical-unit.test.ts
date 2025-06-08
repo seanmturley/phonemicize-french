@@ -1,4 +1,4 @@
-import transliterateLexicalUnit from "./transliterateLexicalUnit.ts";
+import transliterateLexicalUnit from "./transliterate-lexical-unit.ts";
 
 describe("transliterateLexicalUnit", () => {
   it("should return a transliteration of words containing capital letters", () => {
