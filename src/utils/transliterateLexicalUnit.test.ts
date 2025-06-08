@@ -19,17 +19,17 @@ describe("transliterateLexicalUnit", () => {
     expect(result).toBe("ʃɑto-tjɛʁi");
   });
 
-  it("should correctly transliterate hyphenated words with pronounced liaison", () => {
-    const result = transliterateLexicalUnit("grand-angle");
-
-    expect(result).toBe("gʁɑ̃t-ɑ̃gl(ə)");
-  });
-
   it("should correctly transliterate e caduc hyphenated with a consonant phoneme", () => {
     const result = transliterateLexicalUnit("outre-mer");
 
     expect(result).toBe("utʁə-mɛʁ");
     // i.e. not "utʁ(ə)-mɛʁ"
+  });
+
+  it("should correctly transliterate hyphenated words with pronounced liaison", () => {
+    const result = transliterateLexicalUnit("grand-angle");
+
+    expect(result).toBe("gʁɑ̃t-ɑ̃gl(ə)");
   });
 
   it("should correctly transliterate hyphenated words with deleted liaison", () => {
