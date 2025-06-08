@@ -64,7 +64,6 @@ export default function aTransliteration(
   ) {
     // before a consonant except m, m, or h, ain should be /ɛ̃/
     newTransliteration = "ɛ̃";
-    console.log(newTransliteration);
     numTransliteratedCharacters = 3;
   } else if (new RegExp(String.raw`^am[${vowel}]`, "i").test(remainingWord)) {
     // before a vowel, am should be /am/
