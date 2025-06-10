@@ -340,13 +340,13 @@ describe("eTransliteration", () => {
     it("otherwise should be /ɛ/", () => {
       // Note that this covers non-nasal "enn" and "emm" e.g. as in "tennis"
       // and "gemme". "Femme" is a notable exception.
-      const word = "elle";
-      const index = 0;
+      const word = "tennis";
+      const index = 1;
 
       const [newTransliteration, newIndex] = eTransliteration(word, index);
 
       expect(newTransliteration).toBe("ɛ");
-      expect(newIndex).toBe(1);
+      expect(newIndex).toBe(2);
     });
   });
 
