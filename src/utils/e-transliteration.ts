@@ -147,6 +147,22 @@ export default function eTransliteration(
     // e before two consonants: the adverb suffix 'emment' should be /amɑ̃/
     newTransliteration = "amɑ̃";
     numTransliteratedCharacters = 6;
+  } else if (/^el$/i.test(remainingWord)) {
+    // el final should be /ɛl/
+    newTransliteration = "ɛl";
+    numTransliteratedCharacters = 2;
+  } else if (/^els$/i.test(remainingWord)) {
+    // els final should be /ɛl/
+    newTransliteration = "ɛl";
+    numTransliteratedCharacters = 3;
+  } else if (/^elle$/i.test(remainingWord)) {
+    // elle final should be /ɛl(ə)/
+    newTransliteration = "ɛl(ə)";
+    numTransliteratedCharacters = 4;
+  } else if (/^elles$/i.test(remainingWord)) {
+    // elles final should be /ɛl(ə)/
+    newTransliteration = "ɛl(ə)";
+    numTransliteratedCharacters = 5;
   } else if (
     new RegExp(String.raw`^e[${consonant}]{2}`, "i").test(remainingWord)
   ) {
