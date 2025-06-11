@@ -314,6 +314,48 @@ describe("eTransliteration", () => {
     });
   });
 
+  describe("el final graphemes", () => {
+    it("el final should be /ɛl/", () => {
+      const word = "quel";
+      const index = 2;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɛl");
+      expect(newIndex).toBe(4);
+    });
+
+    it("els final should be /ɛl/", () => {
+      const word = "tels";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɛl");
+      expect(newIndex).toBe(4);
+    });
+
+    it("elle final should be /ɛl(ə)/", () => {
+      const word = "telle";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɛl(ə)");
+      expect(newIndex).toBe(5);
+    });
+
+    it("elles final should be /ɛl(ə)/", () => {
+      const word = "quelles";
+      const index = 2;
+
+      const [newTransliteration, newIndex] = eTransliteration(word, index);
+
+      expect(newTransliteration).toBe("ɛl(ə)");
+      expect(newIndex).toBe(7);
+    });
+  });
+
   it("e before a single consonant and a vowel should be /ə/", () => {
     // Note that this covers non-nasal "en" and "em" e.g. as in "tenir"
     // and "demain"
