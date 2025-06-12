@@ -128,6 +128,16 @@ describe("oTransliteration", () => {
       expect(newIndex).toBe(4);
     });
 
+    it("after r should be /wɑ/", () => {
+      const word = "trois";
+      const index = 2;
+
+      const [newTransliteration, newIndex] = oTransliteration(word, index);
+
+      expect(newTransliteration).toBe("wɑ");
+      expect(newIndex).toBe(4);
+    });
+
     it("otherwise should be /wa/", () => {
       const word = "voix";
       const index = 1;
@@ -139,14 +149,26 @@ describe("oTransliteration", () => {
     });
   });
 
-  it("oy should be /waj/", () => {
-    const word = "loyer";
-    const index = 1;
+  describe("oy", () => {
+    it("after r should be /wɑj/", () => {
+      const word = "royal";
+      const index = 1;
 
-    const [newTransliteration, newIndex] = oTransliteration(word, index);
+      const [newTransliteration, newIndex] = oTransliteration(word, index);
 
-    expect(newTransliteration).toBe("waj");
-    expect(newIndex).toBe(3);
+      expect(newTransliteration).toBe("wɑj");
+      expect(newIndex).toBe(3);
+    });
+
+    it("otherwise should be /waj/", () => {
+      const word = "loyer";
+      const index = 1;
+
+      const [newTransliteration, newIndex] = oTransliteration(word, index);
+
+      expect(newTransliteration).toBe("waj");
+      expect(newIndex).toBe(3);
+    });
   });
 
   describe("before a consonant excluding m, n, or h", () => {
