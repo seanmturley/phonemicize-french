@@ -71,9 +71,17 @@ export default function oTransliteration(
     // oi followed by n before a consonant should be /wɛ̃/
     newTransliteration = "wɛ̃";
     numTransliteratedCharacters = 3;
+  } else if (word.charAt(index - 1) === "r" && /^oi/i.test(remainingWord)) {
+    // oi after r should be /wɑ/
+    newTransliteration = "wɑ";
+    numTransliteratedCharacters = 2;
   } else if (/^oi/i.test(remainingWord)) {
     // oi otherwise should be /wa/
     newTransliteration = "wa";
+    numTransliteratedCharacters = 2;
+  } else if (word.charAt(index - 1) === "r" && /^oy/i.test(remainingWord)) {
+    // oy after r should be /wɑj/
+    newTransliteration = "wɑj";
     numTransliteratedCharacters = 2;
   } else if (/^oy/i.test(remainingWord)) {
     // oy should be /waj/
