@@ -1,6 +1,6 @@
-import type { LetterTransliteration } from "../transliteration-types.ts";
+import type { LetterTransliteration } from "../types.ts";
 
-export default function nTransliteration(
+export default function mTransliteration(
   word: string,
   index: number
 ): LetterTransliteration {
@@ -9,13 +9,13 @@ export default function nTransliteration(
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/^nn/i.test(remainingWord)) {
-    // nn should be /n/
-    newTransliteration = "n";
+  if (/^mm/i.test(remainingWord)) {
+    // mm should be /m/
+    newTransliteration = "m";
     numTransliteratedCharacters = 2;
   } else {
-    // n should be /n/
-    newTransliteration = "n";
+    // m should be /m/
+    newTransliteration = "m";
   }
 
   const newIndex = index + numTransliteratedCharacters;

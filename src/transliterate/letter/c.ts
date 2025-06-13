@@ -3,7 +3,7 @@ import {
   consonant,
   frontVowel
 } from "../letter-group-definitions.ts";
-import type { LetterTransliteration } from "../transliteration-types.ts";
+import type { LetterTransliteration } from "../types.ts";
 
 export default function cTransliteration(
   word: string,

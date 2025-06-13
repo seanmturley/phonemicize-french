@@ -1,5 +1,5 @@
 import { consonantPhoneme, vowelPhoneme } from "./letter-group-definitions.ts";
-import transliterateWord from "./transliterate-word.ts";
+import transliterateWord from "./word.ts";
 
 const optionalFinalE = /\(ə\)$/i;
 const startsWithConsonant = new RegExp(String.raw`^[${consonantPhoneme}]`, "i");

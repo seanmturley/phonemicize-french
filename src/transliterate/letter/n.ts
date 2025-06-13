@@ -1,6 +1,6 @@
-import type { LetterTransliteration } from "../transliteration-types.ts";
+import type { LetterTransliteration } from "../types.ts";
 
-export default function qTransliteration(
+export default function nTransliteration(
   word: string,
   index: number
 ): LetterTransliteration {
@@ -9,13 +9,13 @@ export default function qTransliteration(
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/^q$/i.test(remainingWord)) {
-    // final q should be /k/
-    newTransliteration = "k";
-  } else if (/^qu/i.test(remainingWord)) {
-    // qu should be /k/
-    newTransliteration = "k";
+  if (/^nn/i.test(remainingWord)) {
+    // nn should be /n/
+    newTransliteration = "n";
     numTransliteratedCharacters = 2;
+  } else {
+    // n should be /n/
+    newTransliteration = "n";
   }
 
   const newIndex = index + numTransliteratedCharacters;

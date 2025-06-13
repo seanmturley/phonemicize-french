@@ -2,7 +2,7 @@
 // Consonants - https://en.wikipedia.org/wiki/French_phonology#Consonants
 // Vowels - https://en.wikipedia.org/wiki/French_phonology#Vowels
 
-import transliterateWord from "./transliterate-word.ts";
+import transliterateWord from "./word.ts";
 
 type Phoneme = {
   ipa: string;

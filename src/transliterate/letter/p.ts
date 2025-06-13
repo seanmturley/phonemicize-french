@@ -1,4 +1,4 @@
-import type { LetterTransliteration } from "../transliteration-types.ts";
+import type { LetterTransliteration } from "../types.ts";
 
 export default function pTransliteration(
   word: string,
