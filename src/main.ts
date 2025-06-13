@@ -1,5 +1,5 @@
-import transliterateWord from "./utils/transliterate-word.ts";
+import transliterateLexicalUnit from "./utils/transliterate-lexical-unit.ts";
 
-console.log(transliterateWord("oeillade"));
-console.log(transliterateWord("dû"));
-console.log(transliterateWord("hôte"));
+console.log(transliterateLexicalUnit("oeillade"));
+console.log(transliterateLexicalUnit("dû"));
+console.log(transliterateLexicalUnit("hôte"));
