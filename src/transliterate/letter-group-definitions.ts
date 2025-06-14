@@ -4,7 +4,7 @@ export const backVowel = "aàâoôu";
 
 export const vowel = frontVowel + backVowel;
 
-export const vowelPhoneme = "iyueøəoɛœɔaɛ̃œ̃ɔ̃ɑ̃";
+export const vowelOrSemivowelPhoneme = "ijyɥuweøəoɛœɔaɛ̃œ̃ɔ̃ɑ̃";
 // Note the list excludes /ɛː/, which is comprised of two characters.
 // For the purposes of regex tests, this is already represented by /ɛ/
 

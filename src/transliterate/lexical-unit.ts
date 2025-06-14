@@ -1,4 +1,7 @@
-import { consonantPhoneme, vowelPhoneme } from "./letter-group-definitions.ts";
+import {
+  consonantPhoneme,
+  vowelOrSemivowelPhoneme
+} from "./letter-group-definitions.ts";
 import transliterateWord from "./word.ts";
 
 const optionalFinalE = /\(ə\)$/i;
@@ -7,7 +10,10 @@ const optionalFinalConsonant = new RegExp(
   String.raw`\([${consonantPhoneme}]\)$`,
   "i"
 );
-const startsWithVowel = new RegExp(String.raw`^[${vowelPhoneme}]`, "i");
+const startsWithVowelOrSemivowel = new RegExp(
+  String.raw`^[${vowelOrSemivowelPhoneme}]`,
+  "i"
+);
 
 const removeParenthesis = (word: string) => word.replace(/[()]/g, "");
 
@@ -29,7 +35,7 @@ export default function transliterateLexicalUnit(lexicalUnit: string) {
       ) {
         transliteratedWords[i] = removeParenthesis(transliteratedWords[i]);
       } else if (optionalFinalConsonant.test(transliteratedWords[i])) {
-        if (startsWithVowel.test(transliteratedWords[i + 1])) {
+        if (startsWithVowelOrSemivowel.test(transliteratedWords[i + 1])) {
           transliteratedWords[i] = removeParenthesis(transliteratedWords[i]);
         } else {
           transliteratedWords[i] = transliteratedWords[i].replace(
