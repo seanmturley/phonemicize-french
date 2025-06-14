@@ -1,5 +1,5 @@
 import { sometimesAspirated, alwaysAspirated } from "./h-aspirated.ts";
-import type { LetterTransliteration } from "./transliteration/transliteration-types.ts";
+import type { LetterTransliteration } from "../types.ts";
 
 export default function hTransliteration(
   word: string,
