@@ -26,10 +26,20 @@ describe("transliterateLexicalUnit", () => {
     // i.e. not "utʁ(ə)-mɛʁ"
   });
 
-  it("should correctly transliterate hyphenated words with pronounced liaison", () => {
-    const result = transliterateLexicalUnit("grand-angle");
+  describe("should correctly transliterate hyphenated words with pronounced liaison", () => {
+    it("before a vowel", () => {
+      const result = transliterateLexicalUnit("grand-angle");
 
-    expect(result).toBe("gʁɑ̃t-ɑ̃gl(ə)");
+      expect(result).toBe("gʁɑ̃t-ɑ̃gl(ə)");
+    });
+
+    it("before a semivowel", () => {
+      // In lieu of finding an uncomplicated actual example,
+      // this example was fabricated for testing purposes
+      const result = transliterateLexicalUnit("les-yeux");
+
+      expect(result).toBe("lez-jø(z)");
+    });
   });
 
   it("should correctly transliterate hyphenated words with deleted liaison", () => {
