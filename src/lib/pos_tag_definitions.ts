@@ -42,7 +42,6 @@ export default {
   pres: "présent",
   psim: "passé simple",
   R: "pronom",
-  refl: "réfléchi",
   rel: "relatif",
   s: "singulier",
   sp: "singulier ou pluriel",
