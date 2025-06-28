@@ -1,4 +1,4 @@
-// Keys produced with utils/parse_pos_tags.ts
+// Keys produced with utils/parse_unique_pos_tags.ts
 // Tags defined: https://github.com/languagetool-org/languagetool/blob/master/languagetool-language-modules/fr/src/main/resources/org/languagetool/resource/fr/tagset.txt
 
 export default {
