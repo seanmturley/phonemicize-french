@@ -1,3 +1,5 @@
+// Raw tag combination list: https://github.com/languagetool-org/french-pos-dict/blob/master/data/src-dict/french_tags.txt
+
 export default [
   "A",
   "A inte",

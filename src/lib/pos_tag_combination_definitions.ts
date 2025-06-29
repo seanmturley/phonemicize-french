@@ -1,3 +1,6 @@
+// Keys from list in /lib/pos_tag_combinations.ts
+// Definitions produced with utils/parse_pos_tag_combination_definitions.ts
+
 export default {
   A: "adverbe",
   "A inte": "adverbe interrogatif",
