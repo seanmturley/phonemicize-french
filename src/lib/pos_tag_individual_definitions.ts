@@ -53,4 +53,4 @@ export default {
   V: "verbe",
   Y: "nombre cardinal (chiffre)",
   Z: "nom propre"
-};
+} as Record<string, string>;
