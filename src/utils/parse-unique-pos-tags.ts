@@ -1,4 +1,4 @@
-import posTagCombinations from "../lib/pos_tag_combinations.ts";
+import posTagCombinations from "../lib/pos-tag-combinations.ts";
 
 const uniqueTags: Record<string, string> = {};
 

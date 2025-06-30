@@ -1,5 +1,5 @@
-import posTagCombinations from "../lib/pos_tag_combinations.ts";
-import posTagIndividualDefinitions from "../lib/pos_tag_individual_definitions.ts";
+import posTagCombinations from "../lib/pos-tag-combinations.ts";
+import posTagIndividualDefinitions from "../lib/pos-tag-individual-definitions.ts";
 
 const posTagCombinationDefinitions: Record<string, string> = {};
 
