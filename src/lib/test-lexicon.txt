@@ -1,0 +1,102 @@
+# From: https://github.com/languagetool-org/french-pos-dict/tree/master/data/src-dict
+
+!	!	M fin excl
+&	&	C coor
+'en	en	R pers obj 3 sp
+'y	y	R pers obj 3 sp
+,	,	M nonfin
+-ce	ce	R dem m s
+-elle	elle	R pers suj 3 f s
+-elles	elles	R pers suj 3 f p
+-en	en	R pers obj 3 sp
+-il	il	R pers suj 3 m s
+-ils	ils	R pers suj 3 m p
+-je	je	R pers suj 1 s
+-la	le	R pers obj 3 f s
+-le	le	R pers obj 3 m s
+-les	les	R pers obj 3 e p
+-leur	leur	R pers obj 3 e p
+-lui	lui	R pers obj 3 m s
+-m'	me	R pers obj 1 s
+-m	me	R pers obj 1 s
+-moi	moi	R pers obj 1 s
+-nous	nous	R pers obj 1 p
+-nous	nous	R pers suj 1 p
+-on	on	R pers suj 3 e s
+-t'	te	R pers obj 2 s
+-t-elle	elle	R pers suj 3 f s
+-t-elles	elles	R pers suj 3 p
+-t-il	il	R pers suj 3 m s
+-t-ils	ils	R pers suj 3 m p
+-t-on	on	R pers suj 3 e s
+-t	te	R pers obj 2 s
+-toi	toi	R pers obj 2 s
+-tu	tu	R pers suj 2 s
+-vous	vous	R pers obj 2 p
+-vous	vous	R pers suj 2 p
+-vs	vs	R pers obj 2 p
+-vs	vs	R pers suj 2 p
+-y	y	R pers obj
+.	.	M fin
+1er	1er	J m s
+1ers	1ers	J m p
+1re	1er	J f s
+1res	1res	J f p
+1xBet	1xBet	Z e sp
+1ère	1ère	N f s
+1ʳᵉ	1ᵉʳ	J f s
+1ʳᵉˢ	1ʳᵉˢ	J f p
+1ᵉʳ	1ᵉʳ	J m s
+1ᵉʳˢ	1ᵉʳˢ	J m p
+2CV	2CV	Z f sp
+2D	2D	J e sp
+2D	2D	N f sp
+2Folie	2Folie	Z e sp
+2d	2d	J m s
+2de	2de	J f s
+2de	2d	J f s
+2des	2des	J f p
+2ds	2ds	J m p
+2e	2e	J e s
+2es	2es	J e p
+2ᵉ	2ᵉ	J e s
+2ᵉˢ	2ᵉˢ	J e p
+3D	3D	J e sp
+3D	3D	N f sp
+3RB	3RB	N m sp
+3e	3e	J e s
+3es	3es	J e p
+3ᵉ	3ᵉ	J e s
+3ᵉˢ	3ᵉˢ	J e p
+4Matic	4Matic	Z e sp
+4Murs	4Murs	Z e sp
+4e	4e	J e s
+4es	4es	J e p
+4ᵉ	4ᵉ	J e s
+4ᵉˢ	4ᵉˢ	J e p
+5e	5e	J e s
+5es	5es	J e p
+5ᵉ	5ᵉ	J e s
+5ᵉˢ	5ᵉˢ	J e p
+6e	6e	J e s
+6es	6es	J e p
+6ᵉ	6ᵉ	J e s
+6ᵉˢ	6ᵉˢ	J e p
+7e	7e	J e s
+7es	7es	J e p
+7ᵉ	7ᵉ	J e s
+7ᵉˢ	7ᵉˢ	J e p
+8e	8e	J e s
+8es	8es	J e p
+8ᵉ	8ᵉ	J e s
+8ᵉˢ	8ᵉˢ	J e p
+9e	9e	J e s
+9es	9es	J e p
+9ᵉ	9ᵉ	J e s
+9ᵉˢ	9ᵉˢ	J e p
+:	:	M nonfin
+;	;	M nonfin
+?	?	M fin inte
+A4	A4	N e sp
+A5	A5	N e sp
+AABA	AABA	N e sp
