@@ -6,7 +6,7 @@ function connectToDatabase() {
   db.exec(`
   CREATE TABLE IF NOT EXISTS lexicon
   (
-    id        INTEGER   PRIMARY KEY   AUTOINCREMENT,
+    id        INTEGER   PRIMARY KEY,
     word      TEXT      NOT NULL,
     lemma     TEXT      NOT NULL,
     pos_tags  TEXT      NOT NULL
