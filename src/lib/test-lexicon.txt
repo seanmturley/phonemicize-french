@@ -100,3 +100,5 @@
 A4	A4	N e sp
 A5	A5	N e sp
 AABA	AABA	N e sp
+a	avoir	V avoir ind pres 3 s
+es	être	V etre ind pres 2 s
