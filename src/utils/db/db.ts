@@ -6,10 +6,11 @@ function connectToDatabase() {
   db.exec(`
   CREATE TABLE IF NOT EXISTS lexicon
   (
-    id        INTEGER   PRIMARY KEY,
-    word      TEXT      NOT NULL,
-    lemma     TEXT      NOT NULL,
-    pos_tags  TEXT      NOT NULL
+    id                  INTEGER   PRIMARY KEY,
+    word                TEXT      NOT NULL,
+    lemma               TEXT      NOT NULL,
+    primary_pos_tag     TEXT      NOT NULL,
+    secondary_pos_tags  TEXT      NOT NULL
   )
 `);
 
