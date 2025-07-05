@@ -31,7 +31,7 @@ export default {
   N: "nom commun",
   nonfin: "non-finale",
   obj: "objet",
-  O: "Onomatopeia",
+  O: "onomatopeia",
   P: "préposition",
   "P+D": "préposition + déterminant",
   "P+R": "préposition + pronom",
