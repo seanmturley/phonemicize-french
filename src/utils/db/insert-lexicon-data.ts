@@ -31,18 +31,12 @@ createReadStream("./src/lib/test-lexicon.txt")
   })
   .on("end", () =>
     console.log(
-      `
-      Finished reading lexicon from file.
-      
-      Last row inserted into the database had ID: ${lastInsertRowid}
-      `
+      `Finished reading lexicon from file. Last row inserted into the database had ID: ${lastInsertRowid}.`
     )
   )
   .on("error", (error) => {
     console.log(error.message);
     console.log(
-      `
-      Last row sucessfully inserted into the database had ID: ${lastInsertRowid}
-      `
+      `Last row sucessfully inserted into the database had ID: ${lastInsertRowid}`
     );
   });
