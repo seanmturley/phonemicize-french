@@ -35,6 +35,7 @@ export default function transliterateWord(word: string) {
 
     switch (currentLetter) {
       case currentLetter.match(/\p{P}/u)?.input:
+      case currentLetter.match(/\d/)?.input:
         [newTransliteration, index] = [currentLetter, index + 1];
         break;
       case "a":

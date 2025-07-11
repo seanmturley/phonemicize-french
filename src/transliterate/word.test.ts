@@ -77,4 +77,10 @@ describe("transliterateWord", () => {
 
     expect(result).toBe(`.,':;-?!«»‹›“”‘’"''()`);
   });
+
+  it("should return numerals unchanged", () => {
+    const result = transliterateWord("0123456789");
+
+    expect(result).toBe("0123456789");
+  });
 });
