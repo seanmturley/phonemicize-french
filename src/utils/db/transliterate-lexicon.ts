@@ -19,15 +19,21 @@ try {
   const untransliteratedRows = getRowsWithoutTransliteration.iterate();
 
   for (const untransliteratedRow of untransliteratedRows) {
+    const id = untransliteratedRow.id;
     const word = untransliteratedRow.word;
+    const pos = untransliteratedRow.primary_pos_tag;
 
-    if (typeof word === "string") {
-      const transliteration = transliterateLexicalUnit(word);
-
-      updateTransliteration.run(transliteration, untransliteratedRow.id);
-
-      lastTransliteratedRowId = untransliteratedRow.id;
+    if (typeof word !== "string" || typeof pos !== "string") {
+      throw new TypeError(
+        `Can only transliterate strings. Check data for the lexicon entry with ID: ${id}.`
+      );
     }
+
+    const transliteration = transliterateLexicalUnit(word, pos);
+
+    updateTransliteration.run(transliteration, id);
+
+    lastTransliteratedRowId = id;
   }
 } catch (error: unknown) {
   if (error instanceof Error) {
