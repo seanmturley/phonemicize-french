@@ -17,14 +17,19 @@ const startsWithVowelOrSemivowel = new RegExp(
 
 const removeParenthesis = (word: string) => word.replace(/[()]/g, "");
 
-export default function transliterateLexicalUnit(lexicalUnit: string) {
+export default function transliterateLexicalUnit(
+  lexicalUnit: string,
+  pos: string
+) {
   const lowerCaseLexicalUnit = lexicalUnit.toLowerCase();
 
   if (/.+-.+/i.test(lowerCaseLexicalUnit)) {
     // if a hyphenated compound word
     const words = lowerCaseLexicalUnit.split("-");
 
-    const transliteratedWords = words.map((word) => transliterateWord(word));
+    const transliteratedWords = words.map((word) =>
+      transliterateWord(word, pos)
+    );
 
     for (let i = 0; i < transliteratedWords.length - 1; i++) {
       // for all but the final word in the lexical unit
@@ -48,6 +53,6 @@ export default function transliterateLexicalUnit(lexicalUnit: string) {
 
     return transliteratedWords.join("-");
   } else {
-    return transliterateWord(lowerCaseLexicalUnit);
+    return transliterateWord(lowerCaseLexicalUnit, pos);
   }
 }
