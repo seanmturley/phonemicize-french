@@ -20,7 +20,7 @@ let lastInsertRowid: number | bigint;
 createReadStream("./src/lib/test-lexicon.txt")
   .pipe(parse({ delimiter: "\t", from_line: startingRow }))
   .on("data", (row) => {
-    const [primaryPosTag, secondaryPosTags] = formatPosTags(row[2], row[1]);
+    const { primaryPosTag, secondaryPosTags } = formatPosTags(row[2]);
 
     ({ lastInsertRowid } = insert.run(
       row[0],

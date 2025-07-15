@@ -1,15 +1,19 @@
 import posTagCombinationDefinitions from "../lib/pos-tag-combination-definitions.ts";
 
-export default function formatPosTags(posTags: string, lemma: string) {
-  // eslint-disable-next-line prefer-const
-  let [primaryTag, ...secondaryTagsArray] =
-    posTagCombinationDefinitions[posTags].split(" ");
+export default function formatPosTags(posTags: string) {
+  const fullPosTags = posTagCombinationDefinitions[posTags];
+  const spaceIndex = fullPosTags.indexOf(" ");
 
-  if (lemma === "avoir" || lemma === "être") {
-    primaryTag += " " + secondaryTagsArray.shift();
+  if (spaceIndex === -1) {
+    // No space found, there's only 1 tag
+    return {
+      primaryPosTag: fullPosTags,
+      secondaryPosTags: null
+    };
   }
 
-  const secondaryTags = secondaryTagsArray.join(" ");
-
-  return [primaryTag, secondaryTags];
+  return {
+    primaryPosTag: fullPosTags.slice(0, spaceIndex),
+    secondaryPosTags: fullPosTags.slice(spaceIndex + 1)
+  };
 }
