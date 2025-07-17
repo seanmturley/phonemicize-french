@@ -10,7 +10,7 @@ export const vowelOrSemivowelPhoneme = "ijyɥuweøəoɛœɔaɛ̃œ̃ɔ̃ɑ̃";
 
 export const consonantExcludingMNH = "bcçdfgjklpqrstvwxz";
 
-export const consonantExcludingMN = "bcçdfgjklpqrstvwxz" + "h";
+export const consonantExcludingMN = consonantExcludingMNH + "h";
 
 export const consonantExcludingH = consonantExcludingMNH + "mn";
 
