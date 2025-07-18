@@ -4,12 +4,16 @@ import {
   silentFinalConsonant,
   vowel
 } from "../letter-group-definitions.ts";
-import type { LetterTransliteration } from "../types.ts";
+import type {
+  LetterTransliteration,
+  LetterTransliterationArgs
+} from "../types.ts";
 
-export default function eTransliteration(
-  word: string,
-  index: number
-): LetterTransliteration {
+export default function eTransliteration({
+  word,
+  pos,
+  index
+}: LetterTransliterationArgs): LetterTransliteration {
   const remainingWord = word.substring(index);
   const remainingWordWithPreviousLetter = word.substring(index - 1);
 
@@ -201,6 +205,14 @@ export default function eTransliteration(
   ) {
     // e final after a consonant otherwise with s should be /(ə)/
     newTransliteration = "(ə)";
+    numTransliteratedCharacters = 2;
+  } else if (pos === "verbe" && /^er$/i.test(remainingWord)) {
+    // er final for verbs (i.e. infinitive) should be /e/
+    newTransliteration = "e";
+    numTransliteratedCharacters = 2;
+  } else if (/^er$/i.test(remainingWord)) {
+    // er final otherwise should be /ɛʁ/
+    newTransliteration = "ɛʁ";
     numTransliteratedCharacters = 2;
   } else if (
     new RegExp(String.raw`^e[${silentFinalConsonant}]$`, "i").test(
