@@ -52,7 +52,7 @@ export default function transliterateWord(word: string, pos: string) {
 
       case "c":
       case "ç":
-        [newTransliteration, index] = cTransliteration(word, index);
+        [newTransliteration, index] = cTransliteration({ word, index });
         break;
 
       case "d":
