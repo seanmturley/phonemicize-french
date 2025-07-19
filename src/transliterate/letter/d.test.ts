@@ -5,7 +5,7 @@ describe("dTransliteration", () => {
     const word = "grand";
     const index = 4;
 
-    const [newTransliteration, newIndex] = dTransliteration(word, index);
+    const [newTransliteration, newIndex] = dTransliteration({ word, index });
 
     expect(newTransliteration).toBe("(t)");
     expect(newIndex).toBe(5);
@@ -16,7 +16,7 @@ describe("dTransliteration", () => {
       const word = "doux";
       const index = 0;
 
-      const [newTransliteration, newIndex] = dTransliteration(word, index);
+      const [newTransliteration, newIndex] = dTransliteration({ word, index });
 
       expect(newTransliteration).toBe("d");
       expect(newIndex).toBe(1);
@@ -26,7 +26,7 @@ describe("dTransliteration", () => {
       const word = "addition";
       const index = 1;
 
-      const [newTransliteration, newIndex] = dTransliteration(word, index);
+      const [newTransliteration, newIndex] = dTransliteration({ word, index });
 
       expect(newTransliteration).toBe("d");
       expect(newIndex).toBe(3);
