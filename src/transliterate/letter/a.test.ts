@@ -6,7 +6,7 @@ describe("aTransliteration", () => {
       const word = "ai";
       const index = 0;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("e");
       expect(newIndex).toBe(2);
@@ -16,7 +16,7 @@ describe("aTransliteration", () => {
       const word = "mais";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛ");
       expect(newIndex).toBe(4);
@@ -30,7 +30,7 @@ describe("aTransliteration", () => {
       const word = "avait";
       const index = 2;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛ");
       expect(newIndex).toBe(5);
@@ -40,7 +40,7 @@ describe("aTransliteration", () => {
       const word = "avaient";
       const index = 2;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛ");
       expect(newIndex).toBe(7);
@@ -50,7 +50,7 @@ describe("aTransliteration", () => {
       const word = "baie";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛ");
       expect(newIndex).toBe(4);
@@ -60,7 +60,7 @@ describe("aTransliteration", () => {
       const word = "cailloux";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("aj");
       expect(newIndex).toBe(5);
@@ -70,7 +70,7 @@ describe("aTransliteration", () => {
       const word = "travail";
       const index = 4;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("aj");
       expect(newIndex).toBe(7);
@@ -80,7 +80,7 @@ describe("aTransliteration", () => {
       const word = "naît";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛ");
       expect(newIndex).toBe(3);
@@ -90,7 +90,7 @@ describe("aTransliteration", () => {
       const word = "maître";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛː");
       expect(newIndex).toBe(3);
@@ -100,7 +100,7 @@ describe("aTransliteration", () => {
       const word = "aide";
       const index = 0;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛ");
       expect(newIndex).toBe(2);
@@ -111,7 +111,7 @@ describe("aTransliteration", () => {
     const word = "pâte";
     const index = 1;
 
-    const [newTransliteration, newIndex] = aTransliteration(word, index);
+    const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
     expect(newTransliteration).toBe("ɑ");
     expect(newIndex).toBe(2);
@@ -122,7 +122,7 @@ describe("aTransliteration", () => {
   //   const word = "lacer";
   //   const index = 1;
 
-  //   const [newTransliteration, newIndex] = aTransliteration(word, index);
+  //   const [newTransliteration, newIndex] = aTransliteration({word, index});
 
   //   expect(newTransliteration).toBe("ɑ");
   //   expect(newIndex).toBe(2);
@@ -135,7 +135,7 @@ describe("aTransliteration", () => {
       const word = "gaz";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɑz");
       expect(newIndex).toBe(3);
@@ -147,7 +147,7 @@ describe("aTransliteration", () => {
       const word = "bazar";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɑ");
       expect(newIndex).toBe(2);
@@ -159,7 +159,7 @@ describe("aTransliteration", () => {
       const word = "extase";
       const index = 3;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɑ");
       expect(newIndex).toBe(4);
@@ -171,7 +171,7 @@ describe("aTransliteration", () => {
       const word = "an";
       const index = 0;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɑ̃");
       expect(newIndex).toBe(2);
@@ -181,7 +181,7 @@ describe("aTransliteration", () => {
       const word = "faon";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɑ̃");
       expect(newIndex).toBe(4);
@@ -191,7 +191,7 @@ describe("aTransliteration", () => {
       const word = "faim";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛ̃");
       expect(newIndex).toBe(4);
@@ -201,7 +201,7 @@ describe("aTransliteration", () => {
       const word = "bain";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛ̃");
       expect(newIndex).toBe(4);
@@ -213,7 +213,7 @@ describe("aTransliteration", () => {
       const word = "champ";
       const index = 2;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɑ̃");
       expect(newIndex).toBe(4);
@@ -223,7 +223,7 @@ describe("aTransliteration", () => {
       const word = "fumant";
       const index = 3;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɑ̃");
       expect(newIndex).toBe(5);
@@ -233,7 +233,7 @@ describe("aTransliteration", () => {
       const word = "faim";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛ̃");
       expect(newIndex).toBe(4);
@@ -243,7 +243,7 @@ describe("aTransliteration", () => {
       const word = "ainsi";
       const index = 0;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛ̃");
       expect(newIndex).toBe(3);
@@ -255,7 +255,7 @@ describe("aTransliteration", () => {
       const word = "amie";
       const index = 0;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("am");
       expect(newIndex).toBe(2);
@@ -265,7 +265,7 @@ describe("aTransliteration", () => {
       const word = "unanime";
       const index = 2;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("an");
       expect(newIndex).toBe(4);
@@ -275,7 +275,7 @@ describe("aTransliteration", () => {
       const word = "aime";
       const index = 0;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛm");
       expect(newIndex).toBe(3);
@@ -285,7 +285,7 @@ describe("aTransliteration", () => {
       const word = "plaine";
       const index = 2;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛn");
       expect(newIndex).toBe(5);
@@ -296,7 +296,7 @@ describe("aTransliteration", () => {
     const word = "gramme";
     const index = 2;
 
-    const [newTransliteration, newIndex] = aTransliteration(word, index);
+    const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
     expect(newTransliteration).toBe("am");
     expect(newIndex).toBe(5);
@@ -306,7 +306,7 @@ describe("aTransliteration", () => {
     const word = "anneau";
     const index = 0;
 
-    const [newTransliteration, newIndex] = aTransliteration(word, index);
+    const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
     expect(newTransliteration).toBe("an");
     expect(newIndex).toBe(3);
@@ -317,7 +317,7 @@ describe("aTransliteration", () => {
       const word = "aurai";
       const index = 0;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɔ");
       expect(newIndex).toBe(2);
@@ -327,7 +327,7 @@ describe("aTransliteration", () => {
       const word = "chaud";
       const index = 2;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("o");
       expect(newIndex).toBe(4);
@@ -338,7 +338,7 @@ describe("aTransliteration", () => {
     const word = "paye";
     const index = 1;
 
-    const [newTransliteration, newIndex] = aTransliteration(word, index);
+    const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
     expect(newTransliteration).toBe("ɛj");
     expect(newIndex).toBe(3);
@@ -349,7 +349,7 @@ describe("aTransliteration", () => {
       const word = "Paris";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("a");
       expect(newIndex).toBe(2);
@@ -359,7 +359,7 @@ describe("aTransliteration", () => {
       const word = "là";
       const index = 1;
 
-      const [newTransliteration, newIndex] = aTransliteration(word, index);
+      const [newTransliteration, newIndex] = aTransliteration({ word, index });
 
       expect(newTransliteration).toBe("a");
       expect(newIndex).toBe(2);

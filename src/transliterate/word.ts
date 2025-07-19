@@ -43,7 +43,7 @@ export default function transliterateWord(word: string, pos: string) {
       case "à":
       case "â":
       case "æ":
-        [newTransliteration, index] = aTransliteration(word, index);
+        [newTransliteration, index] = aTransliteration({ word, index });
         break;
 
       case "b":
