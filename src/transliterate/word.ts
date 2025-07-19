@@ -72,7 +72,7 @@ export default function transliterateWord(word: string, pos: string) {
         break;
 
       case "g":
-        [newTransliteration, index] = gTransliteration(word, index);
+        [newTransliteration, index] = gTransliteration({ word, index });
         break;
 
       case "h":

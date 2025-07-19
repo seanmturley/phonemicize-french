@@ -6,7 +6,7 @@ describe("gTransliteration", () => {
       const word = "enorgueillir";
       const index = 4;
 
-      const [newTransliteration, newIndex] = gTransliteration(word, index);
+      const [newTransliteration, newIndex] = gTransliteration({ word, index });
 
       expect(newTransliteration).toBe("gœj");
       expect(newIndex).toBe(10);
@@ -16,7 +16,7 @@ describe("gTransliteration", () => {
       const word = "orgueil";
       const index = 2;
 
-      const [newTransliteration, newIndex] = gTransliteration(word, index);
+      const [newTransliteration, newIndex] = gTransliteration({ word, index });
 
       expect(newTransliteration).toBe("gœj");
       expect(newIndex).toBe(7);
@@ -28,7 +28,7 @@ describe("gTransliteration", () => {
       const word = "sabotage";
       const index = 6;
 
-      const [newTransliteration, newIndex] = gTransliteration(word, index);
+      const [newTransliteration, newIndex] = gTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ʒ");
       expect(newIndex).toBe(7);
@@ -38,7 +38,7 @@ describe("gTransliteration", () => {
       const word = "suggestion";
       const index = 2;
 
-      const [newTransliteration, newIndex] = gTransliteration(word, index);
+      const [newTransliteration, newIndex] = gTransliteration({ word, index });
 
       expect(newTransliteration).toBe("gʒ");
       expect(newIndex).toBe(4);
@@ -48,7 +48,7 @@ describe("gTransliteration", () => {
       const word = "gigue";
       const index = 2;
 
-      const [newTransliteration, newIndex] = gTransliteration(word, index);
+      const [newTransliteration, newIndex] = gTransliteration({ word, index });
 
       expect(newTransliteration).toBe("g");
       expect(newIndex).toBe(4);
@@ -60,7 +60,7 @@ describe("gTransliteration", () => {
       const word = "grave";
       const index = 0;
 
-      const [newTransliteration, newIndex] = gTransliteration(word, index);
+      const [newTransliteration, newIndex] = gTransliteration({ word, index });
 
       expect(newTransliteration).toBe("g");
       expect(newIndex).toBe(1);
@@ -70,7 +70,7 @@ describe("gTransliteration", () => {
       const word = "aggraver";
       const index = 1;
 
-      const [newTransliteration, newIndex] = gTransliteration(word, index);
+      const [newTransliteration, newIndex] = gTransliteration({ word, index });
 
       expect(newTransliteration).toBe("g");
       expect(newIndex).toBe(3);
@@ -80,7 +80,7 @@ describe("gTransliteration", () => {
       const word = "pigeon";
       const index = 2;
 
-      const [newTransliteration, newIndex] = gTransliteration(word, index);
+      const [newTransliteration, newIndex] = gTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ʒ");
       expect(newIndex).toBe(4);
@@ -91,7 +91,7 @@ describe("gTransliteration", () => {
     const word = "compagnon";
     const index = 5;
 
-    const [newTransliteration, newIndex] = gTransliteration(word, index);
+    const [newTransliteration, newIndex] = gTransliteration({ word, index });
 
     expect(newTransliteration).toBe("ɲ");
     expect(newIndex).toBe(7);
@@ -101,7 +101,7 @@ describe("gTransliteration", () => {
     const word = "doigt";
     const index = 3;
 
-    const [newTransliteration, newIndex] = gTransliteration(word, index);
+    const [newTransliteration, newIndex] = gTransliteration({ word, index });
 
     expect(newTransliteration).toBe("");
     expect(newIndex).toBe(5);
@@ -111,7 +111,7 @@ describe("gTransliteration", () => {
     const word = "aigu";
     const index = 2;
 
-    const [newTransliteration, newIndex] = gTransliteration(word, index);
+    const [newTransliteration, newIndex] = gTransliteration({ word, index });
 
     expect(newTransliteration).toBe("gy");
     expect(newIndex).toBe(4);
@@ -127,7 +127,7 @@ describe("gTransliteration", () => {
     const word = "long";
     const index = 3;
 
-    const [newTransliteration, newIndex] = gTransliteration(word, index);
+    const [newTransliteration, newIndex] = gTransliteration({ word, index });
 
     expect(newTransliteration).toBe("(g)");
     expect(newIndex).toBe(4);
