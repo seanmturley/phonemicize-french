@@ -1,9 +1,12 @@
-import type { LetterTransliteration } from "../types.ts";
+import type {
+  LetterTransliteration,
+  LetterTransliterationArgs
+} from "../types.ts";
 
-export default function bTransliteration(
-  word: string,
-  index: number
-): LetterTransliteration {
+export default function bTransliteration({
+  word,
+  index
+}: LetterTransliterationArgs): LetterTransliteration {
   const remainingWord = word.substring(index);
 
   let newTransliteration = "";

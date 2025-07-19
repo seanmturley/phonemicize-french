@@ -5,7 +5,7 @@ describe("bTransliteration", () => {
     const word = "plomb";
     const index = 4;
 
-    const [newTransliteration, newIndex] = bTransliteration(word, index);
+    const [newTransliteration, newIndex] = bTransliteration({ word, index });
 
     expect(newTransliteration).toBe("");
     expect(newIndex).toBe(5);
@@ -16,7 +16,7 @@ describe("bTransliteration", () => {
       const word = "beau";
       const index = 0;
 
-      const [newTransliteration, newIndex] = bTransliteration(word, index);
+      const [newTransliteration, newIndex] = bTransliteration({ word, index });
 
       expect(newTransliteration).toBe("b");
       expect(newIndex).toBe(1);
@@ -26,7 +26,7 @@ describe("bTransliteration", () => {
       const word = "abbesse";
       const index = 1;
 
-      const [newTransliteration, newIndex] = bTransliteration(word, index);
+      const [newTransliteration, newIndex] = bTransliteration({ word, index });
 
       expect(newTransliteration).toBe("b");
       expect(newIndex).toBe(3);
@@ -38,7 +38,7 @@ describe("bTransliteration", () => {
       const word = "absolu";
       const index = 1;
 
-      const [newTransliteration, newIndex] = bTransliteration(word, index);
+      const [newTransliteration, newIndex] = bTransliteration({ word, index });
 
       expect(newTransliteration).toBe("p");
       expect(newIndex).toBe(2);
@@ -48,7 +48,7 @@ describe("bTransliteration", () => {
       const word = "obtus";
       const index = 1;
 
-      const [newTransliteration, newIndex] = bTransliteration(word, index);
+      const [newTransliteration, newIndex] = bTransliteration({ word, index });
 
       expect(newTransliteration).toBe("p");
       expect(newIndex).toBe(2);
