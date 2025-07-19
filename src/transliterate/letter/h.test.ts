@@ -5,7 +5,7 @@ describe("hTransliteration", () => {
     const word = "hideuse";
     const index = 0;
 
-    const [newTransliteration, newIndex] = hTransliteration(word, index);
+    const [newTransliteration, newIndex] = hTransliteration({ word, index });
 
     expect(newTransliteration).toBe("h");
     expect(newIndex).toBe(1);
@@ -15,7 +15,7 @@ describe("hTransliteration", () => {
     const word = "heure";
     const index = 0;
 
-    const [newTransliteration, newIndex] = hTransliteration(word, index);
+    const [newTransliteration, newIndex] = hTransliteration({ word, index });
 
     expect(newTransliteration).toBe("");
     expect(newIndex).toBe(1);

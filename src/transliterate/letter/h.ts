@@ -1,10 +1,13 @@
 import { sometimesAspirated, alwaysAspirated } from "./h-aspirated.ts";
-import type { LetterTransliteration } from "../types.ts";
+import type {
+  LetterTransliteration,
+  LetterTransliterationArgs
+} from "../types.ts";
 
-export default function hTransliteration(
-  word: string,
-  index: number
-): LetterTransliteration {
+export default function hTransliteration({
+  word,
+  index
+}: LetterTransliterationArgs): LetterTransliteration {
   let newTransliteration = "";
 
   if (sometimesAspirated.has(word)) {
