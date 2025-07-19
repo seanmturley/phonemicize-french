@@ -82,7 +82,7 @@ export default function transliterateWord(word: string, pos: string) {
       case "i":
       case "î":
       case "ï":
-        [newTransliteration, index] = iTransliteration(word, index);
+        [newTransliteration, index] = iTransliteration({ word, index });
         break;
 
       case "j":
