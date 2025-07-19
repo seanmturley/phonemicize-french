@@ -10,7 +10,7 @@ describe("fTransliteration", () => {
     const word = "veuf";
     const index = 3;
 
-    const [newTransliteration, newIndex] = fTransliteration(word, index);
+    const [newTransliteration, newIndex] = fTransliteration({ word, index });
 
     expect(newTransliteration).toBe("f");
     expect(newIndex).toBe(4);
@@ -21,7 +21,7 @@ describe("fTransliteration", () => {
       const word = "enfant";
       const index = 2;
 
-      const [newTransliteration, newIndex] = fTransliteration(word, index);
+      const [newTransliteration, newIndex] = fTransliteration({ word, index });
 
       expect(newTransliteration).toBe("f");
       expect(newIndex).toBe(3);
@@ -31,7 +31,7 @@ describe("fTransliteration", () => {
       const word = "effort";
       const index = 1;
 
-      const [newTransliteration, newIndex] = fTransliteration(word, index);
+      const [newTransliteration, newIndex] = fTransliteration({ word, index });
 
       expect(newTransliteration).toBe("f");
       expect(newIndex).toBe(3);
