@@ -1,9 +1,11 @@
-import type { LetterTransliteration } from "../types.ts";
+import type {
+  LetterTransliteration,
+  LetterTransliterationArgs
+} from "../types.ts";
 
-export default function jTransliteration(
-  word: string,
-  index: number
-): LetterTransliteration {
+export default function jTransliteration({
+  index
+}: LetterTransliterationArgs): LetterTransliteration {
   const newIndex = index + 1;
 
   return ["ʒ", newIndex];

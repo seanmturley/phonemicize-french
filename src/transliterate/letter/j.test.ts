@@ -5,7 +5,7 @@ describe("jTransliteration", () => {
     const word = "j'ai";
     const index = 0;
 
-    const [newTransliteration, newIndex] = jTransliteration(word, index);
+    const [newTransliteration, newIndex] = jTransliteration({ word, index });
 
     expect(newTransliteration).toBe("ʒ");
     expect(newIndex).toBe(1);
@@ -15,7 +15,7 @@ describe("jTransliteration", () => {
     const word = "jardin";
     const index = 0;
 
-    const [newTransliteration, newIndex] = jTransliteration(word, index);
+    const [newTransliteration, newIndex] = jTransliteration({ word, index });
 
     expect(newTransliteration).toBe("ʒ");
     expect(newIndex).toBe(1);
