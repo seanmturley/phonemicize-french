@@ -10,7 +10,7 @@ describe("pTransliteration", () => {
     const word = "coup";
     const index = 3;
 
-    const [newTransliteration, newIndex] = pTransliteration(word, index);
+    const [newTransliteration, newIndex] = pTransliteration({ word, index });
 
     expect(newTransliteration).toBe("");
     expect(newIndex).toBe(4);
@@ -20,7 +20,7 @@ describe("pTransliteration", () => {
     const word = "philosophe";
     const index = 0;
 
-    const [newTransliteration, newIndex] = pTransliteration(word, index);
+    const [newTransliteration, newIndex] = pTransliteration({ word, index });
 
     expect(newTransliteration).toBe("f");
     expect(newIndex).toBe(2);
@@ -31,7 +31,7 @@ describe("pTransliteration", () => {
       const word = "support";
       const index = 2;
 
-      const [newTransliteration, newIndex] = pTransliteration(word, index);
+      const [newTransliteration, newIndex] = pTransliteration({ word, index });
 
       expect(newTransliteration).toBe("p");
       expect(newIndex).toBe(4);
@@ -41,7 +41,7 @@ describe("pTransliteration", () => {
       const word = "captive";
       const index = 2;
 
-      const [newTransliteration, newIndex] = pTransliteration(word, index);
+      const [newTransliteration, newIndex] = pTransliteration({ word, index });
 
       expect(newTransliteration).toBe("p");
       expect(newIndex).toBe(3);
