@@ -7,7 +7,7 @@ describe("lTransliteration", () => {
     const word = "l'homme";
     const index = 0;
 
-    const [newTransliteration, newIndex] = lTransliteration(word, index);
+    const [newTransliteration, newIndex] = lTransliteration({ word, index });
 
     expect(newTransliteration).toBe("l");
     expect(newIndex).toBe(1);
@@ -17,7 +17,7 @@ describe("lTransliteration", () => {
     const word = "ballet";
     const index = 2;
 
-    const [newTransliteration, newIndex] = lTransliteration(word, index);
+    const [newTransliteration, newIndex] = lTransliteration({ word, index });
 
     expect(newTransliteration).toBe("l");
     expect(newIndex).toBe(4);
@@ -27,7 +27,7 @@ describe("lTransliteration", () => {
     const word = "large";
     const index = 0;
 
-    const [newTransliteration, newIndex] = lTransliteration(word, index);
+    const [newTransliteration, newIndex] = lTransliteration({ word, index });
 
     expect(newTransliteration).toBe("l");
     expect(newIndex).toBe(1);
