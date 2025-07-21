@@ -8,7 +8,7 @@ describe("nTransliteration", () => {
     const word = "n'avait";
     const index = 0;
 
-    const [newTransliteration, newIndex] = nTransliteration(word, index);
+    const [newTransliteration, newIndex] = nTransliteration({ word, index });
 
     expect(newTransliteration).toBe("n");
     expect(newIndex).toBe(1);
@@ -18,7 +18,7 @@ describe("nTransliteration", () => {
     const word = "année";
     const index = 1;
 
-    const [newTransliteration, newIndex] = nTransliteration(word, index);
+    const [newTransliteration, newIndex] = nTransliteration({ word, index });
 
     expect(newTransliteration).toBe("n");
     expect(newIndex).toBe(3);
@@ -28,7 +28,7 @@ describe("nTransliteration", () => {
     const word = "neige";
     const index = 0;
 
-    const [newTransliteration, newIndex] = nTransliteration(word, index);
+    const [newTransliteration, newIndex] = nTransliteration({ word, index });
 
     expect(newTransliteration).toBe("n");
     expect(newIndex).toBe(1);
