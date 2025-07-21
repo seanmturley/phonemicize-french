@@ -90,7 +90,7 @@ export default function transliterateWord(word: string, pos: string) {
         break;
 
       case "k":
-        [newTransliteration, index] = kTransliteration(word, index);
+        [newTransliteration, index] = kTransliteration({ word, index });
         break;
 
       case "l":
