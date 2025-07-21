@@ -8,7 +8,7 @@ describe("mTransliteration", () => {
     const word = "m'a";
     const index = 0;
 
-    const [newTransliteration, newIndex] = mTransliteration(word, index);
+    const [newTransliteration, newIndex] = mTransliteration({ word, index });
 
     expect(newTransliteration).toBe("m");
     expect(newIndex).toBe(1);
@@ -18,7 +18,7 @@ describe("mTransliteration", () => {
     const word = "flamme";
     const index = 3;
 
-    const [newTransliteration, newIndex] = mTransliteration(word, index);
+    const [newTransliteration, newIndex] = mTransliteration({ word, index });
 
     expect(newTransliteration).toBe("m");
     expect(newIndex).toBe(5);
@@ -28,7 +28,7 @@ describe("mTransliteration", () => {
     const word = "mardi";
     const index = 0;
 
-    const [newTransliteration, newIndex] = mTransliteration(word, index);
+    const [newTransliteration, newIndex] = mTransliteration({ word, index });
 
     expect(newTransliteration).toBe("m");
     expect(newIndex).toBe(1);
