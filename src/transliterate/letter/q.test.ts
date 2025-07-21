@@ -5,7 +5,7 @@ describe("qTransliteration", () => {
     const word = "qu'une";
     const index = 0;
 
-    const [newTransliteration, newIndex] = qTransliteration(word, index);
+    const [newTransliteration, newIndex] = qTransliteration({ word, index });
 
     expect(newTransliteration).toBe("k");
     expect(newIndex).toBe(2);
@@ -15,7 +15,7 @@ describe("qTransliteration", () => {
     const word = "quel";
     const index = 0;
 
-    const [newTransliteration, newIndex] = qTransliteration(word, index);
+    const [newTransliteration, newIndex] = qTransliteration({ word, index });
 
     expect(newTransliteration).toBe("k");
     expect(newIndex).toBe(2);
@@ -25,7 +25,7 @@ describe("qTransliteration", () => {
     const word = "cinq";
     const index = 3;
 
-    const [newTransliteration, newIndex] = qTransliteration(word, index);
+    const [newTransliteration, newIndex] = qTransliteration({ word, index });
 
     expect(newTransliteration).toBe("k");
     expect(newIndex).toBe(4);
