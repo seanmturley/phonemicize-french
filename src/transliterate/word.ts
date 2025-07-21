@@ -108,7 +108,7 @@ export default function transliterateWord(word: string, pos: string) {
       case "o":
       case "ô":
       case "œ":
-        [newTransliteration, index] = oTransliteration(word, index);
+        [newTransliteration, index] = oTransliteration({ word, index });
         break;
 
       case "p":
