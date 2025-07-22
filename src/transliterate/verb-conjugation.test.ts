@@ -74,72 +74,72 @@ const premierGroupe: TransliterationTestData = {
 };
 
 const deuxièmeGroupe: TransliterationTestData = {
-  infinitif: { word: "finir", ipa: "" },
+  infinitif: { word: "finir", ipa: "finiʁ" },
 
   // Participe
   ppr: { word: "finissant", ipa: "" },
 
-  "ppa m s": { word: "fini", ipa: "" },
-  "ppa f s": { word: "finie", ipa: "" },
-  "ppa m p": { word: "finis", ipa: "" },
-  "ppa f p": { word: "finies", ipa: "" },
+  "ppa m s": { word: "fini", ipa: "fini" },
+  "ppa f s": { word: "finie", ipa: "fini" },
+  "ppa m p": { word: "finis", ipa: "fini" },
+  "ppa f p": { word: "finies", ipa: "fini" },
 
   // Indicatif
-  "ind pres 1 s": { word: "finis", ipa: "" },
-  "ind pres 2 s": { word: "finis", ipa: "" },
-  "ind pres 3 s": { word: "finit", ipa: "" },
-  "ind pres 1 p": { word: "finissons", ipa: "" },
-  "ind pres 2 p": { word: "finissez", ipa: "" },
-  "ind pres 3 p": { word: "finissent", ipa: "" },
+  "ind pres 1 s": { word: "finis", ipa: "fini" },
+  "ind pres 2 s": { word: "finis", ipa: "fini" },
+  "ind pres 3 s": { word: "finit", ipa: "fini" },
+  "ind pres 1 p": { word: "finissons", ipa: "finisɔ̃" },
+  "ind pres 2 p": { word: "finissez", ipa: "finise" },
+  "ind pres 3 p": { word: "finissent", ipa: "finis(ə)" },
 
-  "ind impa 1 s": { word: "finissais", ipa: "" },
-  "ind impa 2 s": { word: "finissais", ipa: "" },
-  "ind impa 3 s": { word: "finissait", ipa: "" },
-  "ind impa 1 p": { word: "finissions", ipa: "" },
-  "ind impa 2 p": { word: "finissiez", ipa: "" },
-  "ind impa 3 p": { word: "finissaient", ipa: "" },
+  "ind impa 1 s": { word: "finissais", ipa: "finisɛ" },
+  "ind impa 2 s": { word: "finissais", ipa: "finisɛ" },
+  "ind impa 3 s": { word: "finissait", ipa: "finisɛ" },
+  "ind impa 1 p": { word: "finissions", ipa: "finisjɔ̃" },
+  "ind impa 2 p": { word: "finissiez", ipa: "finisje" },
+  "ind impa 3 p": { word: "finissaient", ipa: "finisɛ" },
 
-  "ind futu 1 s": { word: "finirai", ipa: "" },
-  "ind futu 2 s": { word: "finiras", ipa: "" },
-  "ind futu 3 s": { word: "finira", ipa: "" },
-  "ind futu 1 p": { word: "finirons", ipa: "" },
-  "ind futu 2 p": { word: "finirez", ipa: "" },
-  "ind futu 3 p": { word: "finiront", ipa: "" },
+  "ind futu 1 s": { word: "finirai", ipa: "finiʁe" },
+  "ind futu 2 s": { word: "finiras", ipa: "finiʁa" },
+  "ind futu 3 s": { word: "finira", ipa: "finiʁa" },
+  "ind futu 1 p": { word: "finirons", ipa: "finiʁɔ̃" },
+  "ind futu 2 p": { word: "finirez", ipa: "finiʁe" },
+  "ind futu 3 p": { word: "finiront", ipa: "finiʁɔ̃" },
 
-  "ind psim 1 s": { word: "finis", ipa: "" },
-  "ind psim 2 s": { word: "finis", ipa: "" },
-  "ind psim 3 s": { word: "finit", ipa: "" },
-  "ind psim 1 p": { word: "finîmes", ipa: "" },
-  "ind psim 2 p": { word: "finîtes", ipa: "" },
-  "ind psim 3 p": { word: "finirent", ipa: "" },
+  "ind psim 1 s": { word: "finis", ipa: "fini" },
+  "ind psim 2 s": { word: "finis", ipa: "fini" },
+  "ind psim 3 s": { word: "finit", ipa: "fini" },
+  "ind psim 1 p": { word: "finîmes", ipa: "finim(ə)" },
+  "ind psim 2 p": { word: "finîtes", ipa: "finit(ə)" },
+  "ind psim 3 p": { word: "finirent", ipa: "finiʁ(ə)" },
 
   // Subjonctif
-  "sub pres 1 s": { word: "finisse", ipa: "" },
-  "sub pres 2 s": { word: "finisses", ipa: "" },
-  "sub pres 3 s": { word: "finisse", ipa: "" },
-  "sub pres 1 p": { word: "finissions", ipa: "" },
-  "sub pres 2 p": { word: "finissiez", ipa: "" },
-  "sub pres 3 p": { word: "finissent", ipa: "" },
+  "sub pres 1 s": { word: "finisse", ipa: "finis(ə)" },
+  "sub pres 2 s": { word: "finisses", ipa: "finis(ə)" },
+  "sub pres 3 s": { word: "finisse", ipa: "finis(ə)" },
+  "sub pres 1 p": { word: "finissions", ipa: "finisjɔ̃" },
+  "sub pres 2 p": { word: "finissiez", ipa: "finisje" },
+  "sub pres 3 p": { word: "finissent", ipa: "finis(ə)" },
 
-  "sub impa 1 s": { word: "finisse", ipa: "" },
-  "sub impa 2 s": { word: "finisses", ipa: "" },
-  "sub impa 3 s": { word: "finît", ipa: "" },
-  "sub impa 1 p": { word: "finissions", ipa: "" },
-  "sub impa 2 p": { word: "finissiez", ipa: "" },
-  "sub impa 3 p": { word: "finissent", ipa: "" },
+  "sub impa 1 s": { word: "finisse", ipa: "finis(ə)" },
+  "sub impa 2 s": { word: "finisses", ipa: "finis(ə)" },
+  "sub impa 3 s": { word: "finît", ipa: "fini" },
+  "sub impa 1 p": { word: "finissions", ipa: "finisjɔ̃" },
+  "sub impa 2 p": { word: "finissiez", ipa: "finisje" },
+  "sub impa 3 p": { word: "finissent", ipa: "finis(ə)" },
 
   // Conditionnel
-  "cond pres 1 s": { word: "finirais", ipa: "" },
-  "cond pres 2 s": { word: "finirais", ipa: "" },
-  "cond pres 3 s": { word: "finirait", ipa: "" },
-  "cond pres 1 p": { word: "finirions", ipa: "" },
-  "cond pres 2 p": { word: "finiriez", ipa: "" },
-  "cond pres 3 p": { word: "finiraient", ipa: "" },
+  "cond pres 1 s": { word: "finirais", ipa: "finiʁɛ" },
+  "cond pres 2 s": { word: "finirais", ipa: "finiʁɛ" },
+  "cond pres 3 s": { word: "finirait", ipa: "finiʁɛ" },
+  "cond pres 1 p": { word: "finirions", ipa: "finiʁjɔ̃" },
+  "cond pres 2 p": { word: "finiriez", ipa: "finiʁje" },
+  "cond pres 3 p": { word: "finiraient", ipa: "finiʁɛ" },
 
   // Impératif
-  "imp pres 2 s": { word: "finis", ipa: "" },
-  "imp pres 1 p": { word: "finissons", ipa: "" },
-  "imp pres 2 p": { word: "finissez", ipa: "" }
+  "imp pres 2 s": { word: "finis", ipa: "fini" },
+  "imp pres 1 p": { word: "finissons", ipa: "finisɔ̃" },
+  "imp pres 2 p": { word: "finissez", ipa: "finise" }
 };
 
 describe("transliterateWord should transliterate all verb conjugations for", () => {
