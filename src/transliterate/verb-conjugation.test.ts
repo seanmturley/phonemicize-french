@@ -73,6 +73,75 @@ const premierGroupe: TransliterationTestData = {
   "imp pres 2 p": { word: "aimez", ipa: "ɛme" }
 };
 
+const deuxièmeGroupe: TransliterationTestData = {
+  infinitif: { word: "finir", ipa: "" },
+
+  // Participe
+  ppr: { word: "finissant", ipa: "" },
+
+  "ppa m s": { word: "fini", ipa: "" },
+  "ppa f s": { word: "finie", ipa: "" },
+  "ppa m p": { word: "finis", ipa: "" },
+  "ppa f p": { word: "finies", ipa: "" },
+
+  // Indicatif
+  "ind pres 1 s": { word: "finis", ipa: "" },
+  "ind pres 2 s": { word: "finis", ipa: "" },
+  "ind pres 3 s": { word: "finit", ipa: "" },
+  "ind pres 1 p": { word: "finissons", ipa: "" },
+  "ind pres 2 p": { word: "finissez", ipa: "" },
+  "ind pres 3 p": { word: "finissent", ipa: "" },
+
+  "ind impa 1 s": { word: "finissais", ipa: "" },
+  "ind impa 2 s": { word: "finissais", ipa: "" },
+  "ind impa 3 s": { word: "finissait", ipa: "" },
+  "ind impa 1 p": { word: "finissions", ipa: "" },
+  "ind impa 2 p": { word: "finissiez", ipa: "" },
+  "ind impa 3 p": { word: "finissaient", ipa: "" },
+
+  "ind futu 1 s": { word: "finirai", ipa: "" },
+  "ind futu 2 s": { word: "finiras", ipa: "" },
+  "ind futu 3 s": { word: "finira", ipa: "" },
+  "ind futu 1 p": { word: "finirons", ipa: "" },
+  "ind futu 2 p": { word: "finirez", ipa: "" },
+  "ind futu 3 p": { word: "finiront", ipa: "" },
+
+  "ind psim 1 s": { word: "finis", ipa: "" },
+  "ind psim 2 s": { word: "finis", ipa: "" },
+  "ind psim 3 s": { word: "finit", ipa: "" },
+  "ind psim 1 p": { word: "finîmes", ipa: "" },
+  "ind psim 2 p": { word: "finîtes", ipa: "" },
+  "ind psim 3 p": { word: "finirent", ipa: "" },
+
+  // Subjonctif
+  "sub pres 1 s": { word: "finisse", ipa: "" },
+  "sub pres 2 s": { word: "finisses", ipa: "" },
+  "sub pres 3 s": { word: "finisse", ipa: "" },
+  "sub pres 1 p": { word: "finissions", ipa: "" },
+  "sub pres 2 p": { word: "finissiez", ipa: "" },
+  "sub pres 3 p": { word: "finissent", ipa: "" },
+
+  "sub impa 1 s": { word: "finisse", ipa: "" },
+  "sub impa 2 s": { word: "finisses", ipa: "" },
+  "sub impa 3 s": { word: "finît", ipa: "" },
+  "sub impa 1 p": { word: "finissions", ipa: "" },
+  "sub impa 2 p": { word: "finissiez", ipa: "" },
+  "sub impa 3 p": { word: "finissent", ipa: "" },
+
+  // Conditionnel
+  "cond pres 1 s": { word: "finirais", ipa: "" },
+  "cond pres 2 s": { word: "finirais", ipa: "" },
+  "cond pres 3 s": { word: "finirait", ipa: "" },
+  "cond pres 1 p": { word: "finirions", ipa: "" },
+  "cond pres 2 p": { word: "finiriez", ipa: "" },
+  "cond pres 3 p": { word: "finiraient", ipa: "" },
+
+  // Impératif
+  "imp pres 2 s": { word: "finis", ipa: "" },
+  "imp pres 1 p": { word: "finissons", ipa: "" },
+  "imp pres 2 p": { word: "finissez", ipa: "" }
+};
+
 describe("transliterateWord should transliterate all verb conjugations for", () => {
   describe("the 'premier groupe'", () => {
     for (const conjugation in premierGroupe) {
