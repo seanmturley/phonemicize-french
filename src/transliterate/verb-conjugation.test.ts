@@ -154,4 +154,16 @@ describe("transliterateWord should transliterate all verb conjugations for", () 
       });
     }
   });
+
+  describe("the 'deuxième groupe'", () => {
+    for (const conjugation in deuxièmeGroupe) {
+      const currentConjugation = deuxièmeGroupe[conjugation];
+
+      it(`${conjugation}: ${currentConjugation.word}`, () => {
+        const result = transliterateWord(currentConjugation.word, "verbe");
+
+        expect(result).toBe(currentConjugation.ipa);
+      });
+    }
+  });
 });
