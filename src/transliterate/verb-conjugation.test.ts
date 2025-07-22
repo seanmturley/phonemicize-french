@@ -1,4 +1,7 @@
-const premierGroupe = {
+import type { TransliterationTestData } from "./types.ts";
+import transliterateWord from "./word.ts";
+
+const premierGroupe: TransliterationTestData = {
   infinitif: { word: "aimer", ipa: "ɛme" },
 
   // Participe
@@ -66,3 +69,17 @@ const premierGroupe = {
   "imp pres 1 p": { word: "aimons", ipa: "ɛmɔ̃" },
   "imp pres 2 p": { word: "aimez", ipa: "ɛme" }
 };
+
+describe("transliterateWord should transliterate all verb conjugations for", () => {
+  describe("the 'premier groupe'", () => {
+    for (const conjugation in premierGroupe) {
+      const currentConjugation = premierGroupe[conjugation];
+
+      it(`${conjugation}: ${currentConjugation.word}`, () => {
+        const result = transliterateWord(currentConjugation.word, "verbe");
+
+        expect(result).toBe(currentConjugation.ipa);
+      });
+    }
+  });
+});
