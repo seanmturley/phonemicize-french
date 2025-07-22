@@ -1,3 +1,6 @@
+// Conjugations from https://conjugator.reverso.net
+// IPA transliterations adapted from https://fr.wiktionary.org/
+
 import type { TransliterationTestData } from "./types.ts";
 import transliterateWord from "./word.ts";
 
