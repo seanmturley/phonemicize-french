@@ -3,16 +3,9 @@
 // Vowels - https://en.wikipedia.org/wiki/French_phonology#Vowels
 
 import transliterateWord from "./word.ts";
+import type { TransliterationTestData } from "./types.ts";
 
-type Phoneme = {
-  ipa: string;
-  word: string;
-  pos: string;
-};
-
-type Phonemes = { [key: string]: Phoneme };
-
-const phonemes: Phonemes = {
+const phonemes: TransliterationTestData = {
   // Unvoiced consonants
   p: { ipa: "pu", word: "pou", pos: "N" },
   t: { ipa: "tu(t)", word: "tout", pos: "J" },
@@ -65,7 +58,7 @@ describe("transliterateWord", () => {
       it(`${currentPhoneme.word}`, () => {
         const result = transliterateWord(
           currentPhoneme.word,
-          currentPhoneme.pos
+          currentPhoneme.pos ?? ""
         );
 
         expect(result).toBe(currentPhoneme.ipa);
