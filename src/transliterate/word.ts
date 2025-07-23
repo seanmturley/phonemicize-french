@@ -120,7 +120,7 @@ export default function transliterateWord(word: string, pos: string) {
         break;
 
       case "r":
-        [newTransliteration, index] = rTransliteration(word, index);
+        [newTransliteration, index] = rTransliteration({ word, index });
         break;
 
       case "s":
