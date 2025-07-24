@@ -5,7 +5,7 @@ describe("sTransliteration", () => {
     const word = "s'il";
     const index = 0;
 
-    const [newTransliteration, newIndex] = sTransliteration(word, index);
+    const [newTransliteration, newIndex] = sTransliteration({ word, index });
 
     expect(newTransliteration).toBe("s");
     expect(newIndex).toBe(1);
@@ -17,7 +17,7 @@ describe("sTransliteration", () => {
     const word = "mes";
     const index = 2;
 
-    const [newTransliteration, newIndex] = sTransliteration(word, index);
+    const [newTransliteration, newIndex] = sTransliteration({ word, index });
 
     expect(newTransliteration).toBe("(z)");
     expect(newIndex).toBe(3);
@@ -28,7 +28,7 @@ describe("sTransliteration", () => {
       const word = "maison";
       const index = 3;
 
-      const [newTransliteration, newIndex] = sTransliteration(word, index);
+      const [newTransliteration, newIndex] = sTransliteration({ word, index });
 
       expect(newTransliteration).toBe("z");
       expect(newIndex).toBe(4);
@@ -38,7 +38,7 @@ describe("sTransliteration", () => {
       const word = "astre";
       const index = 1;
 
-      const [newTransliteration, newIndex] = sTransliteration(word, index);
+      const [newTransliteration, newIndex] = sTransliteration({ word, index });
 
       expect(newTransliteration).toBe("s");
       expect(newIndex).toBe(2);
@@ -49,7 +49,7 @@ describe("sTransliteration", () => {
     const word = "agasse";
     const index = 3;
 
-    const [newTransliteration, newIndex] = sTransliteration(word, index);
+    const [newTransliteration, newIndex] = sTransliteration({ word, index });
 
     expect(newTransliteration).toBe("s");
     expect(newIndex).toBe(5);
@@ -60,7 +60,7 @@ describe("sTransliteration", () => {
       const word = "descendre";
       const index = 2;
 
-      const [newTransliteration, newIndex] = sTransliteration(word, index);
+      const [newTransliteration, newIndex] = sTransliteration({ word, index });
 
       expect(newTransliteration).toBe("s");
       expect(newIndex).toBe(4);
@@ -70,7 +70,7 @@ describe("sTransliteration", () => {
       const word = "scandale";
       const index = 0;
 
-      const [newTransliteration, newIndex] = sTransliteration(word, index);
+      const [newTransliteration, newIndex] = sTransliteration({ word, index });
 
       expect(newTransliteration).toBe("sk");
       expect(newIndex).toBe(2);
@@ -81,7 +81,7 @@ describe("sTransliteration", () => {
     const word = "schéma";
     const index = 0;
 
-    const [newTransliteration, newIndex] = sTransliteration(word, index);
+    const [newTransliteration, newIndex] = sTransliteration({ word, index });
 
     expect(newTransliteration).toBe("ʃ");
     expect(newIndex).toBe(3);
