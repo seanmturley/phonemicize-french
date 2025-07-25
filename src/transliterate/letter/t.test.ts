@@ -5,7 +5,7 @@ describe("tTransliteration", () => {
     const word = "t'as";
     const index = 0;
 
-    const [newTransliteration, newIndex] = tTransliteration(word, index);
+    const [newTransliteration, newIndex] = tTransliteration({ word, index });
 
     expect(newTransliteration).toBe("t");
     expect(newIndex).toBe(1);
@@ -15,7 +15,7 @@ describe("tTransliteration", () => {
     const word = "tout";
     const index = 3;
 
-    const [newTransliteration, newIndex] = tTransliteration(word, index);
+    const [newTransliteration, newIndex] = tTransliteration({ word, index });
 
     expect(newTransliteration).toBe("(t)");
     expect(newIndex).toBe(4);
@@ -26,7 +26,7 @@ describe("tTransliteration", () => {
       const word = "total";
       const index = 0;
 
-      const [newTransliteration, newIndex] = tTransliteration(word, index);
+      const [newTransliteration, newIndex] = tTransliteration({ word, index });
 
       expect(newTransliteration).toBe("t");
       expect(newIndex).toBe(1);
@@ -36,7 +36,7 @@ describe("tTransliteration", () => {
       const word = "glotte";
       const index = 3;
 
-      const [newTransliteration, newIndex] = tTransliteration(word, index);
+      const [newTransliteration, newIndex] = tTransliteration({ word, index });
 
       expect(newTransliteration).toBe("t");
       expect(newIndex).toBe(5);
@@ -47,7 +47,7 @@ describe("tTransliteration", () => {
     const word = "Thomas";
     const index = 0;
 
-    const [newTransliteration, newIndex] = tTransliteration(word, index);
+    const [newTransliteration, newIndex] = tTransliteration({ word, index });
 
     expect(newTransliteration).toBe("t");
     expect(newIndex).toBe(2);
@@ -58,7 +58,7 @@ describe("tTransliteration", () => {
       const word = "attention";
       const index = 5;
 
-      const [newTransliteration, newIndex] = tTransliteration(word, index);
+      const [newTransliteration, newIndex] = tTransliteration({ word, index });
 
       expect(newTransliteration).toBe("sjɔ̃");
       expect(newIndex).toBe(9);
@@ -68,7 +68,7 @@ describe("tTransliteration", () => {
       const word = "patience";
       const index = 2;
 
-      const [newTransliteration, newIndex] = tTransliteration(word, index);
+      const [newTransliteration, newIndex] = tTransliteration({ word, index });
 
       expect(newTransliteration).toBe("sjɑ̃s");
       expect(newIndex).toBe(8);

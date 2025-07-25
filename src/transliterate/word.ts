@@ -128,7 +128,7 @@ export default function transliterateWord(word: string, pos: string) {
         break;
 
       case "t":
-        [newTransliteration, index] = tTransliteration(word, index);
+        [newTransliteration, index] = tTransliteration({ word, index });
         break;
 
       case "u":
