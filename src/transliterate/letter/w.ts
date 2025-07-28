@@ -1,9 +1,11 @@
-import type { LetterTransliteration } from "../types.ts";
+import type {
+  LetterTransliteration,
+  LetterTransliterationArgs
+} from "../types.ts";
 
-export default function wTransliteration(
-  word: string,
-  index: number
-): LetterTransliteration {
+export default function wTransliteration({
+  index
+}: LetterTransliterationArgs): LetterTransliteration {
   const newIndex = index + 1;
 
   // Note "clown" as an exception, rendered as /klun/

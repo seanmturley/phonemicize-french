@@ -7,7 +7,7 @@ describe("wTransliteration", () => {
     const word = "kiwi";
     const index = 2;
 
-    const [newTransliteration, newIndex] = wTransliteration(word, index);
+    const [newTransliteration, newIndex] = wTransliteration({ word, index });
 
     expect(newTransliteration).toBe("w");
     expect(newIndex).toBe(3);
