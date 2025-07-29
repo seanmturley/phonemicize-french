@@ -147,7 +147,7 @@ export default function transliterateWord(word: string, pos: string) {
         break;
 
       case "x":
-        [newTransliteration, index] = xTransliteration(word, index);
+        [newTransliteration, index] = xTransliteration({ word, index });
         break;
 
       case "y":

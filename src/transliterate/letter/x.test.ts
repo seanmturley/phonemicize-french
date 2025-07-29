@@ -11,7 +11,7 @@ describe("xTransliteration", () => {
     const word = "faux";
     const index = 3;
 
-    const [newTransliteration, newIndex] = xTransliteration(word, index);
+    const [newTransliteration, newIndex] = xTransliteration({ word, index });
 
     expect(newTransliteration).toBe("(z)");
     expect(newIndex).toBe(4);
@@ -21,7 +21,7 @@ describe("xTransliteration", () => {
     const word = "exhume";
     const index = 1;
 
-    const [newTransliteration, newIndex] = xTransliteration(word, index);
+    const [newTransliteration, newIndex] = xTransliteration({ word, index });
 
     expect(newTransliteration).toBe("gz");
     expect(newIndex).toBe(3);
@@ -32,7 +32,7 @@ describe("xTransliteration", () => {
       const word = "texte";
       const index = 2;
 
-      const [newTransliteration, newIndex] = xTransliteration(word, index);
+      const [newTransliteration, newIndex] = xTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ks");
       expect(newIndex).toBe(3);
@@ -45,7 +45,7 @@ describe("xTransliteration", () => {
       const word = "exemple";
       const index = 1;
 
-      const [newTransliteration, newIndex] = xTransliteration(word, index);
+      const [newTransliteration, newIndex] = xTransliteration({ word, index });
 
       expect(newTransliteration).toBe("gz");
       expect(newIndex).toBe(2);
