@@ -5,7 +5,7 @@ describe("yTransliteration", () => {
     const word = "Thierry";
     const index = 6;
 
-    const [newTransliteration, newIndex] = yTransliteration(word, index);
+    const [newTransliteration, newIndex] = yTransliteration({ word, index });
 
     expect(newTransliteration).toBe("i");
     expect(newIndex).toBe(7);
@@ -15,7 +15,7 @@ describe("yTransliteration", () => {
     const word = "yeux";
     const index = 0;
 
-    const [newTransliteration, newIndex] = yTransliteration(word, index);
+    const [newTransliteration, newIndex] = yTransliteration({ word, index });
 
     expect(newTransliteration).toBe("j");
     expect(newIndex).toBe(1);
@@ -25,7 +25,7 @@ describe("yTransliteration", () => {
     const word = "royal";
     const index = 2;
 
-    const [newTransliteration, newIndex] = yTransliteration(word, index);
+    const [newTransliteration, newIndex] = yTransliteration({ word, index });
 
     expect(newTransliteration).toBe("j");
     expect(newIndex).toBe(3);
@@ -36,7 +36,7 @@ describe("yTransliteration", () => {
       const word = "lynx";
       const index = 1;
 
-      const [newTransliteration, newIndex] = yTransliteration(word, index);
+      const [newTransliteration, newIndex] = yTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛ̃");
       expect(newIndex).toBe(3);
@@ -46,7 +46,7 @@ describe("yTransliteration", () => {
       const word = "sympa";
       const index = 1;
 
-      const [newTransliteration, newIndex] = yTransliteration(word, index);
+      const [newTransliteration, newIndex] = yTransliteration({ word, index });
 
       expect(newTransliteration).toBe("ɛ̃");
       expect(newIndex).toBe(3);
@@ -57,7 +57,7 @@ describe("yTransliteration", () => {
     const word = "thym";
     const index = 2;
 
-    const [newTransliteration, newIndex] = yTransliteration(word, index);
+    const [newTransliteration, newIndex] = yTransliteration({ word, index });
 
     expect(newTransliteration).toBe("ɛ̃");
     expect(newIndex).toBe(4);
@@ -68,7 +68,7 @@ describe("yTransliteration", () => {
       const word = "cynique";
       const index = 1;
 
-      const [newTransliteration, newIndex] = yTransliteration(word, index);
+      const [newTransliteration, newIndex] = yTransliteration({ word, index });
 
       expect(newTransliteration).toBe("in");
       expect(newIndex).toBe(3);
@@ -78,7 +78,7 @@ describe("yTransliteration", () => {
       const word = "hymne";
       const index = 1;
 
-      const [newTransliteration, newIndex] = yTransliteration(word, index);
+      const [newTransliteration, newIndex] = yTransliteration({ word, index });
 
       expect(newTransliteration).toBe("im");
       expect(newIndex).toBe(3);
@@ -89,7 +89,7 @@ describe("yTransliteration", () => {
     const word = "martyr";
     const index = 4;
 
-    const [newTransliteration, newIndex] = yTransliteration(word, index);
+    const [newTransliteration, newIndex] = yTransliteration({ word, index });
 
     expect(newTransliteration).toBe("i");
     expect(newIndex).toBe(5);

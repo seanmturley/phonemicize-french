@@ -3,12 +3,15 @@ import {
   consonantExcludingMNH,
   vowel
 } from "../letter-group-definitions.ts";
-import type { LetterTransliteration } from "../types.ts";
+import type {
+  LetterTransliteration,
+  LetterTransliterationArgs
+} from "../types.ts";
 
-export default function yTransliteration(
-  word: string,
-  index: number
-): LetterTransliteration {
+export default function yTransliteration({
+  word,
+  index
+}: LetterTransliterationArgs): LetterTransliteration {
   const remainingWord = word.substring(index);
 
   let newTransliteration = "";

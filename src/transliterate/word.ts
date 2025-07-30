@@ -152,7 +152,7 @@ export default function transliterateWord(word: string, pos: string) {
 
       case "y":
       case "ÿ":
-        [newTransliteration, index] = yTransliteration(word, index);
+        [newTransliteration, index] = yTransliteration({ word, index });
         break;
 
       case "z":
