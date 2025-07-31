@@ -10,7 +10,7 @@ describe("zTransliteration", () => {
     const word = "chez";
     const index = 3;
 
-    const [newTransliteration, newIndex] = zTransliteration(word, index);
+    const [newTransliteration, newIndex] = zTransliteration({ word, index });
 
     expect(newTransliteration).toBe("(z)");
     expect(newIndex).toBe(4);
@@ -20,7 +20,7 @@ describe("zTransliteration", () => {
     const word = "zèle";
     const index = 0;
 
-    const [newTransliteration, newIndex] = zTransliteration(word, index);
+    const [newTransliteration, newIndex] = zTransliteration({ word, index });
 
     expect(newTransliteration).toBe("z");
     expect(newIndex).toBe(1);
@@ -30,7 +30,7 @@ describe("zTransliteration", () => {
     const word = "douze";
     const index = 3;
 
-    const [newTransliteration, newIndex] = zTransliteration(word, index);
+    const [newTransliteration, newIndex] = zTransliteration({ word, index });
 
     expect(newTransliteration).toBe("z");
     expect(newIndex).toBe(4);
