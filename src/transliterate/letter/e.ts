@@ -107,7 +107,7 @@ export default function eTransliteration({
     newTransliteration = "ɛ̃";
     numTransliteratedCharacters = 2;
   } else if (/^ents?$/i.test(remainingWord)) {
-    // ent final (and followed by final s) otherwise should be /ɑ̃/
+    // ent final (and followed by final s) should be /ɑ̃/
     newTransliteration = "ɑ̃";
     numTransliteratedCharacters = 3;
   } else if (index === 0 && /^emm/i.test(remainingWord)) {
@@ -134,14 +134,6 @@ export default function eTransliteration({
     // before a consonant excluding m, n, or h en should be /ɑ̃/
     newTransliteration = "ɑ̃";
     numTransliteratedCharacters = 2;
-  } else if (/^ent$/i.test(remainingWord)) {
-    // ent final otherwise should be /ɑ̃/
-    newTransliteration = "ɑ̃";
-    numTransliteratedCharacters = 2;
-  } else if (/^ents$/i.test(remainingWord)) {
-    // ent final otherwise with s should be /ɑ̃/
-    newTransliteration = "ɑ̃";
-    numTransliteratedCharacters = 3;
   } else if (
     new RegExp(String.raw`^e[${consonant}][${vowel}]`, "i").test(remainingWord)
   ) {

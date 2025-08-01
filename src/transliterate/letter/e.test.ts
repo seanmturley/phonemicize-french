@@ -214,28 +214,6 @@ describe("eTransliteration", () => {
     });
   });
 
-  describe("before a consonant excluding m, n, or h", () => {
-    it("em should be /ɑ̃/", () => {
-      const word = "embue";
-      const index = 0;
-
-      const [newTransliteration, newIndex] = eTransliteration({ word, index });
-
-      expect(newTransliteration).toBe("ɑ̃");
-      expect(newIndex).toBe(2);
-    });
-
-    it("en should be /ɑ̃/", () => {
-      const word = "ensemble";
-      const index = 0;
-
-      const [newTransliteration, newIndex] = eTransliteration({ word, index });
-
-      expect(newTransliteration).toBe("ɑ̃");
-      expect(newIndex).toBe(2);
-    });
-  });
-
   describe("en final", () => {
     it("should be /ɛ̃/", () => {
       const word = "bien";
@@ -289,6 +267,28 @@ describe("eTransliteration", () => {
 
       expect(newTransliteration).toBe("ɑ̃");
       expect(newIndex).toBe(7);
+    });
+  });
+
+  describe("before a consonant excluding m, n, or h", () => {
+    it("em should be /ɑ̃/", () => {
+      const word = "embue";
+      const index = 0;
+
+      const [newTransliteration, newIndex] = eTransliteration({ word, index });
+
+      expect(newTransliteration).toBe("ɑ̃");
+      expect(newIndex).toBe(2);
+    });
+
+    it("en should be /ɑ̃/", () => {
+      const word = "ensemble";
+      const index = 0;
+
+      const [newTransliteration, newIndex] = eTransliteration({ word, index });
+
+      expect(newTransliteration).toBe("ɑ̃");
+      expect(newIndex).toBe(2);
     });
   });
 
