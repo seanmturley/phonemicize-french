@@ -106,6 +106,10 @@ export default function eTransliteration({
     // en final (and followed by final s) should be /ɛ̃/
     newTransliteration = "ɛ̃";
     numTransliteratedCharacters = 2;
+  } else if (pos === "verbe" && /^ent$/i.test(remainingWord)) {
+    // ent final in third person plural verbs should be /(ə)/
+    newTransliteration = "(ə)";
+    numTransliteratedCharacters = 3;
   } else if (/^ents?$/i.test(remainingWord)) {
     // ent final (and followed by final s) should be /ɑ̃/
     newTransliteration = "ɑ̃";

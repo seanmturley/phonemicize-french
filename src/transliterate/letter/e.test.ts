@@ -237,17 +237,20 @@ describe("eTransliteration", () => {
   });
 
   describe("ent final", () => {
-    // it("in third person plural verbs should be /ə/", () => {
-    //   // This requires checking the lexicon metadata to identify third
-    //   // person plural verbs
-    //   const word = "parlent";
-    //   const index = 4;
+    it("in third person plural verbs should be /(ə)/", () => {
+      const word = "parlent";
+      const pos = "verbe";
+      const index = 4;
 
-    //   const [newTransliteration, newIndex] = eTransliteration({word, index});
+      const [newTransliteration, newIndex] = eTransliteration({
+        word,
+        pos,
+        index
+      });
 
-    //   expect(newTransliteration).toBe("ə");
-    //   expect(newIndex).toBe(7);
-    // });
+      expect(newTransliteration).toBe("(ə)");
+      expect(newIndex).toBe(7);
+    });
 
     it("otherwise should be /ɑ̃/", () => {
       const word = "cent";
