@@ -77,7 +77,7 @@ const deuxièmeGroupe: TransliterationTestData = {
   infinitif: { word: "finir", ipa: "finiʁ" },
 
   // Participe
-  ppr: { word: "finissant", ipa: "" },
+  ppr: { word: "finissant", ipa: "finisɑ̃" },
 
   "ppa m s": { word: "fini", ipa: "fini" },
   "ppa f s": { word: "finie", ipa: "fini" },
