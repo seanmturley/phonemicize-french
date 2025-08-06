@@ -11,14 +11,46 @@ describe("tTransliteration", () => {
     expect(newIndex).toBe(1);
   });
 
-  it("final t should be /t/ in liaison, but otherwise silent", () => {
-    const word = "tout";
-    const index = 3;
+  describe("final t", () => {
+    it("should be /t/ in liaison, but otherwise silent", () => {
+      const word = "tout";
+      const index = 3;
 
-    const [newTransliteration, newIndex] = tTransliteration({ word, index });
+      const [newTransliteration, newIndex] = tTransliteration({ word, index });
 
-    expect(newTransliteration).toBe("(t)");
-    expect(newIndex).toBe(4);
+      expect(newTransliteration).toBe("(t)");
+      expect(newIndex).toBe(4);
+    });
+
+    it("should be silent for proper nouns", () => {
+      const word = "Robert";
+      const pos = "nom propre";
+      const index = 5;
+
+      const [newTransliteration, newIndex] = tTransliteration({
+        word,
+        pos,
+        index
+      });
+
+      expect(newTransliteration).toBe("");
+      expect(newIndex).toBe(6);
+    });
+
+    it("should be silent for singular nouns", () => {
+      const word = "chat";
+      const pos = "nom commun singulier";
+      const index = 3;
+
+      const [newTransliteration, newIndex] = tTransliteration({
+        word,
+        pos,
+        index
+      });
+
+      expect(newTransliteration).toBe("");
+      expect(newIndex).toBe(4);
+    });
   });
 
   describe("initial or medial", () => {
