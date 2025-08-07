@@ -1,7 +1,7 @@
 import { parse } from "csv-parse";
 import { createReadStream } from "node:fs";
 import db from "./db.ts";
-import formatPosTags from "../format-pos-tags.ts";
+import posTagCombinationDefinitions from "../../lib/pos-tag-combination-definitions.ts";
 
 const startingRow = 3;
 
@@ -9,10 +9,9 @@ const insert = db.prepare(
   `INSERT INTO lexicon (
     word,
     lemma,
-    primary_pos_tag,
-    secondary_pos_tags
+    pos_tags
   )
-  VALUES (?, ?, ?, ?)`
+  VALUES (?, ?, ?)`
 );
 
 let lastInsertRowid: number | bigint;
@@ -20,13 +19,10 @@ let lastInsertRowid: number | bigint;
 createReadStream("./src/lib/test-lexicon.txt")
   .pipe(parse({ delimiter: "\t", from_line: startingRow }))
   .on("data", (row) => {
-    const { primaryPosTag, secondaryPosTags } = formatPosTags(row[2]);
-
     ({ lastInsertRowid } = insert.run(
       row[0],
       row[1],
-      primaryPosTag,
-      secondaryPosTags
+      posTagCombinationDefinitions[row[2]]
     ));
   })
   .on("end", () =>
