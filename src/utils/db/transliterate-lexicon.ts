@@ -21,15 +21,17 @@ try {
   for (const untransliteratedRow of untransliteratedRows) {
     const id = untransliteratedRow.id;
     const word = untransliteratedRow.word;
-    const pos = untransliteratedRow.primary_pos_tag;
+    const posTags = untransliteratedRow.pos_tags;
 
-    if (typeof word !== "string" || typeof pos !== "string") {
+    if (typeof word !== "string" || typeof posTags !== "string") {
       throw new TypeError(
         `Can only transliterate strings. Check data for the lexicon entry with ID: ${id}.`
       );
     }
 
-    const transliteration = transliterateLexicalUnit(word, pos);
+    const posArray = posTags.split(" ");
+
+    const transliteration = transliterateLexicalUnit(word, posArray);
 
     updateTransliteration.run(transliteration, id);
 
