@@ -19,7 +19,7 @@ const removeParenthesis = (word: string) => word.replace(/[()]/g, "");
 
 export default function transliterateLexicalUnit(
   lexicalUnit: string,
-  pos: string
+  posArray: string[]
 ) {
   const lowerCaseLexicalUnit = lexicalUnit.toLowerCase();
 
@@ -28,7 +28,7 @@ export default function transliterateLexicalUnit(
     const words = lowerCaseLexicalUnit.split("-");
 
     const transliteratedWords = words.map((word) =>
-      transliterateWord(word, pos)
+      transliterateWord(word, posArray)
     );
 
     for (let i = 0; i < transliteratedWords.length - 1; i++) {
@@ -53,6 +53,6 @@ export default function transliterateLexicalUnit(
 
     return transliteratedWords.join("-");
   } else {
-    return transliterateWord(lowerCaseLexicalUnit, pos);
+    return transliterateWord(lowerCaseLexicalUnit, posArray);
   }
 }
