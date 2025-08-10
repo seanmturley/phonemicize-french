@@ -1,6 +1,6 @@
 export type LetterTransliterationArgs = {
   word: string;
-  pos?: string;
+  posArray?: string[];
   index: number;
 };
 
