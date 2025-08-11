@@ -25,7 +25,7 @@ import xTransliteration from "./letter/x.ts";
 import yTransliteration from "./letter/y.ts";
 import zTransliteration from "./letter/z.ts";
 
-export default function transliterateWord(word: string, pos: string) {
+export default function transliterateWord(word: string, posArray: string[]) {
   let transliteration = "";
   let index = 0;
 
@@ -64,7 +64,11 @@ export default function transliterateWord(word: string, pos: string) {
       case "è":
       case "ê":
       case "ë":
-        [newTransliteration, index] = eTransliteration({ word, pos, index });
+        [newTransliteration, index] = eTransliteration({
+          word,
+          posArray,
+          index
+        });
         break;
 
       case "f":
