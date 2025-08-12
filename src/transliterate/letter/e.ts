@@ -11,7 +11,7 @@ import type {
 
 export default function eTransliteration({
   word,
-  pos,
+  posArray,
   index
 }: LetterTransliterationArgs): LetterTransliteration {
   const remainingWord = word.substring(index);
@@ -106,7 +106,12 @@ export default function eTransliteration({
     // en final (and followed by final s) should be /ɛ̃/
     newTransliteration = "ɛ̃";
     numTransliteratedCharacters = 2;
-  } else if (pos === "verbe" && /^ent$/i.test(remainingWord)) {
+  } else if (
+    posArray?.includes("verbe") &&
+    posArray?.includes("troisième") &&
+    posArray?.includes("pluriel") &&
+    /^ent$/i.test(remainingWord)
+  ) {
     // ent final in third person plural verbs should be /(ə)/
     newTransliteration = "(ə)";
     numTransliteratedCharacters = 3;
@@ -202,7 +207,11 @@ export default function eTransliteration({
     // e final after a consonant otherwise with s should be /(ə)/
     newTransliteration = "(ə)";
     numTransliteratedCharacters = 2;
-  } else if (pos === "verbe" && /^er$/i.test(remainingWord)) {
+  } else if (
+    posArray?.includes("verbe") &&
+    posArray?.includes("infinitif") &&
+    /^er$/i.test(remainingWord)
+  ) {
     // er final for verbs (i.e. infinitive) should be /e/
     newTransliteration = "e";
     numTransliteratedCharacters = 2;

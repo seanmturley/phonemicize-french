@@ -239,12 +239,19 @@ describe("eTransliteration", () => {
   describe("ent final", () => {
     it("in third person plural verbs should be /(ə)/", () => {
       const word = "parlent";
-      const pos = "verbe";
+      const posArray = [
+        "verbe",
+        "indicatif",
+        "présent",
+        "troisième",
+        "personne",
+        "pluriel"
+      ];
       const index = 4;
 
       const [newTransliteration, newIndex] = eTransliteration({
         word,
-        pos,
+        posArray,
         index
       });
 
@@ -398,12 +405,12 @@ describe("eTransliteration", () => {
   describe("er final", () => {
     it("for verbs (i.e. infinitive) should be /e/", () => {
       const word = "aller";
-      const pos = "verbe";
+      const posArray = ["verbe", "infinitif"];
       const index = 3;
 
       const [newTransliteration, newIndex] = eTransliteration({
         word,
-        pos,
+        posArray,
         index
       });
 
