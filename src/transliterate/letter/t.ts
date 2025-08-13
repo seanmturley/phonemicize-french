@@ -5,7 +5,7 @@ import type {
 
 export default function tTransliteration({
   word,
-  pos,
+  posArray,
   index
 }: LetterTransliterationArgs): LetterTransliteration {
   const remainingWord = word.substring(index);
@@ -13,11 +13,11 @@ export default function tTransliteration({
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/^t$/i.test(remainingWord) && pos !== "nom propre") {
+  if (/^t$/i.test(remainingWord) && posArray?.includes("nom propre")) {
     // final t should be /t/ in liaison, but otherwise silent
-    newTransliteration = "(t)";
-  } else if (/^t$/i.test(remainingWord)) {
     newTransliteration = "";
+  } else if (/^t$/i.test(remainingWord)) {
+    newTransliteration = "(t)";
   } else if (/^th/i.test(remainingWord)) {
     // initial or medial tt should be /t/
     newTransliteration = "t";

@@ -24,12 +24,12 @@ describe("tTransliteration", () => {
 
     it("should be silent for proper nouns", () => {
       const word = "Robert";
-      const pos = "nom propre";
+      const posArray = ["nom propre"];
       const index = 5;
 
       const [newTransliteration, newIndex] = tTransliteration({
         word,
-        pos,
+        posArray,
         index
       });
 
@@ -39,12 +39,12 @@ describe("tTransliteration", () => {
 
     it("should be silent for singular nouns", () => {
       const word = "chat";
-      const pos = "nom commun singulier";
+      const posArray = ["nom commun", "singulier"];
       const index = 3;
 
       const [newTransliteration, newIndex] = tTransliteration({
         word,
-        pos,
+        posArray,
         index
       });
 
