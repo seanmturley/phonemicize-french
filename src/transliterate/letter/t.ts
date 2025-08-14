@@ -16,8 +16,15 @@ export default function tTransliteration({
   if (/^t$/i.test(remainingWord) && posArray?.includes("nom propre")) {
     // final t should be silent for proper nouns
     newTransliteration = "";
+  } else if (
+    /^t$/i.test(remainingWord) &&
+    posArray?.includes("nom commun") &&
+    posArray?.includes("singulier")
+  ) {
+    // final t should be silent for singular nouns
+    newTransliteration = "";
   } else if (/^t$/i.test(remainingWord)) {
-    // final t should be /t/ in liaison, but otherwise silent
+    // otherwise final t should be /t/ in liaison, but otherwise silent
     newTransliteration = "(t)";
   } else if (/^th/i.test(remainingWord)) {
     // initial or medial tt should be /t/
