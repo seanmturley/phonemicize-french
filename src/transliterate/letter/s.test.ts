@@ -11,16 +11,50 @@ describe("sTransliteration", () => {
     expect(newIndex).toBe(1);
   });
 
-  it("final s should be /z/ in liaison, but otherwise silent", () => {
-    // Note exceptions e.g. hélas, lis, fils
+  describe("final d", () => {
+    it("final s should be /z/ in liaison, but otherwise silent", () => {
+      // Note exceptions e.g. hélas, lis, fils
 
-    const word = "mes";
-    const index = 2;
+      const word = "mes";
+      const index = 2;
 
-    const [newTransliteration, newIndex] = sTransliteration({ word, index });
+      const [newTransliteration, newIndex] = sTransliteration({ word, index });
 
-    expect(newTransliteration).toBe("(z)");
-    expect(newIndex).toBe(3);
+      expect(newTransliteration).toBe("(z)");
+      expect(newIndex).toBe(3);
+    });
+
+    it("should be silent for proper nouns", () => {
+      // Note there are quite a few exceptions to this, many of which
+      // are proper nouns of Greek origin e.g. Adonis, Adidas
+      const word = "Alexis";
+      const posArray = ["nom propre"];
+      const index = 5;
+
+      const [newTransliteration, newIndex] = sTransliteration({
+        word,
+        posArray,
+        index
+      });
+
+      expect(newTransliteration).toBe("");
+      expect(newIndex).toBe(6);
+    });
+
+    it("should be silent for singular nouns", () => {
+      const word = "bras";
+      const posArray = ["nom commun", "singulier ou pluriel"];
+      const index = 3;
+
+      const [newTransliteration, newIndex] = sTransliteration({
+        word,
+        posArray,
+        index
+      });
+
+      expect(newTransliteration).toBe("");
+      expect(newIndex).toBe(4);
+    });
   });
 
   describe("single s", () => {
