@@ -42,9 +42,9 @@ describe("sTransliteration", () => {
     });
 
     it("should be silent for singular nouns", () => {
-      const word = "bras";
-      const posArray = ["nom commun", "singulier ou pluriel"];
-      const index = 3;
+      const word = "anglais";
+      const posArray = ["nom commun", "singulier"];
+      const index = 6;
 
       const [newTransliteration, newIndex] = sTransliteration({
         word,
@@ -53,7 +53,7 @@ describe("sTransliteration", () => {
       });
 
       expect(newTransliteration).toBe("");
-      expect(newIndex).toBe(4);
+      expect(newIndex).toBe(7);
     });
   });
 
