@@ -12,6 +12,7 @@ import {
 
 export default function sTransliteration({
   word,
+  posArray,
   index
 }: LetterTransliterationArgs): LetterTransliteration {
   const remainingWord = word.substring(index);
@@ -19,7 +20,17 @@ export default function sTransliteration({
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/^s$/i.test(remainingWord)) {
+  if (/^s$/i.test(remainingWord) && posArray?.includes("nom propre")) {
+    // final s should be silent for proper nouns
+    newTransliteration = "";
+  } else if (
+    /^s$/i.test(remainingWord) &&
+    posArray?.includes("nom commun") &&
+    posArray?.includes("singulier")
+  ) {
+    // final s should be silent for singular nouns
+    newTransliteration = "";
+  } else if (/^s$/i.test(remainingWord)) {
     // final s should be /z/ in liaison, but otherwise silent
     // Note exceptions e.g. hélas, lis, fils
     newTransliteration = "(z)";
