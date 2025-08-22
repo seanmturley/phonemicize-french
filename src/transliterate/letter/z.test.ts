@@ -1,19 +1,36 @@
 import zTransliteration from "./z.ts";
 
 describe("zTransliteration", () => {
-  it("final z should be /z/ in liaison, but otherwise silent", () => {
-    // Note exceptions, generally loan words or proper nouns e.g.:
-    // - gaz, jazz /z/
-    // - quartz /s/
-    // - Rodez, Berlioz /z/
+  describe("final z", () => {
+    it("should be pronounced for proper nouns by default", () => {
+      const word = "Berlioz";
+      const posArray = ["nom propre"];
+      const index = 6;
 
-    const word = "chez";
-    const index = 3;
+      const [newTransliteration, newIndex] = zTransliteration({
+        word,
+        posArray,
+        index
+      });
 
-    const [newTransliteration, newIndex] = zTransliteration({ word, index });
+      expect(newTransliteration).toBe("z");
+      expect(newIndex).toBe(7);
+    });
 
-    expect(newTransliteration).toBe("(z)");
-    expect(newIndex).toBe(4);
+    it("otherwise should be /z/ in liaison, but otherwise silent", () => {
+      // Note exceptions, generally loan words or proper nouns e.g.:
+      // - gaz, jazz /z/
+      // - quartz /s/
+      // - Rodez, Berlioz /z/
+
+      const word = "chez";
+      const index = 3;
+
+      const [newTransliteration, newIndex] = zTransliteration({ word, index });
+
+      expect(newTransliteration).toBe("(z)");
+      expect(newIndex).toBe(4);
+    });
   });
 
   it("initial z should be /z/", () => {
