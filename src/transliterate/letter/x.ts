@@ -6,6 +6,7 @@ import type {
 
 export default function xTransliteration({
   word,
+  posArray,
   index
 }: LetterTransliterationArgs): LetterTransliteration {
   const remainingWord = word.substring(index);
@@ -13,7 +14,17 @@ export default function xTransliteration({
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
 
-  if (/^x$/i.test(remainingWord)) {
+  if (/^x$/i.test(remainingWord) && posArray?.includes("nom propre")) {
+    // final x should be silent for proper nouns
+    newTransliteration = "";
+  } else if (
+    /^x$/i.test(remainingWord) &&
+    posArray?.includes("nom commun") &&
+    posArray?.includes("singulier")
+  ) {
+    // final x should be silent for singular nouns
+    newTransliteration = "";
+  } else if (/^x$/i.test(remainingWord)) {
     // final x should be /z/ in liaison, but otherwise silent
     // Note exceptions for final x - see test for details
     newTransliteration = "(z)";
