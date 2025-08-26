@@ -4,9 +4,23 @@ import type {
 } from "../types.ts";
 
 export default function vTransliteration({
+  word,
   index
 }: LetterTransliterationArgs): LetterTransliteration {
-  const newIndex = index + 1;
+  const remainingWord = word.substring(index);
 
-  return ["v", newIndex];
+  let newTransliteration = "";
+  let numTransliteratedCharacters = 1;
+
+  if (/ville$/i.test(remainingWord)) {
+    // final ville should be /vil(ə)/
+    newTransliteration = "vil(ə)";
+    numTransliteratedCharacters = 5;
+  } else {
+    newTransliteration = "v";
+  }
+
+  const newIndex = index + numTransliteratedCharacters;
+
+  return [newTransliteration, newIndex];
 }
