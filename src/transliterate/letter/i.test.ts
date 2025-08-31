@@ -135,6 +135,20 @@ describe("iTransliteration", () => {
     expect(newIndex).toBe(4);
   });
 
+  it("final ing should be /iŋ/", () => {
+    // There's a short list og exception, e.g. these French place
+    // names: Châlette-sur-Loing, Beauraing, Estaing,
+    // Frasnes-lez-Anvaing, Seraing, Tourcoing
+
+    const word = "footing";
+    const index = 4;
+
+    const [newTransliteration, newIndex] = iTransliteration({ word, index });
+
+    expect(newTransliteration).toBe("iŋ");
+    expect(newIndex).toBe(7);
+  });
+
   describe("ill", () => {
     it("in a short list of exceptions should be /il/", () => {
       // See list of exception in ill-exceptions.ts

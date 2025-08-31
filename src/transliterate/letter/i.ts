@@ -72,6 +72,10 @@ export default function iTransliteration({
     // vowels followed by "ill", which results in a different vowel sound
     newTransliteration = "ij";
     numTransliteratedCharacters = 3;
+  } else if (/^ing$/i.test(remainingWord)) {
+    // final ing should be /iŋ/
+    newTransliteration = "iŋ";
+    numTransliteratedCharacters = 3;
   } else if (/^in$/i.test(remainingWord)) {
     // final in should be /ɛ̃/
     newTransliteration = "ɛ̃";
