@@ -54,4 +54,19 @@ describe("bTransliteration", () => {
       expect(newIndex).toBe(2);
     });
   });
+
+  it("final bourg should be silent for proper nouns", () => {
+    const word = "Strasbourg";
+    const posArray = ["nom propre"];
+    const index = 5;
+
+    const [newTransliteration, newIndex] = bTransliteration({
+      word,
+      posArray,
+      index
+    });
+
+    expect(newTransliteration).toBe("buʁ");
+    expect(newIndex).toBe(10);
+  });
 });
