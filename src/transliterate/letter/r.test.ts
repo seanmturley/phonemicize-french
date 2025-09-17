@@ -11,7 +11,7 @@ describe("rTransliteration", () => {
     expect(newIndex).toBe(4);
   });
 
-  it("initial or medial r should be /ʁ/", () => {
+  it("otherwise r should be /ʁ/", () => {
     const word = "rapide";
     const index = 0;
 

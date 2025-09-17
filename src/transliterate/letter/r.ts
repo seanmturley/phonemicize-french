@@ -17,7 +17,7 @@ export default function rTransliteration({
     newTransliteration = "ʁ";
     numTransliteratedCharacters = 2;
   } else if (/^r/i.test(remainingWord)) {
-    // initial or medial r should be /ʁ/
+    // otherwise r should be /ʁ/
     newTransliteration = "ʁ";
   }
 
