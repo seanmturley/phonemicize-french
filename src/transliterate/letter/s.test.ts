@@ -11,7 +11,7 @@ describe("sTransliteration", () => {
     expect(newIndex).toBe(1);
   });
 
-  describe("final d", () => {
+  describe("final s", () => {
     it("final s should be /z/ in liaison, but otherwise silent", () => {
       // Note exceptions e.g. hélas, lis, fils
 
