@@ -16,6 +16,7 @@ export default function sTransliteration({
   index
 }: LetterTransliterationArgs): LetterTransliteration {
   const remainingWord = word.substring(index);
+  const remainingWordWithPreviousLetter = word.substring(index - 1);
 
   let newTransliteration = "";
   let numTransliteratedCharacters = 1;
@@ -30,8 +31,11 @@ export default function sTransliteration({
   ) {
     // final s should be silent for singular nouns
     newTransliteration = "";
+  } else if (/^rs$/i.test(remainingWordWithPreviousLetter)) {
+    // should be silent when following r
+    newTransliteration = "";
   } else if (/^s$/i.test(remainingWord)) {
-    // final s should be /z/ in liaison, but otherwise silent
+    // otherwise final s should be /z/ in liaison, but otherwise silent
     // Note exceptions e.g. hélas, lis, fils
     newTransliteration = "(z)";
   } else if (/^ss/i.test(remainingWord)) {
