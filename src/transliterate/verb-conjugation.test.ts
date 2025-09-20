@@ -148,7 +148,7 @@ describe("transliterateWord should transliterate all verb conjugations for", () 
       const currentConjugation = premierGroupe[conjugation];
 
       it(`${conjugation}: ${currentConjugation.word}`, () => {
-        const result = transliterateWord(currentConjugation.word, "verbe");
+        const result = transliterateWord(currentConjugation.word, ["verbe"]);
 
         expect(result).toBe(currentConjugation.ipa);
       });
@@ -160,7 +160,7 @@ describe("transliterateWord should transliterate all verb conjugations for", () 
       const currentConjugation = deuxièmeGroupe[conjugation];
 
       it(`${conjugation}: ${currentConjugation.word}`, () => {
-        const result = transliterateWord(currentConjugation.word, "verbe");
+        const result = transliterateWord(currentConjugation.word, ["verbe"]);
 
         expect(result).toBe(currentConjugation.ipa);
       });
